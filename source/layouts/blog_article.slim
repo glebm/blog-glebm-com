@@ -10,6 +10,6 @@
       .permalink
         label.form-label.text-muted for='permalink-input'
           ' permalink
-        input.input-sm.form-control.select-text-on-click id='permalink-input' type='text' value='#{data.blog.root_url[0..-2] + current_resource.path}'
+        input.input-sm.form-control.select-text-on-click id='permalink-input' type='text' value='#{data.blog.root_url[0..-2] + current_article.url}'
 
   .comments= blog_article_comments
