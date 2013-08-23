@@ -1,0 +1,1 @@
+!function(){jQuery(function(n){return n(".select-text-on-click").focus(function(){var u;return u=n(this),u.select(),u.mouseup(function(){return u.unbind("mouseup"),!1})})})}.call(this);
