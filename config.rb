@@ -70,11 +70,36 @@ page '/feed.xml', :layout => false
 # activate :automatic_image_sizes
 
 # Methods defined in the helpers block are available in templates
-# helpers do
-#   def some_helper
-#     "Helping"
-#   end
-# end
+helpers do
+  def blog_article_comments(article = current_article)
+    disqus_comments(id: article.slug, url: data.blog.root_url[0..-2] + url_for(article), title: article.title)
+  end
+
+  def disqus_comments(opts = {})
+    opts = {
+      site_id: 'blog-glebm',
+    }.merge(opts)
+    vars = {
+      disqus_shortname: opts[:site_id],
+      disqus_identifier: opts[:id],
+      disqus_title: opts[:title],
+      disqus_url: opts[:url]
+    }
+  <<-HTML
+  <div id="disqus_thread"></div>
+    <script type="text/javascript">
+      #{vars.map {|k,v| "var #{k} = #{v.to_json};" if v.present? }.compact * "\n"}
+      (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  HTML
+  end
+end
 
 set :css_dir, 'stylesheets'
 

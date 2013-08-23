@@ -1,0 +1,8 @@
+- wrap_layout :layout do
+  article.blog-article
+    .article-date = current_page.date.strftime('%b %e')
+    h1 = current_page.title
+    = yield
+
+
+  = blog_article_comments
