@@ -44,7 +44,7 @@ html
             li = link_to 'Github', 'https://github.com/' + data.blog.author.github
 
         .col-xs-12.col-sm-6.col-md-12
-          h2 Articles
+          h3 Articles
           ol.list-unstyled
             - blog.articles[0...10].each do |article|
               li
@@ -52,13 +52,17 @@ html
                 = ' '
                 .badge= article.date.strftime('%b %e')
 
-          h2 Tags
+          h3 Tags
           ol.list-unstyled
             - blog.tags.each do |tag, articles|
               li
                 = link_to tag, tag_path(tag)
                 = ' '
                 .badge= articles.size
+
+          h4 Check out my projects
+          ul.list-unstyled
+            li: a href="http://zuigo.com/en/madrid" Zuigo
 
           -#h2 By Year
           -#ol.list-unstyled
