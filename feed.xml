@@ -28,7 +28,7 @@
 &lt;p&gt;What if every time you commit, you would get a visual diff of every web page that changed?
 It is surprisingly easy to do!&lt;/p&gt;
 
-&lt;p&gt;&lt;img class="img-responsive" src="images/gh-img-diff-1.png?1377292490" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img class="img-responsive" alt="" width="828" height="296" src="images/gh-img-diff-1.png?1377293130" /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;
 
@@ -65,7 +65,7 @@ It is surprisingly easy to do!&lt;/p&gt;
 &lt;p&gt;The screenshot above shows a couple of image diffs as &lt;a href="https://github.com/glebm/rails_email_preview/commit/b6b003bf3a49ecf36d51ecf39dcd57e42e259dad?&amp;amp;diff-1=1-82"&gt;Github renders them&lt;/a&gt;. This is &lt;em&gt;visual version history&lt;/em&gt; and your private &lt;em&gt;wayback in git machine&lt;/em&gt;.
 Github provides a number of ways to compare images:&lt;/p&gt;
 
-&lt;p&gt;&lt;img class="img-responsive" src="images/gh-img-diff-2.png?1377292491" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img class="img-responsive" alt="" width="828" height="432" src="images/gh-img-diff-2.png?1377293130" /&gt;&lt;/p&gt;
 
 </content>
   </entry>
