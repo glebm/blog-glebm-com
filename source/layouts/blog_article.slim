@@ -6,6 +6,10 @@
     h1 = current_page.title
     .article-body
       = yield
-      .panel-footer
-        | hello
+    .article-footer
+      .permalink
+        label.form-label.text-muted for='permalink-input'
+          ' permalink
+        input.input-sm.form-control.select-text-on-click id='permalink-input' type='text' value='#{data.blog.root_url[0..-2] + url_for(current_article)}'
+
   .comments= blog_article_comments

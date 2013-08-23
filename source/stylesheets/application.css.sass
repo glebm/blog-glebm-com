@@ -44,12 +44,6 @@ aside
   img
     @extend .img-responsive
 
-@media (min-width: $screen-lg)
-  .article-body
-    padding: 20px 30px
-  h1
-    padding-left: 30px
-
 .panel
   padding: 20px
   border: 0
@@ -64,6 +58,28 @@ aside
 article, .comments
   @extend .panel
   @extend .panel-default
+
+@media (min-width: $screen-lg)
+  .article-body
+    padding: 20px 30px
+  .article-footer
+    margin: -20px -30px
+  h1
+    padding-left: 30px
+
+.article-footer
+  @extend .panel-footer
+  @extend .row
+  margin: -20px
+  .permalink
+    @extend .pull-right
+    label
+      display: inline-block
+      @extend small
+      margin-right: 10px
+    input
+      display: inline-block
+      width: 350px
 
 aside
   @extend .panel
