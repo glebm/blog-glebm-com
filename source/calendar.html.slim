@@ -2,17 +2,18 @@
 pageable: true
 ---
 
+ruby:
+  period = case page_type
+    when 'day'
+      Date.new(year, month, day).strftime('%b %e %Y')
+    when 'month'
+      Date.new(year, month, 1).strftime('%b %Y')
+    when 'year'
+      year
+  end
+
 h1
-  ' Archive for
-  ruby:
-    case page_type
-      when 'day' 
-        Date.new(year, month, day).strftime('%b %e %Y') 
-      when 'month'
-        Date.new(year, month, 1).strftime('%b %Y') 
-      when 'year'
-        year
-     end
+  ' Archive for #{period}
 
 - if paginate
   p Page #{page_number} of #{num_pages}

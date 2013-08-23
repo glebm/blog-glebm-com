@@ -71,8 +71,12 @@ page '/feed.xml', :layout => false
 
 # Methods defined in the helpers block are available in templates
 helpers do
+  def article_url(article)
+    data.blog.root_url[0..-2] + current_article.url.sub(/\.html$/, '')
+  end
+
   def blog_article_comments(article = current_article)
-    disqus_comments(id: article.slug, url: data.blog.root_url[0..-2] + url_for(article), title: article.title)
+    disqus_comments(id: article.slug, url: article_url(article), title: article.title)
   end
 
   def disqus_comments(opts = {})
