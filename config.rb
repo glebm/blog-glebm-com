@@ -1,11 +1,9 @@
-###
-# Blog settings
-###
-
 Time.zone = 'Europe/Madrid'
 
 activate :syntax
+activate :directory_indexes
 
+# Blog settings
 activate :blog do |blog|
   # blog.prefix = "blog"
   # blog.permalink = ":year/:month/:day/:title.html"
@@ -138,10 +136,6 @@ configure :build do
   # Use relative URLs
   activate :relative_assets
 
-  activate :directory_indexes
-
-  set :relative_links, true
-  
   # Compress PNGs after build
   # First: gem install middleman-smusher
   require 'middleman-smusher'
