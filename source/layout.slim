@@ -31,21 +31,31 @@ html
         h2 Recent Articles
         ol.list-unstyled
           - blog.articles[0...10].each do |article|
-            li #{link_to article.title, article} <span>#{article.date.strftime('%b %e')}
+            li
+              = link_to article.title, article
+              = ' '
+              .badge= article.date.strftime('%b %e')
 
         h2 Tags
         ol.list-unstyled
           - blog.tags.each do |tag, articles|
-            li #{link_to tag, tag_path(tag)} (#{articles.size})
+            li
+              = link_to tag, tag_path(tag)
+              = ' '
+              .badge= articles.size
 
         h2 By Year
         ol.list-unstyled
           - blog.articles.group_by {|a| a.date.year }.each do |year, articles|
-            li #{link_to year, blog_year_path(year)} (#{articles.size})</a></li>
+            li
+              = link_to year, blog_year_path(year)
+              = ' '
+              .badge= articles.size
 
+        h2 About
         .row
           .pull-left= image_tag 'gleb.jpg', class: 'img-person img-responsive', style: 'max-width: 180px'
-          ol.list-unstyled
-            li = data.blog.author.name
-            li = link_to 'Twitter @' + data.blog.author.twitter, data.blog.author.twitter
-            li = link_to 'Github @' + data.blog.author.github, data.blog.author.github
+          abbr title=data.blog.author.name @glebm
+          ul.list-unstyled
+            li = link_to 'Twitter', 'https://twitter.com/' + data.blog.author.twitter
+            li = link_to 'Github', 'https://github.com/' + data.blog.author.github

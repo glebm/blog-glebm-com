@@ -2,7 +2,7 @@
 # Blog settings
 ###
 
-# Time.zone = "UTC"
+Time.zone = 'Europe/Madrid'
 
 activate :blog do |blog|
   # blog.prefix = "blog"

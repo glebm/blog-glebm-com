@@ -1,8 +1,32 @@
+$brand-primary: #971D94
+$navbar-default-link-color: #ebd7b3
+$navbar-default-color: rgba(251, 41, 215, 0.13)
+$navbar-default-bg: #150518
+
 @import 'bootstrap'
 @import 'bootstrap/theme'
 
-$brand-primary: green
+$navbar-default-brand-color: #ebd7b3
 
 .img-person
   @extend .img-circle
   border: 10px solid white
+
+.navbar-brand, .navbar-nav > li > a
+  text-shadow: none
+  color: lighten($brand-primary, 30%)
+
+body
+  color: #657b83
+  background-color: #fdf6e3
+  h1, h2, h3, h4
+    color: $brand-primary
+  a
+    color: lighten($brand-primary, 10%)
+  ::selection
+    background-color: rgba(lighten($brand-primary, 40%), 0.41)
+  .badge
+    background-color: darken($brand-primary, 10%)
+.article-date
+  @extend .lead
+  float: right
