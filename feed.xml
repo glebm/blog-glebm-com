@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Gleb's notes</title>
+  <title>Gleb's Notes</title>
   <subtitle>Dev thought and protips, release announcements and rant</subtitle>
   <id>http://blog.glebm.com/</id>
   <link href="http://blog.glebm.com/"/>
@@ -28,7 +28,7 @@
 &lt;p&gt;what if you could do a visual diff of every webpage at every commit? Turns out it's pretty easy to set up.&lt;/p&gt;
 
 &lt;p&gt;&lt;a href="https://github.com/glebm/rails_email_preview/commit/b6b003bf3a49ecf36d51ecf39dcd57e42e259dad?&amp;amp;diff-1=1-82" rel="external" target="_blank"&gt;
-  &lt;img class="img-responsive" src="images/gh-img-diff.png?1377284529" /&gt;
+  &lt;img class="img-responsive" src="images/gh-img-diff.png?1377285046" /&gt;
 &lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;
