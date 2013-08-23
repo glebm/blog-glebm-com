@@ -44,10 +44,25 @@ aside
   img
     @extend .img-responsive
 
-article, aside
+.panel
   padding: 20px
-  background-image: none
+  border: 0
+
+.panel-default
+  background-color: lighten($body-bg, 10%)
+
+.panel-info
   background-color: rgba(lighten($body-bg, 5%), 0.8)
+  border: none
+
+article, .comments
+  @extend .panel
+  @extend .panel-default
+
+aside
+  @extend .panel
+  @extend .panel-info
+
 
 @mixin lined-paper-bg
   background-image: linear-gradient(rgba($text-color, 0.1) .1em, transparent .1em)

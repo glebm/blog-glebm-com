@@ -30,10 +30,10 @@ html
             = link_to 'Index', '/'
     .container: .row
 
-      .col-md-9.col-lg-8#main role='main'
+      .col-md-9.col-lg-9#main role='main'
         = yield
 
-      .col-md-3.col-lg-offset-1: aside: .row
+      .col-md-3: aside: .row
         .col-xs-12.col-sm-6.col-md-12
           .person-img
             = image_tag 'gleb.jpg'

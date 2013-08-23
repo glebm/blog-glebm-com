@@ -4,5 +4,8 @@
   article.blog-article
     .article-date = current_page.date.strftime('%b %e')
     h1 = current_page.title
-    = yield
-  = blog_article_comments
+    .row: .col-lg-11
+      = yield
+      .panel-footer
+        | hello
+  .comments= blog_article_comments
