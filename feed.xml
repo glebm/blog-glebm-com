@@ -10,7 +10,7 @@
     <name>Gleb Mazovetskiy</name>
   </author>
   <entry>
-    <title>Store screenshots of your web app in Git!</title>
+    <title>Store screenshots of your web app in Git</title>
     <link rel="alternate" href="http://blog.glebm.com/2013/08/23/screenshots-in-git.html"/>
     <id>/2013/08/23/screenshots-in-git.html</id>
     <published>2013-08-23T16:22:00Z</published>
@@ -26,9 +26,9 @@
 &lt;/ul&gt;
 
 &lt;p&gt;What if every time you commit, you got a visual diff of every web page that changed?
-It is surprisingly easy to do!&lt;/p&gt;
+It is surprisingly easy to do.&lt;/p&gt;
 
-&lt;p&gt;&lt;img class="img-responsive" alt="" width="828" height="296" src="http://blog.glebm.com/images/gh-img-diff-1.png?1377299279" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img class="img-responsive" alt="" width="828" height="296" src="http://blog.glebm.com/images/gh-img-diff-1.png?1377299772" /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;
 
@@ -65,11 +65,11 @@ It is surprisingly easy to do!&lt;/p&gt;
 
 &lt;p&gt;Below is an image diff as &lt;a href="https://github.com/glebm/rails_email_preview/commit/b6b003bf3a49ecf36d51ecf39dcd57e42e259dad?&amp;amp;diff-1=1-82#L14R3"&gt;rendered by Github&lt;/a&gt;. This is &lt;em&gt;visual version history&lt;/em&gt; and your private &lt;em&gt;git wayback machine&lt;/em&gt;.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href="https://github.com/glebm/rails_email_preview/commit/b6b003bf3a49ecf36d51ecf39dcd57e42e259dad?&amp;amp;diff-1=1-82#L14R3"&gt;&lt;img class="img-responsive" alt="" width="828" height="432" src="http://blog.glebm.com/images/gh-img-diff-2.png?1377299279" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/glebm/rails_email_preview/commit/b6b003bf3a49ecf36d51ecf39dcd57e42e259dad?&amp;amp;diff-1=1-82#L14R3"&gt;&lt;img class="img-responsive" alt="" width="828" height="432" src="http://blog.glebm.com/images/gh-img-diff-2.png?1377299772" /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;Note: The repo size could grow after some months and you would need to script filter-branch to rewrite spec/screenshots out of older commits.&lt;/p&gt;
 
-&lt;p&gt;I hope this post has helped you! Please let me know if you already do this, as I'm curious to hear other approaches!&lt;/p&gt;
+&lt;p&gt;I hope this post has helped you. Please let me know if you already do this, as I'm curious to hear other approaches.&lt;/p&gt;
 
 &lt;p&gt;&amp;#8211; &lt;a href="https://twitter.com/glebm"&gt;@glebm&lt;/a&gt; &lt;/p&gt;
 
