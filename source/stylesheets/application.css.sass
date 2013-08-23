@@ -4,29 +4,32 @@ $body-bg: lighten(#dddc8c, 15%)
 $text-color: darken(#4f6066, 5%)
 
 $navbar-height: 45px
-$navbar-default-link-color: #ebe7ae
-$navbar-default-color: #fb29d7
-$navbar-default-bg: darken($brand-primary, 20%)
-$navbar-default-link-color: white
-$navbar-default-link-hover-color: lighten($navbar-default-link-color, 10%)
-$navbar-default-link-hover-bg: lighten($navbar-default-bg, 10%)
-$navbar-default-brand-color: #ebd7b3
+$navbar-inverse-link-color: #ebe7ae
+$navbar-inverse-color: #fb29d7
+$navbar-inverse-bg: darken($brand-primary, 12%)
+$navbar-inverse-link-color: white
+$navbar-inverse-link-hover-color: lighten($navbar-inverse-link-color, 10%)
+$navbar-inverse-link-hover-bg: lighten($navbar-inverse-bg, 10%)
+$navbar-inverse-brand-color: #ebd7b3
+$navbar-inverse-toggle-hover-bg: $navbar-inverse-link-hover-bg
+$navbar-inverse-toggle-border-color: rgba(darken($navbar-inverse-bg, 10%), 0.7)
 
 @import 'bootstrap'
 @import 'bootstrap/theme'
 @import 'syntax-highlight'
 @import url(http://fonts.googleapis.com/css?family=Fenix|Lato:400,700)
 
-.navbar-default
+.navbar-inverse
+  border-radius: 0
   font-family: 'Lato'
   font-weight: 700
   .navbar-nav > li > a, .navbar-brand a
-    color: $navbar-default-link-color !important
+    color: $navbar-inverse-link-color !important
     font-weight: normal !important
     text-shadow: none
     &:hover
-      color: $navbar-default-link-hover-color
-      background-color: $navbar-default-link-hover-bg
+      color: $navbar-inverse-link-hover-color
+      background-color: $navbar-inverse-link-hover-bg
   .navbar-brand
     font-family: 'Fenix'
     font-weight: normal
