@@ -10,7 +10,7 @@
     <name>Gleb Mazovetskiy</name>
   </author>
   <entry>
-    <title>Screenshots in Git</title>
+    <title>Take screenshots of your tests and store them in git!</title>
     <link rel="alternate" href="/2013/08/23/screenshots-in-git.html"/>
     <id>/2013/08/23/screenshots-in-git.html</id>
     <published>2013-08-23T16:22:00Z</published>
@@ -18,46 +18,50 @@
     <author>
       <name>Gleb Mazovetskiy</name>
     </author>
-    <content type="html">&lt;p&gt;Have you ever had a change break your site? Yes&lt;/p&gt;
+    <content type="html">&lt;p&gt;Have you ever had a change break your site? Even when the tests pass?&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Testing functionality is hard&lt;/li&gt;
-  &lt;li&gt;Testing that things look the way they should is even harder&lt;/li&gt;
+  &lt;li&gt;Testing UI is even harder&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;what if you could do a visual diff of every webpage at every commit? Turns out it's pretty easy to set up.&lt;/p&gt;
+&lt;p&gt;What if every time you commit, you would get a visual diff of every web page that changed? It's surprisingly easy to do.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href="https://github.com/glebm/rails_email_preview/commit/b6b003bf3a49ecf36d51ecf39dcd57e42e259dad?&amp;amp;diff-1=1-82" rel="external" target="_blank"&gt;
-  &lt;img class="img-responsive" src="images/gh-img-diff.png?1377285046" /&gt;
-&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img class="img-responsive" src="images/gh-img-diff.png?1377287633" /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;
 
-&lt;p&gt;How to get started&lt;/p&gt;
+&lt;h3 id="how"&gt;How?&lt;/h3&gt;
+&lt;p&gt;All we need is a headless browser and a testing environment.&lt;/p&gt;
+
+&lt;p&gt;For Rails you can use poltergeist + rspec and &lt;a href="https://github.com/glebm/rails_email_preview/blob/master/spec/support/save_screenshots.rb"&gt;just&lt;/a&gt; do &lt;a href="https://github.com/glebm/rails_email_preview/blob/master/spec/features/take_screenshots_spec.rb"&gt;this&lt;/a&gt; like in my &lt;a href="https://github.com/glebm/rails_email_preview"&gt;Rails Email Preview&lt;/a&gt; gem. You then simply list the shots you want:&lt;/p&gt;
+
+&lt;pre class="highlight ruby"&gt;&lt;span class="n"&gt;describe&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Take screenshots&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="ss"&gt;driver: :poltergeist&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt;
+  &lt;span class="n"&gt;it&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;home page&amp;#39;&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt;
+    &lt;span class="n"&gt;visit&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;/&amp;#39;&lt;/span&gt;
+    &lt;span class="n"&gt;screenshot!&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;home&amp;#39;&lt;/span&gt;
+  &lt;span class="k"&gt;end&lt;/span&gt;
+
+  &lt;span class="n"&gt;it&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;user account page&amp;#39;&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt;
+    &lt;span class="n"&gt;sign_in&lt;/span&gt; &lt;span class="no"&gt;Fabricate&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ss"&gt;:user&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;visit&lt;/span&gt; &lt;span class="n"&gt;my_account_url&lt;/span&gt;
+    &lt;span class="n"&gt;screenshot!&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;my-account&amp;#39;&lt;/span&gt;
+  &lt;span class="k"&gt;end&lt;/span&gt;
+&lt;span class="k"&gt;end&lt;/span&gt;
+&lt;/pre&gt;
+&lt;p&gt;The code will simply place screenshots into &lt;code&gt;spec/screenshots&lt;/code&gt; after each suite run. &lt;/p&gt;
+
+&lt;p&gt;Once you add &lt;code&gt;spec/screenshots&lt;/code&gt; to git, things get interesting.&lt;/p&gt;
+
+&lt;h3 id="perks-unlocked"&gt;Perks unlocked&lt;/h3&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;Headless browser (e.g. PhantomJS)&lt;/li&gt;
-  &lt;li&gt;List of pages to take screenshots of&lt;/li&gt;
-  &lt;li&gt;Testing environment&lt;/li&gt;
+  &lt;li&gt;Always know when you introduce a change that changes the display&lt;/li&gt;
+  &lt;li&gt;See which commits changed screens in your app&lt;/li&gt;
+  &lt;li&gt;Instantly see what your app looked like at any point in time (since you started this)&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;How to do it in Ruby&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Poltergeist (PhantomJS for ruby) + Capybara + rspec&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Example with REP&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Github screenshots&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Code gists&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Spec with a list of shots to take&lt;/li&gt;
-  &lt;li&gt;Store them in Git and get visual version history&lt;/li&gt;
-  &lt;li&gt;Complete visual history of all the changes for as long as you keep them&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;The screenshot above shows a couple of image diffs as &lt;a href="https://github.com/glebm/rails_email_preview/commit/b6b003bf3a49ecf36d51ecf39dcd57e42e259dad?&amp;amp;diff-1=1-82"&gt;Github renders them&lt;/a&gt;. This is &lt;em&gt;visual version history&lt;/em&gt; and your private &lt;em&gt;wayback in git machine&lt;/em&gt;.&lt;/p&gt;
 
 </content>
   </entry>
