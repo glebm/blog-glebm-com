@@ -14,8 +14,11 @@ $navbar-default-brand-color: #ebd7b3
 
 @import 'bootstrap'
 @import 'bootstrap/theme'
+@import url(http://fonts.googleapis.com/css?family=Fenix|Lato:400,700)
 
 .navbar-default
+  font-family: 'Lato'
+  font-weight: 700
   .navbar-nav > li > a, .navbar-brand a
     color: $navbar-default-link-color !important
     font-weight: normal !important
@@ -23,7 +26,10 @@ $navbar-default-brand-color: #ebd7b3
     &:hover
       color: $navbar-default-link-hover-color
       background-color: $navbar-default-link-hover-bg
-
+  .navbar-brand
+    font-family: 'Fenix'
+    font-weight: normal
+    font-size: 22px
 aside
   @extend .text-center
   .person-img
@@ -46,8 +52,6 @@ article, aside
   background-image: linear-gradient(rgba($text-color, 0.1) .1em, transparent .1em)
   background-size: 100% 19px
 
-
-@import url(http://fonts.googleapis.com/css?family=Fenix|Lato:400,700)
 
 body
   font-size: 16px
