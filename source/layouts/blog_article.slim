@@ -4,7 +4,7 @@
   article.blog-article
     .article-date = current_page.date.strftime('%b %e')
     h1 = current_page.title
-    .row: .col-lg-11
+    .article-body
       = yield
       .panel-footer
         | hello
