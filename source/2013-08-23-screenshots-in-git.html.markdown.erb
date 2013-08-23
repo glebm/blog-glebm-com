@@ -1,0 +1,36 @@
+---
+title: Screenshots in Git
+tags: testing, git, phantomjs, ruby
+---
+
+# <%= current_page.data.title %>
+
+Have you ever had a change break your site? Yes
+
+* Testing functionality is hard
+* Testing that things look the way they should is even harder
+
+what if you could do a visual diff of every webpage at every commit? Turns out it's pretty easy to set up.
+
+<%= image_tag 'gh-img-diff.png', class: 'img-responsive' %>
+
+How to get started
+
+* Headless browser (e.g. PhantomJS)
+* List of pages to take screenshots of
+* Testing environment
+
+How to do it in Ruby
+
+* Poltergeist (PhantomJS for ruby) + Capybara + rspec
+
+Example with REP
+* Github screenshots
+* Code gists
+
+* Spec with a list of shots to take
+* Store them in Git and get visual version history
+* Complete visual history of all the changes for as long as you keep them
+
+
+
