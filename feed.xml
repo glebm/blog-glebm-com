@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Gleb's notes</title>
+  <subtitle>Dev thought and protips, release announcements and rant</subtitle>
+  <id>http://blog.glebm.com/</id>
+  <link href="http://blog.glebm.com/"/>
+  <link href="http://blog.glebm.com/feed.xml" rel="self"/>
+  <updated>2013-08-23T16:22:00Z</updated>
+  <author>
+    <name>Gleb Mazovetskiy</name>
+  </author>
+  <entry>
+    <title>Screenshots in Git</title>
+    <link rel="alternate" href="/2013/08/23/screenshots-in-git.html"/>
+    <id>/2013/08/23/screenshots-in-git.html</id>
+    <published>2013-08-23T16:22:00Z</published>
+    <updated>2013-08-23T16:22:00Z</updated>
+    <author>
+      <name>Gleb Mazovetskiy</name>
+    </author>
+    <content type="html">&lt;p&gt;Have you ever had a change break your site? Yes&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Testing functionality is hard&lt;/li&gt;
+  &lt;li&gt;Testing that things look the way they should is even harder&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;what if you could do a visual diff of every webpage at every commit? Turns out it's pretty easy to set up.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://github.com/glebm/rails_email_preview/commit/b6b003bf3a49ecf36d51ecf39dcd57e42e259dad?&amp;amp;diff-1=1-82" rel="external" target="_blank"&gt;
+  &lt;img class="img-responsive" style="max-width: 80%" src="images/gh-img-diff.png?1377275429" /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;p&gt;How to get started&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Headless browser (e.g. PhantomJS)&lt;/li&gt;
+  &lt;li&gt;List of pages to take screenshots of&lt;/li&gt;
+  &lt;li&gt;Testing environment&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;How to do it in Ruby&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Poltergeist (PhantomJS for ruby) + Capybara + rspec&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Example with REP&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Github screenshots&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Code gists&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Spec with a list of shots to take&lt;/li&gt;
+  &lt;li&gt;Store them in Git and get visual version history&lt;/li&gt;
+  &lt;li&gt;Complete visual history of all the changes for as long as you keep them&lt;/li&gt;
+&lt;/ul&gt;
+
+</content>
+  </entry>
+</feed>
