@@ -11,7 +11,7 @@ Have you ever had a change break your site? Even when the tests pass?
 * Testing functionality is hard
 * Testing UI is even harder
 
-What if every time you commit, you would get a visual diff of every web page that changed?
+What if every time you commit, you got a visual diff of every web page that changed?
 It is surprisingly easy to do!
 
 <%= image_tag 'gh-img-diff-1.png', class: 'img-responsive'%>
@@ -21,7 +21,7 @@ READMORE
 ### How?
 All we need is a headless browser and a testing environment.
 
-For Rails you can use poltergeist + rspec and [just][rep-helper] do [this][rep-spec] like in my [Rails Email Preview][rep] gem. You then simply list the shots you want:
+For Rails you can use poltergeist + rspec and [just][rep-helper] do [this][rep-spec] like in the tests for my [Rails Email Preview][rep] gem. You then simply list the shots you want:
 
 <% code 'ruby' do %>
 describe 'Take screenshots', driver: :poltergeist do
@@ -38,24 +38,31 @@ describe 'Take screenshots', driver: :poltergeist do
 end
 <% end %>
 
-The code will simply place screenshots into `spec/screenshots` after each suite run. 
+The code will simply place screenshots into `spec/screenshots`  each time the test suite is run.
 
 Once you add `spec/screenshots` to git, things get interesting.
 
 ### Perks unlocked
+With your screenshots under version control, you will
 
 * Always know when you introduce a change that changes the display
 * See which commits changed screens in your app
-* Instantly see what your app looked like at any point in time (since you started this)
+* Instantly see what your app looked like at any point in time
 
-The screenshot above shows a couple of image diffs as [Github renders them][rep-commit]. This is *visual version history* and your private *wayback in git machine*.
-Github provides a number of ways to compare images:
+Below is an image diff as [rendered by Github][rep-commit]. This is *visual version history* and your private *git wayback machine*.
 
-<%= image_tag 'gh-img-diff-2.png', class: 'img-responsive'%>
+[<%= image_tag 'gh-img-diff-2.png', class: 'img-responsive'%>][rep-commit]
+
+I hope this post has helped you! Please let me know if you already do this, as I'm curious to hear other approaches!
+
+-- [@glebm][glebm-twtr] 
+
+*Thanks [@ddtrejo](https://twitter.com/ddtrejo) for your edits and suggestions!*
 
 [rep]: https://github.com/glebm/rails_email_preview
 [rep-spec]: https://github.com/glebm/rails_email_preview/blob/master/spec/features/take_screenshots_spec.rb
 [rep-helper]: https://github.com/glebm/rails_email_preview/blob/master/spec/support/save_screenshots.rb
-[rep-commit]: https://github.com/glebm/rails_email_preview/commit/b6b003bf3a49ecf36d51ecf39dcd57e42e259dad?&diff-1=1-82
+[rep-commit]: https://github.com/glebm/rails_email_preview/commit/b6b003bf3a49ecf36d51ecf39dcd57e42e259dad?&diff-1=1-82#L14R3
+[glebm-twtr]: https://twitter.com/glebm
 
 
