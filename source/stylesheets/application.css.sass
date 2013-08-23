@@ -1,4 +1,4 @@
-$brand-primary: #971D94
+$brand-primary: #8a2697
 $navbar-default-link-color: #ebd7b3
 $navbar-default-color: rgba(251, 41, 215, 0.13)
 $navbar-default-bg: #150518
@@ -12,12 +12,14 @@ $navbar-default-brand-color: #ebd7b3
   @extend .img-circle
   border: 10px solid white
 
-.navbar-brand, .navbar-nav > li > a
+.navbar-brand, .navbar-nav > li > a, .navbar-brand a
   text-shadow: none
-  color: lighten($brand-primary, 30%)
+  color: lighten($brand-primary, 40%)
+  &:hover
+    color: lighten($brand-primary, 35%)
 
 body
-  color: #657b83
+  color: #4f6066
   background-color: #fdf6e3
   h1, h2, h3, h4
     color: $brand-primary
