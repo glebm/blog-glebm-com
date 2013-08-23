@@ -25,17 +25,17 @@
   &lt;li&gt;Testing UI is even harder&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;What if every time you commit, you would get a visual diff of every web page that changed?
+&lt;p&gt;What if every time you commit, you got a visual diff of every web page that changed?
 It is surprisingly easy to do!&lt;/p&gt;
 
-&lt;p&gt;&lt;img class="img-responsive" alt="" width="828" height="296" src="images/gh-img-diff-1.png?1377293772" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img class="img-responsive" alt="" width="828" height="296" src="images/gh-img-diff-1.png?1377294747" /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;
 
 &lt;h3 id="how"&gt;How?&lt;/h3&gt;
 &lt;p&gt;All we need is a headless browser and a testing environment.&lt;/p&gt;
 
-&lt;p&gt;For Rails you can use poltergeist + rspec and &lt;a href="https://github.com/glebm/rails_email_preview/blob/master/spec/support/save_screenshots.rb"&gt;just&lt;/a&gt; do &lt;a href="https://github.com/glebm/rails_email_preview/blob/master/spec/features/take_screenshots_spec.rb"&gt;this&lt;/a&gt; like in my &lt;a href="https://github.com/glebm/rails_email_preview"&gt;Rails Email Preview&lt;/a&gt; gem. You then simply list the shots you want:&lt;/p&gt;
+&lt;p&gt;For Rails you can use poltergeist + rspec and &lt;a href="https://github.com/glebm/rails_email_preview/blob/master/spec/support/save_screenshots.rb"&gt;just&lt;/a&gt; do &lt;a href="https://github.com/glebm/rails_email_preview/blob/master/spec/features/take_screenshots_spec.rb"&gt;this&lt;/a&gt; like in the tests for my &lt;a href="https://github.com/glebm/rails_email_preview"&gt;Rails Email Preview&lt;/a&gt; gem. You then simply list the shots you want:&lt;/p&gt;
 
 &lt;pre class="highlight ruby"&gt;&lt;span class="n"&gt;describe&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Take screenshots&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="ss"&gt;driver: :poltergeist&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt;
   &lt;span class="n"&gt;it&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;home page&amp;#39;&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt;
@@ -50,22 +50,28 @@ It is surprisingly easy to do!&lt;/p&gt;
   &lt;span class="k"&gt;end&lt;/span&gt;
 &lt;span class="k"&gt;end&lt;/span&gt;
 &lt;/pre&gt;
-&lt;p&gt;The code will simply place screenshots into &lt;code&gt;spec/screenshots&lt;/code&gt; after each suite run. &lt;/p&gt;
+&lt;p&gt;The code will simply place screenshots into &lt;code&gt;spec/screenshots&lt;/code&gt;  each time the test suite is run.&lt;/p&gt;
 
 &lt;p&gt;Once you add &lt;code&gt;spec/screenshots&lt;/code&gt; to git, things get interesting.&lt;/p&gt;
 
 &lt;h3 id="perks-unlocked"&gt;Perks unlocked&lt;/h3&gt;
+&lt;p&gt;With your screenshots under version control, you will&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Always know when you introduce a change that changes the display&lt;/li&gt;
   &lt;li&gt;See which commits changed screens in your app&lt;/li&gt;
-  &lt;li&gt;Instantly see what your app looked like at any point in time (since you started this)&lt;/li&gt;
+  &lt;li&gt;Instantly see what your app looked like at any point in time&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;The screenshot above shows a couple of image diffs as &lt;a href="https://github.com/glebm/rails_email_preview/commit/b6b003bf3a49ecf36d51ecf39dcd57e42e259dad?&amp;amp;diff-1=1-82"&gt;Github renders them&lt;/a&gt;. This is &lt;em&gt;visual version history&lt;/em&gt; and your private &lt;em&gt;wayback in git machine&lt;/em&gt;.
-Github provides a number of ways to compare images:&lt;/p&gt;
+&lt;p&gt;Below is an image diff as &lt;a href="https://github.com/glebm/rails_email_preview/commit/b6b003bf3a49ecf36d51ecf39dcd57e42e259dad?&amp;amp;diff-1=1-82#L14R3"&gt;rendered by Github&lt;/a&gt;. This is &lt;em&gt;visual version history&lt;/em&gt; and your private &lt;em&gt;git wayback machine&lt;/em&gt;.&lt;/p&gt;
 
-&lt;p&gt;&lt;img class="img-responsive" alt="" width="828" height="432" src="images/gh-img-diff-2.png?1377293772" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/glebm/rails_email_preview/commit/b6b003bf3a49ecf36d51ecf39dcd57e42e259dad?&amp;amp;diff-1=1-82#L14R3"&gt;&lt;img class="img-responsive" alt="" width="828" height="432" src="images/gh-img-diff-2.png?1377294747" /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;I hope this post has helped you! Please let me know if you already do this, as I'm curious to hear other approaches!&lt;/p&gt;
+
+&lt;p&gt;&amp;#8211; &lt;a href="https://twitter.com/glebm"&gt;@glebm&lt;/a&gt; &lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Thanks &lt;a href="https://twitter.com/ddtrejo"&gt;@ddtrejo&lt;/a&gt; for your edits and suggestions!&lt;/em&gt;&lt;/p&gt;
 
 </content>
   </entry>

@@ -13,17 +13,17 @@
   <li>Testing UI is even harder</li>
 </ul>
 
-<p>What if every time you commit, you would get a visual diff of every web page that changed?
+<p>What if every time you commit, you got a visual diff of every web page that changed?
 It is surprisingly easy to do!</p>
 
-<p><img class="img-responsive" alt="" width="828" height="296" src="../../../images/gh-img-diff-1.png?1377293772" /></p>
+<p><img class="img-responsive" alt="" width="828" height="296" src="../../../images/gh-img-diff-1.png?1377294747" /></p>
 
 <p></p>
 
 <h3 id="how">How?</h3>
 <p>All we need is a headless browser and a testing environment.</p>
 
-<p>For Rails you can use poltergeist + rspec and <a href="https://github.com/glebm/rails_email_preview/blob/master/spec/support/save_screenshots.rb">just</a> do <a href="https://github.com/glebm/rails_email_preview/blob/master/spec/features/take_screenshots_spec.rb">this</a> like in my <a href="https://github.com/glebm/rails_email_preview">Rails Email Preview</a> gem. You then simply list the shots you want:</p>
+<p>For Rails you can use poltergeist + rspec and <a href="https://github.com/glebm/rails_email_preview/blob/master/spec/support/save_screenshots.rb">just</a> do <a href="https://github.com/glebm/rails_email_preview/blob/master/spec/features/take_screenshots_spec.rb">this</a> like in the tests for my <a href="https://github.com/glebm/rails_email_preview">Rails Email Preview</a> gem. You then simply list the shots you want:</p>
 
 <pre class="highlight ruby"><span class="n">describe</span> <span class="s1">&#39;Take screenshots&#39;</span><span class="p">,</span> <span class="ss">driver: :poltergeist</span> <span class="k">do</span>
   <span class="n">it</span> <span class="s1">&#39;home page&#39;</span> <span class="k">do</span>
@@ -38,22 +38,28 @@ It is surprisingly easy to do!</p>
   <span class="k">end</span>
 <span class="k">end</span>
 </pre>
-<p>The code will simply place screenshots into <code>spec/screenshots</code> after each suite run. </p>
+<p>The code will simply place screenshots into <code>spec/screenshots</code>  each time the test suite is run.</p>
 
 <p>Once you add <code>spec/screenshots</code> to git, things get interesting.</p>
 
 <h3 id="perks-unlocked">Perks unlocked</h3>
+<p>With your screenshots under version control, you will</p>
 
 <ul>
   <li>Always know when you introduce a change that changes the display</li>
   <li>See which commits changed screens in your app</li>
-  <li>Instantly see what your app looked like at any point in time (since you started this)</li>
+  <li>Instantly see what your app looked like at any point in time</li>
 </ul>
 
-<p>The screenshot above shows a couple of image diffs as <a href="https://github.com/glebm/rails_email_preview/commit/b6b003bf3a49ecf36d51ecf39dcd57e42e259dad?&amp;diff-1=1-82">Github renders them</a>. This is <em>visual version history</em> and your private <em>wayback in git machine</em>.
-Github provides a number of ways to compare images:</p>
+<p>Below is an image diff as <a href="https://github.com/glebm/rails_email_preview/commit/b6b003bf3a49ecf36d51ecf39dcd57e42e259dad?&amp;diff-1=1-82#L14R3">rendered by Github</a>. This is <em>visual version history</em> and your private <em>git wayback machine</em>.</p>
 
-<p><img class="img-responsive" alt="" width="828" height="432" src="../../../images/gh-img-diff-2.png?1377293772" /></p>
+<p><a href="https://github.com/glebm/rails_email_preview/commit/b6b003bf3a49ecf36d51ecf39dcd57e42e259dad?&amp;diff-1=1-82#L14R3"><img class="img-responsive" alt="" width="828" height="432" src="../../../images/gh-img-diff-2.png?1377294747" /></a></p>
+
+<p>I hope this post has helped you! Please let me know if you already do this, as I'm curious to hear other approaches!</p>
+
+<p>&#8211; <a href="https://twitter.com/glebm">@glebm</a> </p>
+
+<p><em>Thanks <a href="https://twitter.com/ddtrejo">@ddtrejo</a> for your edits and suggestions!</em></p>
 
 </div><div class="article-footer"><div class="permalink"><label class="form-label text-muted" for="permalink-input">permalink </label><input class="input-sm form-control select-text-on-click" id="permalink-input" type="text" value="http://blog.glebm.com/2013/08/23/screenshots-in-git" /></div></div></article><div class="comments">  <div id="disqus_thread"></div>
     <script type="text/javascript">
@@ -69,4 +75,4 @@ var disqus_url = "http://blog.glebm.com/2013/08/23/screenshots-in-git";
     </script>
     <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-</div></div><div class="col-md-3"><aside><div class="row"><div class="col-xs-12 col-sm-6 col-md-12"><div class="person-img"><img alt="" width="400" height="400" src="../../../images/gleb.jpg?1377293772" /></div><ul class="list-unstyled"><li><abbr title="Gleb Mazovetskiy">@glebm</abbr></li><li><a href="https://twitter.com/glebm">Twitter</a></li><li><a href="https://github.com/glebm">Github</a></li></ul></div><div class="col-xs-12 col-sm-6 col-md-12"><h2>Articles</h2><ol class="list-unstyled"><li><a href="/2013/08/23/screenshots-in-git.html">Take screenshots of your tests and store them in git!</a> <div class="badge">Aug 23</div></li></ol><h2>Tags</h2><ol class="list-unstyled"><li><a href="/tags/testing.html">testing</a> <div class="badge">1</div></li><li><a href="/tags/git.html">git</a> <div class="badge">1</div></li><li><a href="/tags/phantomjs.html">phantomjs</a> <div class="badge">1</div></li><li><a href="/tags/ruby.html">ruby</a> <div class="badge">1</div></li></ol></div></div></aside></div></div></div></body></html>
+</div></div><div class="col-md-3"><aside><div class="row"><div class="col-xs-12 col-sm-6 col-md-12"><div class="person-img"><img alt="" width="400" height="400" src="../../../images/gleb.jpg?1377294747" /></div><ul class="list-unstyled"><li><abbr title="Gleb Mazovetskiy">@glebm</abbr></li><li><a href="https://twitter.com/glebm">Twitter</a></li><li><a href="https://github.com/glebm">Github</a></li></ul></div><div class="col-xs-12 col-sm-6 col-md-12"><h2>Articles</h2><ol class="list-unstyled"><li><a href="/2013/08/23/screenshots-in-git.html">Take screenshots of your tests and store them in git!</a> <div class="badge">Aug 23</div></li></ol><h2>Tags</h2><ol class="list-unstyled"><li><a href="/tags/testing.html">testing</a> <div class="badge">1</div></li><li><a href="/tags/git.html">git</a> <div class="badge">1</div></li><li><a href="/tags/phantomjs.html">phantomjs</a> <div class="badge">1</div></li><li><a href="/tags/ruby.html">ruby</a> <div class="badge">1</div></li></ol></div></div></aside></div></div></div></body></html>
