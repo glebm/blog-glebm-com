@@ -1,42 +1,57 @@
 ---
-title: Screenshots in Git
+title: Take screenshots of your tests and store them in git!
 date: 2013-08-23 18:22 CEST
 tags: testing, git, phantomjs, ruby
 layout: blog_article
 published: true
 ---
 
-Have you ever had a change break your site? Yes
+Have you ever had a change break your site? Even when the tests pass?
 
 * Testing functionality is hard
-* Testing that things look the way they should is even harder
+* Testing UI is even harder
 
-what if you could do a visual diff of every webpage at every commit? Turns out it's pretty easy to set up.
+What if every time you commit, you would get a visual diff of every web page that changed? It's surprisingly easy to do.
 
-<a href="https://github.com/glebm/rails_email_preview/commit/b6b003bf3a49ecf36d51ecf39dcd57e42e259dad?&diff-1=1-82" rel="external" target="_blank">
-  <%= image_tag 'gh-img-diff.png', class: 'img-responsive'%>
-</a>
+<%= image_tag 'gh-img-diff.png', class: 'img-responsive'%>
 
 READMORE
 
-How to get started
+### How?
+All we need is a headless browser and a testing environment.
 
-* Headless browser (e.g. PhantomJS)
-* List of pages to take screenshots of
-* Testing environment
+For Rails you can use poltergeist + rspec and [just][rep-helper] do [this][rep-spec] like in my [Rails Email Preview][rep] gem. You then simply list the shots you want:
 
-How to do it in Ruby
+<% code 'ruby' do %>
+describe 'Take screenshots', driver: :poltergeist do
+  it 'home page' do
+    visit '/'
+    screenshot! 'home'
+  end
 
-* Poltergeist (PhantomJS for ruby) + Capybara + rspec
+  it 'user account page' do
+    sign_in Fabricate(:user)
+    visit my_account_url
+    screenshot! 'my-account'
+  end
+end
+<% end %>
 
-Example with REP
+The code will simply place screenshots into `spec/screenshots` after each suite run. 
 
-* Github screenshots
-* Code gists
+Once you add `spec/screenshots` to git, things get interesting.
 
-* Spec with a list of shots to take
-* Store them in Git and get visual version history
-* Complete visual history of all the changes for as long as you keep them
+### Perks unlocked
 
+* Always know when you introduce a change that changes the display
+* See which commits changed screens in your app
+* Instantly see what your app looked like at any point in time (since you started this)
+
+The screenshot above shows a couple of image diffs as [Github renders them][rep-commit]. This is *visual version history* and your private *wayback in git machine*.
+
+[rep]: https://github.com/glebm/rails_email_preview
+[rep-spec]: https://github.com/glebm/rails_email_preview/blob/master/spec/features/take_screenshots_spec.rb
+[rep-helper]: https://github.com/glebm/rails_email_preview/blob/master/spec/support/save_screenshots.rb
+[rep-commit]: https://github.com/glebm/rails_email_preview/commit/b6b003bf3a49ecf36d51ecf39dcd57e42e259dad?&diff-1=1-82
 
 

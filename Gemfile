@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'middleman', '~> 3.1.4'
 gem 'middleman-blog', '~> 3.2.0'
 gem 'middleman-smusher'
+gem 'middleman-syntax'
 gem 'bootstrap-sass', git: 'https://github.com/thomas-mcdonald/bootstrap-sass', branch: '3', require: false
 gem 'slim'
 
