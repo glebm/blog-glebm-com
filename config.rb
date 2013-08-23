@@ -71,8 +71,20 @@ activate :automatic_image_sizes
 
 # Methods defined in the helpers block are available in templates
 helpers do
-  def article_url(article)
-    data.blog.root_url[0..-2] + current_article.url.sub(/\.html$/, '')
+  # absolutize image_tag and article URLs
+  def image_tag(*args)
+    super(*args).sub /src=['"](.*?)['"]/, "src='#{site_root}\\1'"
+  end
+  def article_url(article = current_article)
+    site_root + article.url
+  end
+
+  def site_root
+    if environment == :development
+      'http://localhost:4567'
+    else
+      data.blog.root_url[0..-2]
+    end
   end
 
   def blog_article_comments(article = current_article)
@@ -136,9 +148,6 @@ configure :build do
   
   # Enable cache buster
   activate :cache_buster
-  
-  # Use relative URLs
-  activate :relative_assets
 
   # Compress PNGs after build
   # First: gem install middleman-smusher
