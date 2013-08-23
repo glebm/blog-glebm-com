@@ -49,11 +49,12 @@ With your screenshots under version control, you will
 * See which commits changed screens in your app
 * Instantly see what your app looked like at any point in time
 
+You should use `git submodule` for `spec/screenshots` to keep screenshots in a separate repo, as it will get large.
+You can also script rewriting `spec/screenshots` out of older commits via `git filter-branch` if repo grows too large.
+
 Below is an image diff as [rendered by Github][rep-commit]. This is *visual version history* and your private *git wayback machine*.
 
 [<%= image_tag 'gh-img-diff-2.png', class: 'img-responsive'%>][rep-commit]
-
-Note: The repo size could grow after some months and you would need to script filter-branch to rewrite spec/screenshots out of older commits.
 
 I hope this post has helped you. Please let me know if you already do this, as I'm curious to hear other approaches.
 
