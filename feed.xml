@@ -11,8 +11,8 @@
   </author>
   <entry>
     <title>Take screenshots of your tests and store them in git!</title>
-    <link rel="alternate" href="/2013/08/23/screenshots-in-git.html"/>
-    <id>/2013/08/23/screenshots-in-git.html</id>
+    <link rel="alternate" href="/2013/08/23/screenshots-in-git/"/>
+    <id>/2013/08/23/screenshots-in-git/</id>
     <published>2013-08-23T16:22:00Z</published>
     <updated>2013-08-23T16:22:00Z</updated>
     <author>
@@ -28,7 +28,7 @@
 &lt;p&gt;What if every time you commit, you would get a visual diff of every web page that changed?
 It is surprisingly easy to do!&lt;/p&gt;
 
-&lt;p&gt;&lt;img class="img-responsive" src="images/gh-img-diff.png?1377290812" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img class="img-responsive" src="images/gh-img-diff.png?1377290908" /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;
 
