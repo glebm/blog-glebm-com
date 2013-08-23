@@ -5,7 +5,7 @@ xml.feed "xmlns" => "http://www.w3.org/2005/Atom" do
   xml.id data.blog.root_url
   xml.link "href" => data.blog.root_url
   xml.link "href" => data.blog.feed_url, "rel" => "self"
-  xml.updated blog.articles.first.date.to_time.iso8601
+  xml.updated blog.articles.first.date.to_time.iso8601 unless blog.articles.empty?
   xml.author { xml.name data.blog.author.name }
 
   blog.articles[0..5].each do |article|
