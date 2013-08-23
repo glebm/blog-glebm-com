@@ -12,7 +12,7 @@ html
     = "\n"
   body
     = google_analytics_js
-    header.navbar: .container
+    header.navbar.navbar-default: .container
       .navbar-header
         button.navbar-toggle type="button" data-toggle="collapse" data-target=".bs-navbar-collapse"
           span.sr-only Toggle navigation
@@ -27,38 +27,40 @@ html
           li class=('active' if current_page.path == 'index.html')
             = link_to 'Index', '/'
     .container: .row
-      .col-md-9#main role='main'
+
+      .col-md-9.col-lg-8#main role='main'
         = yield
 
-      aside.col-md-3
-        h2 Recent Articles
-        ol.list-unstyled
-          - blog.articles[0...10].each do |article|
-            li
-              = link_to article.title, article
-              = ' '
-              .badge= article.date.strftime('%b %e')
-
-        h2 Tags
-        ol.list-unstyled
-          - blog.tags.each do |tag, articles|
-            li
-              = link_to tag, tag_path(tag)
-              = ' '
-              .badge= articles.size
-
-        h2 By Year
-        ol.list-unstyled
-          - blog.articles.group_by {|a| a.date.year }.each do |year, articles|
-            li
-              = link_to year, blog_year_path(year)
-              = ' '
-              .badge= articles.size
-
-        h2 About
-        .row
-          .pull-left= image_tag 'gleb.jpg', class: 'img-person img-responsive', style: 'max-width: 180px'
-          abbr title=data.blog.author.name @glebm
+      aside.col-md-3.col-lg-offset-1
+        .col-xs-12.col-sm-6.col-md-12
+          .person-img
+            = image_tag 'gleb.jpg'
           ul.list-unstyled
+            li: abbr title=data.blog.author.name @glebm
             li = link_to 'Twitter', 'https://twitter.com/' + data.blog.author.twitter
             li = link_to 'Github', 'https://github.com/' + data.blog.author.github
+
+        .col-xs-12.col-sm-6.col-md-12
+          h2 Articles
+          ol.list-unstyled
+            - blog.articles[0...10].each do |article|
+              li
+                = link_to article.title, article
+                = ' '
+                .badge= article.date.strftime('%b %e')
+
+          h2 Tags
+          ol.list-unstyled
+            - blog.tags.each do |tag, articles|
+              li
+                = link_to tag, tag_path(tag)
+                = ' '
+                .badge= articles.size
+
+          -#h2 By Year
+          -#ol.list-unstyled
+          -#  - blog.articles.group_by {|a| a.date.year }.each do |year, articles|
+          -#    li
+          -#      = link_to year, blog_year_path(year)
+          -#      = ' '
+          -#      .badge= articles.size
