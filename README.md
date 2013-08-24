@@ -5,7 +5,7 @@
 * `rake build` to test build
 * `rake publish` to publish (builds and pushes to gh-pages branch on origin)
 
-### Forking
+### Forking 
 
 When forking, change the following files to your data:
 
@@ -15,7 +15,7 @@ When forking, change the following files to your data:
 After cloning your fork run:
 
     # remove all existing posts:
-    rm -f sources/2*.markdown.erb 
+    rm -f source/2*.markdown.erb 
     git add -u
     git commit -m "remove glebm's posts"
   
