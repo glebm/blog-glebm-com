@@ -17,7 +17,9 @@ xml.feed "xmlns" => "http://www.w3.org/2005/Atom" do
       xml.updated article.date.to_time.iso8601
       xml.author { xml.name data.author.name }
       # xml.summary article.summary, "type" => "html"
+      current_resource.add_metadata article: article
       xml.content article.body, "type" => "html"
+      current_resource.add_metadata article: nil
     end
   end
 end
