@@ -42,6 +42,9 @@ html
             li: abbr title=data.blog.author.name @glebm
             li = link_to 'Twitter', 'https://twitter.com/' + data.blog.author.twitter
             li = link_to 'Github', 'https://github.com/' + data.blog.author.github
+          p Check out my projects:
+          ul.list-unstyled
+            li: a href="http://zuigo.com/en/madrid" Zuigo
 
         .col-xs-12.col-sm-6.col-md-12
           h3 Articles
@@ -59,10 +62,6 @@ html
                 = link_to tag, tag_path(tag)
                 = ' '
                 .badge= articles.size
-
-          h4 Check out my projects!
-          ul.list-unstyled
-            li: a href="http://zuigo.com/en/madrid" Zuigo
 
           -#h2 By Year
           -#ol.list-unstyled
