@@ -17,9 +17,9 @@ After cloning your fork run:
     
 You must change the following files with your data:
 
-    * `data/disqus.yml` 
-    * `data/google_analytics.yml`
-    * `source/CNAME` -- remove, or change contents to your CNAME (this is for gh-pages)
+* `data/disqus.yml` -- remove or change disqus key
+* `data/google_analytics.yml` -- remove or change analytics account id
+* `source/CNAME` -- remove file or change to your CNAME (this is for gh-pages)
 
 The rest of the settings are in other files in `data/`. See `config.rb` for advanced configuration.
   
