@@ -10,7 +10,8 @@
 After cloning your fork run:
 
     # remove all existing posts:
-    rm -f source/2*.markdown.erb 
+    rm -f source/2*.markdown.erb
+    rm -rf source/images/2*/
     git add -u
     git commit -m "remove @glebm's posts"
     
