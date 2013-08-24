@@ -1,8 +1,0 @@
----
-title: <%= @title %>
-layout: blog_article
-date: <%= @date.strftime('%F %R %Z') %>
-tags:
-published: false
----
-
