@@ -111,10 +111,15 @@ body
 @media (max-width: $screen-xs)
   header.navbar
     margin-bottom: 0
-  #main
-    margin: 0 -15px
   body
     font-size: 15px
+    > .container
+      padding: 0
+      > .row
+        margin: 0
+        [class^='col-']
+          padding: 0
+
   article code
     white-space: normal
 
