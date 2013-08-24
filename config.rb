@@ -107,6 +107,10 @@ helpers do
     end
   end
 
+  def rss_feed_url
+    "#{root_url}/feed.xml"
+  end
+
   def suggest_edit_article_url(article)
     src_path = "source/#{article.path}.markdown.erb"
     "#{data.urls.source}/blob/master/#{src_path}"

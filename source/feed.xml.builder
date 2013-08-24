@@ -4,7 +4,7 @@ xml.feed "xmlns" => "http://www.w3.org/2005/Atom" do
   xml.subtitle data.blog.subtitle
   xml.id data.urls.root
   xml.link "href" => data.urls.root
-  xml.link "href" => data.urls.rss, "rel" => "self"
+  xml.link "href" => rss_feed_url, "rel" => "self"
   xml.updated blog.articles.first.date.to_time.iso8601 unless blog.articles.empty?
   xml.author { xml.name data.author.name }
 
