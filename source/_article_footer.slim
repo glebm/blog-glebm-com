@@ -1,0 +1,10 @@
+.article-footer
+
+  .permalink
+    label.form-label.text-muted for='permalink-input'
+      ' permalink
+    input.input-sm.form-control.select-text-on-click id='permalink-input' type='text' value='#{article_url(current_article)}'
+
+  .suggest-edit
+    a.btn.btn-primary href=suggest_edit_article_url(current_article)
+      | #{glyphicon 'edit'} Suggest Edit

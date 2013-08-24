@@ -1,17 +1,11 @@
 - content_for :page_title, "#{current_page.title} on #{data.blog.title}"
 
 - wrap_layout :layout do
-  article.blog-article
-    .article-date = current_page.date.strftime('%b %e')
-    h1 = current_page.title
-    .article-body
-      = yield
-    .article-footer
-      a.btn.btn-primary href=suggest_edit_article_url(current_article)
-        | #{glyphicon 'edit'} Suggest Edit
-      .permalink
-        label.form-label.text-muted for='permalink-input'
-          ' permalink
-        input.input-sm.form-control.select-text-on-click id='permalink-input' type='text' value='#{article_url(current_article)}'
 
-  .comments= blog_article_comments
+  article.blog-article
+    = partial 'article_header'
+    .article-body = yield
+    = partial 'article_footer'
+
+  .comments
+    = blog_article_comments
