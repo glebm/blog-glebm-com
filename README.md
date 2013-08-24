@@ -17,7 +17,7 @@ After cloning your fork run:
     # remove all existing posts:
     rm -f source/2*.markdown.erb 
     git add -u
-    git commit -m "remove glebm's posts"
+    git commit -m "remove @glebm's posts"
   
 To update to the latest upstream with:
   
