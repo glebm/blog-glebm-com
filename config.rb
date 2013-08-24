@@ -73,10 +73,16 @@ activate :automatic_image_sizes
 helpers do
   #= absolutize image_tag and article URLs
   def image_tag(*args)
-    super(*args).sub /src=['"](.*?)['"]/, "src='#{site_root}\\1'"
+    super(*args).sub /src=['"](.*?)['"]/, "src='#{root_url}\\1'"
   end
   def article_url(article = current_article)
-    site_root + article.url
+    root_url + article.url
+  end
+
+  # image in article subfolder
+  def article_image_tag(*args)
+    article = current_article || current_resource.metadata[:article]
+    image_tag(File.join(article.path.sub(/\.\w+$/, ''), args.shift), *args)
   end
 
   #= layout helpers
@@ -93,12 +99,17 @@ helpers do
 
   #= url helpers
   # site root without / at the end
-  def site_root
+  def root_url
     if environment == :development
       'http://localhost:4567'
     else
-      data.blog.root_url[0..-2]
+      data.urls.root
     end
+  end
+
+  def suggest_edit_article_url(article)
+    src_path = "source/#{article.path}.markdown.erb"
+    "#{data.urls.source}/blob/master/#{src_path}"
   end
 
   # other helpers
@@ -108,7 +119,7 @@ helpers do
 
   def disqus_comments(opts = {})
     opts = {
-      site_id: 'blog-glebm',
+      site_id: data.disqus.site_id,
     }.merge(opts)
     vars = {
       disqus_shortname: opts[:site_id],
@@ -132,7 +143,7 @@ helpers do
   end
 
   def google_analytics_account_id
-    'UA-43451052-1'
+    data.google_analytics.ua
   end
 
   def google_analytics_js

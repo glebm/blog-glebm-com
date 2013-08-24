@@ -7,6 +7,8 @@
     .article-body
       = yield
     .article-footer
+      a.btn.btn-primary href=suggest_edit_article_url(current_article)
+        | #{glyphicon 'edit'} Suggest Edit
       .permalink
         label.form-label.text-muted for='permalink-input'
           ' permalink

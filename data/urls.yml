@@ -1,0 +1,3 @@
+root: "http://blog.glebm.com"
+rss: "http://blog.glebm.com/feed.xml"
+source: "https://github.com/glebm/blog-glebm-com"
