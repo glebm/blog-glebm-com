@@ -1,0 +1,12 @@
+aside: .row
+  .col-xs-12.col-sm-6.col-md-12
+    = partial 'sidebar_author'
+    = partial 'sidebar_author_projects'
+  .col-xs-12.col-sm-6.col-md-12
+    = partial 'sidebar_articles'
+    - if blog.articles.length > 3
+      = partial 'sidebar_tag'
+    - if blog.articles.length > 10
+      = partial 'sidebar_calendar'
+    hr
+    = partial 'sidebar_links'

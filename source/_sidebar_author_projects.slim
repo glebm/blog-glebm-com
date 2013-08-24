@@ -1,0 +1,6 @@
+- if data.author_projects.present?
+  p Check out my projects:
+  ul.list-unstyled
+    - data.author_projects.each do |project|
+      li
+        a href=project.url = project.link_text
