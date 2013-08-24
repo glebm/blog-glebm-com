@@ -9,5 +9,19 @@
 
 When forking, change the following files to your data:
 
-* data/*.yml (esp. disqus.yml and google_analytics.yml)
-* source/CNAME -- remove, or change contents to your CNAME (this is for gh-pages)
+* `data/*.yml` (esp. disqus.yml and google_analytics.yml)
+* `source/CNAME` -- remove, or change contents to your CNAME (this is for gh-pages)
+
+After cloning your fork run:
+
+    # remove all existing posts:
+    rm -rf sources/2*.markdown.erb 
+    git add -u
+    git commit -m "remove glebm's posts"
+  
+To update to the latest upstream with:
+  
+    # add upstream -- only need to do this once 
+    git remote add upstream https://github.com/glebm/blog-glebm-com
+    # pull upstream changes, and apply your changes on top
+    git pull --rebase upstream/master
