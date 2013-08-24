@@ -63,6 +63,13 @@ html
                 = ' '
                 .badge= articles.size
 
+          hr
+          ul.list-unstyled
+            li: a href=data.blog.feed_url
+              |  RSS Feed
+            li: a href="https://github.com/glebm/blog-glebm-com"
+              | This blog on Github
+
           -#h2 By Year
           -#ol.list-unstyled
           -#  - blog.articles.group_by {|a| a.date.year }.each do |year, articles|
