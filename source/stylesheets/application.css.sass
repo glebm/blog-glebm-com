@@ -62,19 +62,10 @@ article, .comments
   @extend .panel
   @extend .panel-default
 
-@media (min-width: $screen-lg)
-  .article-body
-    padding: 20px 30px
-  .article-footer
-    margin: -20px -30px
-  article
-    h1, h2
-      padding-left: 30px
-
 .article-footer
   @extend .panel-footer
   @extend .row
-  margin: -20px
+  margin: 0 -20px -20px -20px
   .permalink
     @extend .pull-right
     label
@@ -84,6 +75,7 @@ article, .comments
     input
       display: inline-block
       width: 350px
+      max-width: 75%
 
 aside
   @extend .panel
@@ -114,3 +106,25 @@ body
 .article-date
   @extend .lead
   float: right
+
+
+@media (max-width: $screen-xs)
+  header.navbar
+    margin-bottom: 0
+  #main
+    margin: 0 -15px
+  body
+    font-size: 15px
+
+@media (max-width: $screen-sm)
+  h1
+    font-size: 32px
+  h2
+    font-size: 26px
+
+@media (min-width: $screen-lg)
+  .article-body
+    padding: 20px 30px
+  article
+    h1, h2
+      padding-left: 30px
