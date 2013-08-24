@@ -133,7 +133,7 @@ helpers do
       disqus_url: opts[:url]
     }
   <<-HTML
-  <div id="disqus_thread"></div>
+    <div id="disqus_thread"></div>
     <script type="text/javascript">
       #{vars.map {|k,v| "var #{k} = #{v.to_json};" if v.present? }.compact * "\n"}
       (function() {
