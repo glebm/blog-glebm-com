@@ -28,7 +28,7 @@
 &lt;p&gt;What if every time you commit, you got a visual diff of every web page that changed?
 It is surprisingly easy to do.&lt;/p&gt;
 
-&lt;p&gt;&lt;img class="img-responsive" alt="" width="828" height="296" src="http://blog.glebm.com/images/gh-img-diff-1.png?1377331667" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img class="img-responsive" alt="" width="828" height="296" src="http://blog.glebm.com/images/gh-img-diff-1.png?1377334012" /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;
 
@@ -63,18 +63,25 @@ It is surprisingly easy to do.&lt;/p&gt;
   &lt;li&gt;Instantly see what your app looked like at any point in time&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;You should use &lt;code&gt;git submodule&lt;/code&gt; for &lt;code&gt;spec/screenshots&lt;/code&gt; to keep screenshots in a separate repo, as it will get large.
-You can also script rewriting &lt;code&gt;spec/screenshots&lt;/code&gt; out of older commits via &lt;code&gt;git filter-branch&lt;/code&gt; if repo grows too large.&lt;/p&gt;
+&lt;p&gt;You must use &lt;code&gt;git submodule add spec/screenshots {Separate Repo URL}&lt;/code&gt; to keep screenshots in a separate repo, as it will get large.
+You can also script rewriting images out of older commits via &lt;code&gt;git filter-branch&lt;/code&gt; if repo grows too large.&lt;/p&gt;
 
 &lt;p&gt;Below is an image diff as &lt;a href="https://github.com/glebm/rails_email_preview/commit/b6b003bf3a49ecf36d51ecf39dcd57e42e259dad?&amp;amp;diff-1=1-82#L14R3"&gt;rendered by Github&lt;/a&gt;. This is &lt;em&gt;visual version history&lt;/em&gt; and your private &lt;em&gt;git wayback machine&lt;/em&gt;.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href="https://github.com/glebm/rails_email_preview/commit/b6b003bf3a49ecf36d51ecf39dcd57e42e259dad?&amp;amp;diff-1=1-82#L14R3"&gt;&lt;img class="img-responsive" alt="" width="828" height="432" src="http://blog.glebm.com/images/gh-img-diff-2.png?1377331667" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/glebm/rails_email_preview/commit/b6b003bf3a49ecf36d51ecf39dcd57e42e259dad?&amp;amp;diff-1=1-82#L14R3"&gt;&lt;img class="img-responsive" alt="" width="828" height="432" src="http://blog.glebm.com/images/gh-img-diff-2.png?1377334012" /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;I hope this post has helped you. Please let me know if you already do this, as I'm curious to hear other approaches.&lt;/p&gt;
 
 &lt;p&gt;&amp;#8211; &lt;a href="https://twitter.com/glebm"&gt;@glebm&lt;/a&gt; &lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;Thanks &lt;a href="https://twitter.com/ddtrejo"&gt;@ddtrejo&lt;/a&gt; for your edits and suggestions!&lt;/em&gt;&lt;/p&gt;
+
+&lt;h4 id="links"&gt;Links&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href="https://news.ycombinator.com/item?id=6266490"&gt;Discussion on Hacker News&lt;/a&gt; - some nice ideas around this approach.&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://github.com/facebook/huxley/"&gt;Huxley&lt;/a&gt; - implementation of screenshot control in Selenium and written in Python.&lt;/li&gt;
+&lt;/ul&gt;
 
 </content>
   </entry>
