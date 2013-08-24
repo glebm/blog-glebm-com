@@ -71,7 +71,7 @@ activate :automatic_image_sizes
 
 # Methods defined in the helpers block are available in templates
 helpers do
-  # absolutize image_tag and article URLs
+  #= absolutize image_tag and article URLs
   def image_tag(*args)
     super(*args).sub /src=['"](.*?)['"]/, "src='#{site_root}\\1'"
   end
@@ -79,6 +79,20 @@ helpers do
     site_root + article.url
   end
 
+  #= layout helpers
+  def glyphicon(*keys)
+    attr = keys.extract_options!
+    attr[:class] = (['glyphicon'] + keys.map { |k| "glyphicon-#{ERB::Util.html_escape(k)}" }).uniq.compact * ' '
+    %Q(<i #{attr_to_s attr}></i>).strip.html_safe
+  end
+  # {a: 1, b: 2} => 'a=1 b=2'
+  # escapes values
+  def attr_to_s(hash)
+    hash.map {|k, v| %(#{k}='#{v.html_safe? ? v : ERB::Util.html_escape(v)}')} * ' '
+  end
+
+  #= url helpers
+  # site root without / at the end
   def site_root
     if environment == :development
       'http://localhost:4567'
@@ -87,6 +101,7 @@ helpers do
     end
   end
 
+  # other helpers
   def blog_article_comments(article = current_article)
     disqus_comments(id: article.slug, url: article_url(article), title: article.title)
   end
