@@ -54,15 +54,14 @@ html
                 = link_to article.title, article
                 = ' '
                 .badge= article.date.strftime('%b %e')
-
-          h3 Tags
-          ol.list-unstyled
-            - blog.tags.each do |tag, articles|
-              li
-                = link_to tag, tag_path(tag)
-                = ' '
-                .badge= articles.size
-
+          - if blog.articles.length > 3
+            h3 Tags
+            ol.list-unstyled
+              - blog.tags.each do |tag, articles|
+                li
+                  = link_to tag, tag_path(tag)
+                  = ' '
+                  .badge= articles.size
           hr
           ul.list-unstyled
             li: a href=data.blog.feed_url
