@@ -7,17 +7,20 @@
 
 ### Forking 
 
-When forking, change the following files to your data:
-
-* `data/*.yml` (esp. disqus.yml and google_analytics.yml)
-* `source/CNAME` -- remove, or change contents to your CNAME (this is for gh-pages)
-
 After cloning your fork run:
 
     # remove all existing posts:
     rm -f source/2*.markdown.erb 
     git add -u
     git commit -m "remove @glebm's posts"
+    
+You must change the following files with your data:
+
+    * `data/disqus.yml` 
+    * `data/google_analytics.yml`
+    * `source/CNAME` -- remove, or change contents to your CNAME (this is for gh-pages)
+
+The rest of the settings are in other files in `data/`. See `config.rb` for advanced configuration.
   
 To update to the latest upstream with:
   
