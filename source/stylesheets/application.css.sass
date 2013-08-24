@@ -14,15 +14,27 @@ $navbar-inverse-brand-color: #ebd7b3
 $navbar-inverse-toggle-hover-bg: $navbar-inverse-link-hover-bg
 $navbar-inverse-toggle-border-color: rgba(darken($navbar-inverse-bg, 10%), 0.7)
 
+$btn-default-bg: lighten($body-bg, 14%)
+$btn-default-color: darken($brand-primary, 25%)
+
 @import 'bootstrap'
 @import 'bootstrap/theme'
 @import 'syntax-highlight'
 @import url(http://fonts.googleapis.com/css?family=Fenix:400,700|Lato:400,700)
 
+@mixin font-sans
+  font-family: 'Lato', sans-serif
+@mixin font-serif
+  font-family: 'Fenix', serif
+@mixin font-body
+  +font-serif
+@mixin font-h
+  +font-sans
+  font-weight: 700
+
 .navbar-inverse
   border-radius: 0
-  font-family: 'Lato'
-  font-weight: 700
+  +font-h
   .navbar-nav > li > a, .navbar-brand a
     color: $navbar-inverse-link-color !important
     font-weight: normal !important
@@ -31,7 +43,7 @@ $navbar-inverse-toggle-border-color: rgba(darken($navbar-inverse-bg, 10%), 0.7)
       color: $navbar-inverse-link-hover-color
       background-color: $navbar-inverse-link-hover-bg
   .navbar-brand
-    font-family: 'Fenix'
+    +font-serif
     font-weight: normal
     font-size: 22px
 aside
@@ -100,14 +112,15 @@ hr
 
 body
   font-size: 16px
-  font-family: 'Fenix', serif
+  +font-body
   color: $text-color
   background-color: $body-bg
   +lined-paper-bg
   h1, h2, h3, h4
-    font-weight: 700
-    font-family: Lato
+    +font-h
     color: rgba(mix($brand-primary, $text-color, 80%), 0.8)
+  .btn
+    +font-h
   a
     color: lighten($brand-primary, 10%)
   ::selection
