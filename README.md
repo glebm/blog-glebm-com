@@ -1,10 +1,3 @@
-### Workflow
-
-* `middleman` to start development server
-* `middleman article TITLE` to generate a new article
-* `rake build` to test build
-* `rake publish` to publish (builds and pushes to gh-pages branch on origin)
-
 ### Forking
 
 After cloning your fork run:
@@ -29,3 +22,29 @@ To update to the latest upstream with:
     git remote add upstream https://github.com/glebm/blog-glebm-com
     # pull upstream changes, and apply your changes on top
     git pull --rebase upstream/master
+
+
+### Workflow
+
+* `middleman` to start development server
+* `middleman article TITLE` to generate a new article
+* `rake build` to test build
+* `rake publish` to publish (builds and pushes to gh-pages branch on origin)
+
+
+#### Syntax Highlighting
+
+In the article's .markdown.erb:
+
+    <% code 'c' do %>
+    if (~1) {
+      void 0;
+    }
+    <% end %>
+
+* `rake syntax:theme[theme_name]` -- to set the theme (defaults to thankful_eyes)
+* `rake syntax:themes` -- to get the list of themes
+
+Syntax highlighting is provided by [rouge][rouge]
+
+[rouge]: https://github.com/jayferd/rouge
