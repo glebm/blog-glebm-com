@@ -1,0 +1,5 @@
+- if paginate
+  p Page #{page_number} of #{num_pages}
+
+  - if prev_page
+    p = link_to 'Previous page', prev_page

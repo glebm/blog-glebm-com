@@ -3,11 +3,7 @@ pageable: true
 per_page: 10
 ---
 
-- if paginate
-  p Page #{page_number} of #{num_pages}
-
-  - if prev_page 
-    p = link_to 'Previous page', prev_page 
+= partial 'pagination_top'
 
 - page_articles.each_with_index do |article, i|
   - current_resource.add_metadata article: article
@@ -19,6 +15,4 @@ per_page: 10
       h4= link_to 'Read more...', article
 - current_resource.add_metadata article: nil
 
-- if paginate
-  - if next_page
-    p= link_to 'Next page', next_page
+= partial 'pagination_bottom'

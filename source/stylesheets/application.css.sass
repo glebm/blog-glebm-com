@@ -19,6 +19,7 @@ $btn-default-color: darken($brand-primary, 25%)
 
 @import 'bootstrap'
 @import 'bootstrap/theme'
+@import 'date_time'
 @import 'syntax-highlight'
 @import url(http://fonts.googleapis.com/css?family=Fenix:400,700|Lato:400,700)
 
@@ -34,6 +35,7 @@ $btn-default-color: darken($brand-primary, 25%)
 
 .navbar-inverse
   border-radius: 0
+  box-shadow: 0 2px 3px rgba(0,0,0,.25)
   +font-h
   .navbar-nav > li > a, .navbar-brand a
     color: $navbar-inverse-link-color !important
@@ -127,6 +129,9 @@ body
     background-color: rgba(lighten($brand-primary, 40%), 0.41)
   .badge
     background-color: darken($brand-primary, 10%)
+  .article-layout
+    margin-top: -20px
+
 .article-date
   @extend .lead
   float: right

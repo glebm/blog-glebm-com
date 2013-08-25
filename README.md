@@ -5,7 +5,7 @@
 * `rake build` to test build
 * `rake publish` to publish (builds and pushes to gh-pages branch on origin)
 
-### Forking 
+### Forking
 
 After cloning your fork run:
 

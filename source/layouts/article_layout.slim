@@ -1,11 +1,11 @@
 - content_for :page_title, "#{current_page.title} on #{data.blog.title}"
 
 - wrap_layout :layout do
+  .article-layout
+    article.blog-article
+      = partial 'article_header'
+      .article-body = yield
+      = partial 'article_footer'
 
-  article.blog-article
-    = partial 'article_header'
-    .article-body = yield
-    = partial 'article_footer'
-
-  .comments
-    = blog_article_comments
+    .comments
+      = blog_article_comments
