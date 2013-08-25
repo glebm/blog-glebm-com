@@ -1,14 +1,27 @@
-@mixin accent-date
+$date-w: 45px !default
+
+@mixin accent-date($color: white, $bg: rgba(darken($brand-primary, 5%), 0.75), $w: $date-w)
   width: $date-w
-  float: left
-  background: $custom-accent
-  color: $custom-white
+  background: $bg
+  color: $color
   line-height: 1
   padding: 5px 0
+  border-top-left-radius: 1px
+  border-top-right-radius: 1px
+  border-bottom-left-radius: 42%
+  border-bottom-right-radius: 42%
+  border: 1px double $bg
+  overflow: hidden
+  position: absolute
+  top: 0
+  right: 0
+  +font-sans
   .day
-    font-size: 1.6em
+    font-size: 1.3em
   .month
-    text-transform: uppercase
+    background-color: rgba(darken($bg, 2%), 1)
+    margin-bottom: -5px
+    padding: 6px 0
   .day, .month
     display: block
     text-align: center

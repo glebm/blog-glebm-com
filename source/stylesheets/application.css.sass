@@ -118,23 +118,44 @@ body
   color: $text-color
   background-color: $body-bg
   +lined-paper-bg
-  h1, h2, h3, h4
-    +font-h
-    color: rgba(mix($brand-primary, $text-color, 80%), 0.8)
-  .btn
-    +font-h
-  a
-    color: lighten($brand-primary, 10%)
-  ::selection
-    background-color: rgba(lighten($brand-primary, 40%), 0.41)
-  .badge
-    background-color: darken($brand-primary, 10%)
-  .article-layout
-    margin-top: -20px
+h1, h2, h3, h4
+  +font-h
+  color: darken($brand-primary, 6%)
+.btn
+  +font-h
+a
+  color: lighten($brand-primary, 10%)
+::selection
+  background-color: rgba(lighten($brand-primary, 40%), 0.41)
+.badge
+  background-color: darken($brand-primary, 10%)
 
-.article-date
-  @extend .lead
-  float: right
+
+.article-layout
+  margin-top: -20px
+  > .blog-article
+    border-top-right-radius: 0
+    border-top-left-radius: 0
+  @media (max-width: $screen-xs)
+    margin-top: 0
+
+.blog-article
+  > h1, > h2
+    margin-top: 4px
+  > h1
+    margin-bottom: 20px
+  > h2
+    margin-bottom: 14px
+  .article-date
+    float: right
+    color: rgba($text-color, 0.85)
+    +font-sans
+    margin-top: 4px
+    margin-right: -6px
+    right: 100%
+    @media (max-width: $screen-xs)
+      margin-bottom: -17px
+      margin-right: -14px
 
 @media (max-width: $screen-xs)
   header.navbar
@@ -151,16 +172,21 @@ body
     white-space: normal
 
 @media (max-width: $screen-sm)
-  h1
-    font-size: 32px
-  h2
-    font-size: 26px
+  body
+    .blog-article > h1, .blog-article > h2
+      font-size: 26px
+    h3
+      font-size: 20px
   aside
     font-size: 18px
 
+@media (min-width: $screen-sm)
+  body
+    .blog-article > h1, .blog-article > h2
+      font-size: 32px
+    h3
+      font-size: 24px
+
 @media (min-width: $screen-lg)
-  .article-body
+  .blog-article
     padding: 20px 30px
-  article
-    h1, h2
-      padding-left: 30px
