@@ -1,6 +1,6 @@
-### Forking
+## Set up
 
-After cloning your fork run:
+Fork this repo. After cloning your fork:
 
     # remove all existing posts:
     rm -f source/2*.markdown.erb
@@ -8,7 +8,7 @@ After cloning your fork run:
     git add -u
     git commit -m "remove @glebm's posts"
     
-You must change the following files with your data:
+Then change the following files with your data:
 
 * `data/disqus.yml` -- remove or change disqus key
 * `data/google_analytics.yml` -- remove or change analytics account id
@@ -24,17 +24,37 @@ To update to the latest upstream with:
     git pull --rebase upstream/master
 
 
-### Workflow
+## Workflow
 
 * `middleman` to start development server
 * `middleman article TITLE` to generate a new article
 * `rake build` to test build
-* `rake publish` to publish (builds and pushes to gh-pages branch on origin)
+* `rake publish` to publish (builds and pushes to gh-pages branch on origin). 
 
+#### Articles
 
-#### Syntax Highlighting
+Articles are written in markdown and also processed with `<%= ERB %>`. Add `published: false` to the YAML bit in the beginning of the article to make it a draft. 
 
-In the article's .markdown.erb:
+#### Images
+
+* image_tag 'image_name.png' 
+<img src="/images/image_name.png">
+
+* article_image_tag 'image_name.png'
+<img src="/images/2016-01-01-my-article-slug/image_name.png">
+
+#### Icons
+
+* glyphicon('play')
+<i class='glyphicon glyphicon-play'></i>
+
+#### Summary / read more:
+
+If the article contains `READMORE`, only the part above `READMORE` will be rendered on the index page, with a read more link. 
+
+#### Syntax Highlighting:
+
+Use `code language do` helper like this:
 
     <% code 'c' do %>
     if (~1) {
