@@ -37,16 +37,16 @@ Articles are written in markdown and also processed with `<%= ERB %>`. Add `publ
 
 #### Images
 
-* image_tag 'image_name.png' 
-<img src="/images/image_name.png">
+    <%= image_tag 'image_name.png' %>
+    <img src="/images/image_name.png">
 
-* article_image_tag 'image_name.png'
-<img src="/images/2016-01-01-my-article-slug/image_name.png">
+    <%= article_image_tag 'image_name.png' %>
+    <img src="/images/2016-01-01-my-article-slug/image_name.png">
 
 #### Icons
 
-* glyphicon('play')
-<i class='glyphicon glyphicon-play'></i>
+    <%= glyphicon('play') %>
+    <i class='glyphicon glyphicon-play'></i>
 
 #### Summary / read more:
 
