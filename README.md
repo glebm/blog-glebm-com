@@ -50,7 +50,7 @@ Articles are written in markdown and also processed with `<%= ERB %>`. Add `publ
 
 #### Summary / read more:
 
-If the article contains `READMORE`, only the part above `READMORE` will be rendered on the index page, with a read more link. 
+If the article contains `READMORE`, the part above `READMORE` will be considered a summary, and will be rendered on the index page with a "Read more" link after it.
 
 #### Syntax Highlighting:
 
