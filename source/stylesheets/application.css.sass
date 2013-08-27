@@ -21,7 +21,7 @@ $btn-default-color: darken($brand-primary, 25%)
 @import 'bootstrap/theme'
 @import 'date_time'
 @import 'syntax-highlight'
-@import url(http://fonts.googleapis.com/css?family=Fenix:400,700|Lato:400,700)
+@import 'fonts'
 
 @mixin font-sans
   font-family: 'Lato', sans-serif
@@ -56,10 +56,8 @@ aside
     overflow: hidden
     @extend .img-circle
     border: 10px solid white
-    max-height: 180px
-    max-width: 180px
-    min-height: 100px
-    min-width: 100px
+    width: 180px
+    height: 180px
   img
     @extend .img-responsive
 
