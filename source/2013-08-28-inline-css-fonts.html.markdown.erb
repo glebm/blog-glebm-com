@@ -28,7 +28,7 @@ You can now deliver the fonts + CSS together in 1 request and the rendering is p
 
 ### There be dragons
 
-* file size +33% due to base64, not so much when gzipped
+* file size +33% due to base64, though not as much when gzipped
 * when there are more fonts files at some point it is faster to download them in parallel. This depends on the font sizes and latency / bandwidth of the audience.
 * public CDN files may already be in browser cache (e.g. the most popular Google Web Fonts)
 * this inlines woff format, [supported][caniuse-woff] everywhere but IE 8 and stock Anroid Browser
