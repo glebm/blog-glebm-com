@@ -5,14 +5,58 @@
   <id>http://blog.glebm.com</id>
   <link href="http://blog.glebm.com"/>
   <link href="http://blog.glebm.com/feed.xml" rel="self"/>
-  <updated>2013-08-23T16:22:00Z</updated>
+  <updated>2013-08-28T16:34:00Z</updated>
   <author>
     <name>Gleb Mazovetskiy</name>
   </author>
   <entry>
+    <title>Inline CSS web fonts</title>
+    <link rel="alternate" href="http://blog.glebm.com/2013/08/28/inline-css-fonts/"/>
+    <id>/2013/08/28/inline-css-fonts/</id>
+    <published>2013-08-28T16:34:00Z</published>
+    <updated>2013-08-28T16:34:00Z</updated>
+    <author>
+      <name>Gleb Mazovetskiy</name>
+    </author>
+    <content type="html">&lt;p&gt;If you serve web fonts via URL, the browsers makes a separate request for every font.&lt;/p&gt;
+
+&lt;p&gt;Fonts in stylesheet in head cause 1 extra request that only starts when the containing CSS is retrieved and processed.
+Referencing fonts from body causes a flash of missing text or font change flash, and requires JS work around for most browsers.&lt;/p&gt;
+
+&lt;p&gt;However, you can avoid extra requests &lt;em&gt;and&lt;/em&gt; rendering issues if you inline the fonts as data-uris.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;p&gt;Inline web fonts with this script:&lt;/p&gt;
+
+&lt;pre class="highlight shell"&gt;&lt;span class="c"&gt;# download inliner and mark it as executable&lt;/span&gt;
+curl https://gist.github.com/glebm/6360088 &amp;gt; inline-css-font.rb; chmod +x inline-css-font.rb
+&lt;span class="c"&gt;# provide URL or path to convert&lt;/span&gt;
+./inline-css-font.rb &lt;span class="s1"&gt;&amp;#39;https://fonts.googleapis.com/css?family=Arimo:400&amp;#39;&lt;/span&gt;
+&lt;/pre&gt;
+&lt;p&gt;&lt;a href="https://gist.github.com/glebm/6360088"&gt;The script&lt;/a&gt; replaces all the &lt;code&gt;url&lt;/code&gt; values with data-uris in &lt;code&gt;woff&lt;/code&gt; format.
+The fonts are now delivered in 1 request together with CSS and the rendering is perfect, no more FOUC or font change.&lt;/p&gt;
+
+&lt;h3 id="there-be-dragons"&gt;There be dragons&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;file size +33% due to base64, not so much when gzipped&lt;/li&gt;
+  &lt;li&gt;when there are more fonts files at some point it is faster to download them in parallel. This depends on the font sizes and latency / bandwidth of the audience.&lt;/li&gt;
+  &lt;li&gt;public CDN files may already be in browser cache (e.g. the most popular Google Web Fonts)&lt;/li&gt;
+  &lt;li&gt;this inlines woff format, &lt;a href="http://caniuse.com/woff"&gt;supported&lt;/a&gt; everywhere but IE 8 and stock Anroid Browser&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Most individual font sizes are in 10 - 20 KB range; if you only use a few font files this could easily cut down initial load times by 5-20%. &lt;em&gt;YMMV!&lt;/em&gt;
+As usual, the key is measuring.&lt;/p&gt;
+
+&lt;p&gt;Alternatively, you could try using &lt;a href="https://developers.google.com/speed/pagespeed/module"&gt;Google Page Speed Module&lt;/a&gt;, which may intellegently apply this and other optimizations but has it's own drawbacks.&lt;/p&gt;
+
+</content>
+  </entry>
+  <entry>
     <title>Store screenshots of your web app in Git</title>
-    <link rel="alternate" href="http://blog.glebm.com/2013/08/23/screenshots-in-git.html"/>
-    <id>/2013/08/23/screenshots-in-git.html</id>
+    <link rel="alternate" href="http://blog.glebm.com/2013/08/23/screenshots-in-git/"/>
+    <id>/2013/08/23/screenshots-in-git/</id>
     <published>2013-08-23T16:22:00Z</published>
     <updated>2013-08-23T16:22:00Z</updated>
     <author>
@@ -28,7 +72,7 @@
 &lt;p&gt;What if every time you commit, you got a visual diff of every web page that changed?
 It is surprisingly easy to do.&lt;/p&gt;
 
-&lt;p&gt;&lt;img class="img-responsive" alt="" width="828" height="296" src="http://blog.glebm.com/images/2013-08-23-screenshots-in-git/gh-img-diff-1.png?1377645087" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img class="img-responsive" alt="" width="828" height="296" src="http://blog.glebm.com/images/2013-08-23-screenshots-in-git/gh-img-diff-1.png?1377711643" /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;
 
@@ -68,7 +112,7 @@ You can also script rewriting images out of older commits via &lt;code&gt;git fi
 
 &lt;p&gt;Below is an image diff as &lt;a href="https://github.com/glebm/rails_email_preview/commit/b6b003bf3a49ecf36d51ecf39dcd57e42e259dad?&amp;amp;diff-1=1-82#L14R3"&gt;rendered by Github&lt;/a&gt;. This is &lt;em&gt;visual version history&lt;/em&gt; and your private &lt;em&gt;git wayback machine&lt;/em&gt;.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href="https://github.com/glebm/rails_email_preview/commit/b6b003bf3a49ecf36d51ecf39dcd57e42e259dad?&amp;amp;diff-1=1-82#L14R3"&gt;&lt;img class="img-responsive" alt="" width="828" height="432" src="http://blog.glebm.com/images/2013-08-23-screenshots-in-git/gh-img-diff-2.png?1377645087" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/glebm/rails_email_preview/commit/b6b003bf3a49ecf36d51ecf39dcd57e42e259dad?&amp;amp;diff-1=1-82#L14R3"&gt;&lt;img class="img-responsive" alt="" width="828" height="432" src="http://blog.glebm.com/images/2013-08-23-screenshots-in-git/gh-img-diff-2.png?1377711643" /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;I hope this post has helped you. Please let me know if you already do this, as I'm curious to hear other approaches.&lt;/p&gt;
 
