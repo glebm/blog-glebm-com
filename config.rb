@@ -16,9 +16,9 @@ activate :blog do |blog|
   blog.summary_separator = /(READMORE)/
   # blog.summary_length = 250
 
-  blog.year_link         = ':year/index.html'
-  blog.month_link        = ':year/:month/index.html'
-  blog.day_link          = ':year/:month/:day/index.html'
+  blog.year_link         = ':year.html'
+  blog.month_link        = ':year/:month.html'
+  blog.day_link          = ':year/:month/:day.html'
 
   # blog.paginate = true
   # blog.per_page = 10
@@ -187,8 +187,6 @@ set :images_dir, 'images'
 
 # Build-specific configuration
 configure :build do
-  activate :directory_indexes
-
   # For example, change the Compass output style for deployment
   activate :minify_css
 
