@@ -10,9 +10,11 @@ If you serve web fonts via URL, the browsers makes a separate request for every 
 Fonts in stylesheet in head cause 1 extra request that only starts when the containing CSS is retrieved and processed.
 Referencing fonts from body causes a flash of missing text or font change flash, and requires JS work around for most browsers.
 
-However, you can avoid extra requests *and* rendering issues if you inline the fonts as data-uris. Here is how you can do it:
+However, you can avoid extra requests *and* rendering issues if you inline the fonts as data-uris.
 
 READMORE
+
+Inline web fonts with this script:
 
 <% code 'bash' do %>
 # download inliner and mark it as executable
@@ -21,7 +23,7 @@ curl https://gist.github.com/glebm/6360088 > inline-css-font.rb; chmod +x inline
 ./inline-css-font.rb 'https://fonts.googleapis.com/css?family=Arimo:400'
 <% end %>
 
-The [inliner script][inline-css-font.rb] replaces all the `url` values with data-uris in `woff` format.
+[The script][inline-css-font.rb] replaces all the `url` values with data-uris in `woff` format.
 The fonts are now delivered in 1 request together with CSS and the rendering is perfect, no more FOUC or font change.
 
 
