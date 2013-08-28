@@ -5,7 +5,7 @@ tags: performance, webfonts
 published: true
 ---
 
-If you serve web fonts via URL, the browsers makes a separate request for every font.
+If you serve web fonts via URL, the browser makes a separate request for every web font.
 
 Fonts in stylesheet in head cause 1 extra request that only starts when the containing CSS is retrieved and processed.
 Referencing fonts from body causes a flash of missing text or font change flash, and requires JS work around for most browsers.
