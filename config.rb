@@ -9,24 +9,25 @@ activate :directory_indexes
 
 # Blog settings
 activate :blog do |blog|
-  # blog.prefix = "blog"
-  # blog.permalink = ":year/:month/:day/:title.html"
-  # blog.sources = ":year-:month-:day-:title.html"
-  # blog.taglink = "tags/:tag.html"
-  blog.layout = 'article_layout'
+  # blog.prefix  = 'blog'
+  blog.permalink         = ':year/:month/:day/:title'
+  blog.sources           = ':year-:month-:day-:title'
+  blog.taglink           = 'tags/:tag'
+  blog.layout            = 'article_layout'
   blog.summary_separator = /(READMORE)/
   # blog.summary_length = 250
-  # blog.year_link = ":year.html"
-  # blog.month_link = ":year/:month.html"
-  # blog.day_link = ":year/:month/:day.html"
-  blog.default_extension = ".markdown.erb"
 
-  blog.tag_template = "tag.html"
-  blog.calendar_template = "calendar.html"
+  blog.year_link         = ':year.html'
+  blog.month_link        = ':year/:month.html'
+  blog.day_link          = ':year/:month/:day'
 
   # blog.paginate = true
   # blog.per_page = 10
   # blog.page_link = "page/:num"
+
+  blog.tag_template      = 'tag.html'
+  blog.calendar_template = 'calendar.html'
+  blog.default_extension = '.markdown.erb'
 end
 
 page '/feed.xml', :layout => false
@@ -79,26 +80,37 @@ helpers do
   def image_tag(*args)
     super(*args).sub /src=['"](.*?)['"]/, "src='#{root_url}\\1'"
   end
+
   def article_url(article = current_article)
     root_url + article.url
   end
 
+  def article_image_url(img)
+    root_url + article_image_path(path)
+  end
+
+  def article_image_path(img)
+    article = current_article || current_resource.metadata[:article]
+    File.join(article.path.sub(/\.\w+$/, ''), img)
+  end
+
   # image in article subfolder
   def article_image_tag(*args)
-    article = current_article || current_resource.metadata[:article]
-    image_tag(File.join(article.path.sub(/\.\w+$/, ''), args.shift), *args)
+    image_tag article_image_path(args.shift), *args
   end
 
   #= layout helpers
   def glyphicon(*keys)
-    attr = keys.extract_options!
+    attr         = keys.extract_options!
     attr[:class] = (['glyphicon'] + keys.map { |k| "glyphicon-#{ERB::Util.html_escape(k)}" }).uniq.compact * ' '
     %Q(<i #{attr_to_s attr}></i>).strip.html_safe
   end
+
+
   # {a: 1, b: 2} => 'a=1 b=2'
   # escapes values
   def attr_to_s(hash)
-    hash.map {|k, v| %(#{k}='#{v.html_safe? ? v : ERB::Util.html_escape(v)}')} * ' '
+    hash.map { |k, v| %(#{k}='#{v.html_safe? ? v : ERB::Util.html_escape(v)}') } * ' '
   end
 
   #= url helpers
@@ -128,18 +140,18 @@ helpers do
   def disqus_comments(opts = {})
     return nil unless data.disqus.site_id
     opts = {
-      site_id: data.disqus.site_id,
+        site_id: data.disqus.site_id,
     }.merge(opts)
     vars = {
-      disqus_shortname: opts[:site_id],
-      disqus_identifier: opts[:id],
-      disqus_title: opts[:title],
-      disqus_url: opts[:url]
+        disqus_shortname:  opts[:site_id],
+        disqus_identifier: opts[:id],
+        disqus_title:      opts[:title],
+        disqus_url:        opts[:url]
     }
-  <<-HTML
+    <<-HTML
     <div id="disqus_thread"></div>
     <script type="text/javascript">
-      #{vars.map {|k,v| "var #{k} = #{v.to_json};" if v.present? }.compact * "\n"}
+      #{vars.map { |k, v| "var #{k} = #{v.to_json};" if v.present? }.compact * "\n"}
       (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
@@ -148,7 +160,7 @@ helpers do
     </script>
     <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-  HTML
+    HTML
   end
 
   def google_analytics_account_id
@@ -178,10 +190,10 @@ set :images_dir, 'images'
 configure :build do
   # For example, change the Compass output style for deployment
   activate :minify_css
-  
+
   # Minify Javascript on build
   activate :minify_javascript
-  
+
   # Enable cache buster
   activate :cache_buster
 
@@ -189,7 +201,7 @@ configure :build do
   # First: gem install middleman-smusher
   require 'middleman-smusher'
   activate :smusher
-  
+
   # Or use a different image path
   # set :http_path, "/Content/images/"
 end

@@ -1,0 +1,42 @@
+---
+title: Inline CSS web fonts
+date: 2013-08-28 18:34 CEST
+tags: webfonts, optimization
+published: true
+---
+
+If you serve web fonts via URL, the browsers makes a separate request for every font.
+
+Fonts in stylesheet in head cause 1 extra request that only starts when the containing CSS is retrieved and processed.
+Referencing fonts from body causes a flash of missing text or font change flash, and requires JS work around for most browsers.
+
+However, you can avoid extra requests *and* rendering issues if you inline the fonts as data-uris. Here is how you can do it:
+
+READMORE
+
+<% code 'bash' do %>
+# download inliner and mark it as executable
+curl https://gist.github.com/glebm/6360088 > inline-css-font.rb; chmod +x inline-css-font.rb
+# provide URL or path to convert
+./inline-css-font.rb 'https://fonts.googleapis.com/css?family=Arimo:400'
+<% end %>
+
+The [inliner script][inline-css-font.rb] replaces all the `url` values with data-uris in `woff` format.
+The fonts are now delivered in 1 request together with CSS and the rendering is perfect, no more FOUC or font change.
+
+
+### There be dragons
+
+* file size +33% due to base64, not so much when gzipped
+* when there are more fonts files at some point it is faster to download them in parallel. This depends on the font sizes and latency / bandwidth of the audience.
+* public CDN files may already be in browser cache (e.g. the most popular Google Web Fonts)
+* this inlines woff format, [supported][caniuse-woff] everywhere but IE 8 and stock Anroid Browser
+
+Most individual font sizes are in 10 - 20 KB range; if you only use a few font files this could easily cut down initial load times by 5-20%. *YMMV!*
+As usual, the key is measuring.
+
+Alternatively, you could try using [Google Page Speed Module][mod-pagespeed], which may intellegently apply this and other optimizations but has it's own drawbacks.
+
+[inline-css-font.rb]: https://gist.github.com/glebm/6360088
+[caniuse-woff]: http://caniuse.com/woff
+[mod-pagespeed]: https://developers.google.com/speed/pagespeed/module
