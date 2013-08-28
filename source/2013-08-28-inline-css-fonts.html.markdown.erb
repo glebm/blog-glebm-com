@@ -33,8 +33,8 @@ You can now deliver the fonts + CSS together in 1 request and the rendering is p
 * public CDN files may already be in browser cache (e.g. the most popular Google Web Fonts)
 * this inlines woff format, [supported][caniuse-woff] everywhere but IE 8 and stock Anroid Browser
 
-Most individual font sizes are in 10 - 20 KB range; if you only use a few font files this could easily cut down initial load times by 5-20%. *YMMV!*
-As usual, the key is measuring.
+Most individual font sizes are in 10 - 20 KB range; if you only use a few font files this could easily cut down initial load times by 5-20%. *YMMV*.
+Measure with any client-side monitoring tool to find out (best if your tool shows the distribution, and not just the average).
 
 Alternatively, you could try using [Google Page Speed Module][mod-pagespeed], which may intellegently apply this and other optimizations but has it's own drawbacks.
 
