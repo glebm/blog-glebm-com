@@ -20,8 +20,8 @@
     </author>
     <content type="html">&lt;p&gt;If you serve web fonts via URL, the browser makes a separate request for every web font.&lt;/p&gt;
 
-&lt;p&gt;Fonts in stylesheet in head cause 1 extra request that only starts when the containing CSS is retrieved and processed.
-Referencing fonts from body causes a flash of missing text or font change flash, and requires JS work around for most browsers.&lt;/p&gt;
+&lt;p&gt;Fonts included from stylesheets in head cause one extra request that only starts when the containing CSS is retrieved and processed.
+Referencing fonts from body causes a flash of missing text or a font change flash, and requires JS work around for most browsers.&lt;/p&gt;
 
 &lt;p&gt;However, you can avoid extra requests &lt;em&gt;and&lt;/em&gt; rendering issues if you inline the fonts as data-uris.&lt;/p&gt;
 
@@ -35,21 +35,23 @@ curl https://gist.github.com/glebm/6360088 &amp;gt; inline-css-font.rb; chmod +x
 ./inline-css-font.rb &lt;span class="s1"&gt;&amp;#39;https://fonts.googleapis.com/css?family=Arimo:400&amp;#39;&lt;/span&gt;
 &lt;/pre&gt;
 &lt;p&gt;&lt;a href="https://gist.github.com/glebm/6360088"&gt;The script&lt;/a&gt; outputs CSS with all the &lt;code&gt;url&lt;/code&gt; values inlined in data-uris, &lt;code&gt;woff&lt;/code&gt; format.
-You can now deliver the fonts + CSS together in 1 request and the rendering is perfect, no more FOUC or font change.&lt;/p&gt;
+You can now deliver the fonts and CSS together in 1 request and the rendering is perfect, 
+no more &lt;a href="http://en.wikipedia.org/wiki/Flash_of_unstyled_content"&gt;&lt;def title="Flash of Unstyled Content"&gt;FOUC&lt;/def&gt;&lt;/a&gt; or font change.&lt;/p&gt;
 
 &lt;h3 id="there-be-dragons"&gt;There be dragons&lt;/h3&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;file size +33% due to base64, though not as much when gzipped&lt;/li&gt;
+  &lt;li&gt;base64 encoding causes a +33% file size increase, but gzip mitigates this&lt;/li&gt;
   &lt;li&gt;when there are more fonts files at some point it is faster to download them in parallel. This depends on the font sizes and latency / bandwidth of the audience.&lt;/li&gt;
   &lt;li&gt;public CDN files may already be in browser cache (e.g. the most popular Google Web Fonts)&lt;/li&gt;
-  &lt;li&gt;this inlines woff format, &lt;a href="http://caniuse.com/woff"&gt;supported&lt;/a&gt; everywhere but IE 8 and stock Anroid Browser&lt;/li&gt;
+  &lt;li&gt;the most common format woff is &lt;a href="http://caniuse.com/woff"&gt;supported&lt;/a&gt; everywhere but IE 8 and stock Anroid Browser,
+you'd have to server other formats to these browsers&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Most individual font sizes are in 10 - 20 KB range; if you only use a few font files this could easily cut down initial load times by 5-20%. &lt;em&gt;YMMV&lt;/em&gt;.
-Measure with any client-side monitoring tool to find out (best if your tool shows the distribution, and not just the average).&lt;/p&gt;
+&lt;p&gt;Most individual font sizes are in 10 - 20 KB range; if you only use a few font files this could easily cut down initial load times by 5-20%.
+Measure with any client-side monitoring tool to find out (it is best if your tool shows the distribution, and not just the average).&lt;/p&gt;
 
-&lt;p&gt;Alternatively, you could try using &lt;a href="https://developers.google.com/speed/pagespeed/module"&gt;Google Page Speed Module&lt;/a&gt;, which may intellegently apply this and other optimizations but has it's own drawbacks.&lt;/p&gt;
+&lt;p&gt;Alternatively, you could try using &lt;a href="https://developers.google.com/speed/pagespeed/module"&gt;Google Page Speed Module&lt;/a&gt;, which may intellegently apply this and other optimizations, but has it's own drawbacks.&lt;/p&gt;
 
 </content>
   </entry>
@@ -72,7 +74,7 @@ Measure with any client-side monitoring tool to find out (best if your tool show
 &lt;p&gt;What if every time you commit, you got a visual diff of every web page that changed?
 It is surprisingly easy to do.&lt;/p&gt;
 
-&lt;p&gt;&lt;img class="img-responsive" alt="" width="828" height="296" src="http://blog.glebm.com/images/2013-08-23-screenshots-in-git/gh-img-diff-1.png?1377717964" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img class="img-responsive" alt="" width="828" height="296" src="http://blog.glebm.com/images/2013-08-23-screenshots-in-git/gh-img-diff-1.png?1377728574" /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;
 
@@ -112,7 +114,7 @@ You can also script rewriting images out of older commits via &lt;code&gt;git fi
 
 &lt;p&gt;Below is an image diff as &lt;a href="https://github.com/glebm/rails_email_preview/commit/b6b003bf3a49ecf36d51ecf39dcd57e42e259dad?&amp;amp;diff-1=1-82#L14R3"&gt;rendered by Github&lt;/a&gt;. This is &lt;em&gt;visual version history&lt;/em&gt; and your private &lt;em&gt;git wayback machine&lt;/em&gt;.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href="https://github.com/glebm/rails_email_preview/commit/b6b003bf3a49ecf36d51ecf39dcd57e42e259dad?&amp;amp;diff-1=1-82#L14R3"&gt;&lt;img class="img-responsive" alt="" width="828" height="432" src="http://blog.glebm.com/images/2013-08-23-screenshots-in-git/gh-img-diff-2.png?1377717964" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/glebm/rails_email_preview/commit/b6b003bf3a49ecf36d51ecf39dcd57e42e259dad?&amp;amp;diff-1=1-82#L14R3"&gt;&lt;img class="img-responsive" alt="" width="828" height="432" src="http://blog.glebm.com/images/2013-08-23-screenshots-in-git/gh-img-diff-2.png?1377728574" /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;I hope this post has helped you. Please let me know if you already do this, as I'm curious to hear other approaches.&lt;/p&gt;
 
