@@ -6,7 +6,7 @@ html
     meta http-equiv='X-UA-Compatible' content='IE=edge;chrome=1'
     meta name="viewport" content="width=device-width, initial-scale=1.0"
     = favicon_tag 'favicon.ico'
-    link rel="alternate" type="application/rss+xml" title="#{data.blog.title} RSS" href="#{data.urls.site_url}feed.xml"
+    link rel="alternate" type="application/atom+xml" title="#{data.blog.title} Feed" href=atom_feed_url
     title
       = content_for?(:page_title) ? yield_content(:page_title) : data.blog.title
     = stylesheet_link_tag 'application'

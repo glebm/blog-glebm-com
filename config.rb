@@ -122,7 +122,7 @@ helpers do
     end
   end
 
-  def rss_feed_url
+  def atom_feed_url
     "#{root_url}/feed.xml"
   end
 
