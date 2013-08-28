@@ -7,8 +7,8 @@ published: true
 
 If you serve web fonts via URL, the browser makes a separate request for every web font.
 
-Fonts in stylesheet in head cause 1 extra request that only starts when the containing CSS is retrieved and processed.
-Referencing fonts from body causes a flash of missing text or font change flash, and requires JS work around for most browsers.
+Fonts included from stylesheets in head cause one extra request that only starts when the containing CSS is retrieved and processed.
+Referencing fonts from body causes a flash of missing text or a font change flash, and requires JS work around for most browsers.
 
 However, you can avoid extra requests *and* rendering issues if you inline the fonts as data-uris.
 
@@ -24,19 +24,21 @@ curl https://gist.github.com/glebm/6360088 > inline-css-font.rb; chmod +x inline
 <% end %>
 
 [The script][inline-css-font.rb] outputs CSS with all the `url` values inlined in data-uris, `woff` format.
-You can now deliver the fonts + CSS together in 1 request and the rendering is perfect, no more FOUC or font change.
+You can now deliver the fonts and CSS together in 1 request and the rendering is perfect, 
+no more <a href="http://en.wikipedia.org/wiki/Flash_of_unstyled_content"><def title="Flash of Unstyled Content">FOUC</def></a> or font change.
 
 ### There be dragons
 
-* file size +33% due to base64, though not as much when gzipped
+* base64 encoding causes a +33% file size increase, but gzip mitigates this
 * when there are more fonts files at some point it is faster to download them in parallel. This depends on the font sizes and latency / bandwidth of the audience.
 * public CDN files may already be in browser cache (e.g. the most popular Google Web Fonts)
-* this inlines woff format, [supported][caniuse-woff] everywhere but IE 8 and stock Anroid Browser
+* the most common format woff is [supported][caniuse-woff] everywhere but IE 8 and stock Anroid Browser,
+  you'd have to server other formats to these browsers
 
-Most individual font sizes are in 10 - 20 KB range; if you only use a few font files this could easily cut down initial load times by 5-20%. *YMMV*.
-Measure with any client-side monitoring tool to find out (best if your tool shows the distribution, and not just the average).
+Most individual font sizes are in 10 - 20 KB range; if you only use a few font files this could easily cut down initial load times by 5-20%.
+Measure with any client-side monitoring tool to find out (it is best if your tool shows the distribution, and not just the average).
 
-Alternatively, you could try using [Google Page Speed Module][mod-pagespeed], which may intellegently apply this and other optimizations but has it's own drawbacks.
+Alternatively, you could try using [Google Page Speed Module][mod-pagespeed], which may intellegently apply this and other optimizations, but has it's own drawbacks.
 
 [inline-css-font.rb]: https://gist.github.com/glebm/6360088
 [caniuse-woff]: http://caniuse.com/woff
