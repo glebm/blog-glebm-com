@@ -23,9 +23,8 @@ curl https://gist.github.com/glebm/6360088 > inline-css-font.rb; chmod +x inline
 ./inline-css-font.rb 'https://fonts.googleapis.com/css?family=Arimo:400'
 <% end %>
 
-[The script][inline-css-font.rb] replaces all the `url` values with data-uris in `woff` format.
-The fonts are now delivered in 1 request together with CSS and the rendering is perfect, no more FOUC or font change.
-
+[The script][inline-css-font.rb] outputs CSS with all the `url` values inlined in data-uris, `woff` format.
+You can now deliver the fonts + CSS together in 1 request, and the rendering is perfect, no more FOUC or font change.
 
 ### There be dragons
 
