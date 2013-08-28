@@ -2,8 +2,8 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Gleb's Notes</title>
   <subtitle>Dev thought and protips, release announcements and rant</subtitle>
-  <id>http://blog.glebm.com</id>
-  <link href="http://blog.glebm.com"/>
+  <id>http://blog.glebm.com/</id>
+  <link href="http://blog.glebm.com/"/>
   <link href="http://blog.glebm.com/feed.xml" rel="self"/>
   <updated>2013-08-28T16:34:00Z</updated>
   <author>
@@ -12,7 +12,7 @@
   <entry>
     <title>Inline CSS web fonts</title>
     <link rel="alternate" href="http://blog.glebm.com/2013/08/28/inline-css-fonts.html"/>
-    <id>/2013/08/28/inline-css-fonts.html</id>
+    <id>http://blog.glebm.com//2013/08/28/inline-css-fonts.html</id>
     <published>2013-08-28T16:34:00Z</published>
     <updated>2013-08-28T16:34:00Z</updated>
     <author>
@@ -56,7 +56,7 @@ As usual, the key is measuring.&lt;/p&gt;
   <entry>
     <title>Store screenshots of your web app in Git</title>
     <link rel="alternate" href="http://blog.glebm.com/2013/08/23/screenshots-in-git.html"/>
-    <id>/2013/08/23/screenshots-in-git.html</id>
+    <id>http://blog.glebm.com//2013/08/23/screenshots-in-git.html</id>
     <published>2013-08-23T16:22:00Z</published>
     <updated>2013-08-23T16:22:00Z</updated>
     <author>
@@ -72,7 +72,7 @@ As usual, the key is measuring.&lt;/p&gt;
 &lt;p&gt;What if every time you commit, you got a visual diff of every web page that changed?
 It is surprisingly easy to do.&lt;/p&gt;
 
-&lt;p&gt;&lt;img class="img-responsive" alt="" width="828" height="296" src="http://blog.glebm.com/images/2013-08-23-screenshots-in-git/gh-img-diff-1.png?1377713017" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img class="img-responsive" alt="" width="828" height="296" src="http://blog.glebm.com/images/2013-08-23-screenshots-in-git/gh-img-diff-1.png?1377713732" /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;
 
@@ -112,7 +112,7 @@ You can also script rewriting images out of older commits via &lt;code&gt;git fi
 
 &lt;p&gt;Below is an image diff as &lt;a href="https://github.com/glebm/rails_email_preview/commit/b6b003bf3a49ecf36d51ecf39dcd57e42e259dad?&amp;amp;diff-1=1-82#L14R3"&gt;rendered by Github&lt;/a&gt;. This is &lt;em&gt;visual version history&lt;/em&gt; and your private &lt;em&gt;git wayback machine&lt;/em&gt;.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href="https://github.com/glebm/rails_email_preview/commit/b6b003bf3a49ecf36d51ecf39dcd57e42e259dad?&amp;amp;diff-1=1-82#L14R3"&gt;&lt;img class="img-responsive" alt="" width="828" height="432" src="http://blog.glebm.com/images/2013-08-23-screenshots-in-git/gh-img-diff-2.png?1377713017" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/glebm/rails_email_preview/commit/b6b003bf3a49ecf36d51ecf39dcd57e42e259dad?&amp;amp;diff-1=1-82#L14R3"&gt;&lt;img class="img-responsive" alt="" width="828" height="432" src="http://blog.glebm.com/images/2013-08-23-screenshots-in-git/gh-img-diff-2.png?1377713732" /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;I hope this post has helped you. Please let me know if you already do this, as I'm curious to hear other approaches.&lt;/p&gt;
 
