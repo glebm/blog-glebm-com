@@ -15,11 +15,7 @@ ruby:
 h1
   ' Archive for #{period}
 
-- if paginate
-  p Page #{page_number} of #{num_pages}
-
-  - if prev_page
-    p= link_to 'Previous page', prev_page
+= partial 'pagination_top'
 
 ul.list-group
   - page_articles.each_with_index do |article, i|
@@ -28,6 +24,4 @@ ul.list-group
       = ' '
       .badge= article.date.strftime('%b %e')
 
-- if paginate
-  - if next_page
-    p= link_to 'Next page', next_page
+= partial 'pagination_bottom'
