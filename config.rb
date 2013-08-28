@@ -26,7 +26,7 @@ activate :blog do |blog|
 
   blog.tag_template      = 'tag.html'
   blog.calendar_template = 'calendar.html'
-  blog.default_extension = '.markdown.erb'
+  blog.default_extension = '.html.markdown.erb'
 end
 
 page '/feed.xml', :layout => false
