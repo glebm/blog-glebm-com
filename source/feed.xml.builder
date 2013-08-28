@@ -2,8 +2,8 @@ xml.instruct!
 xml.feed "xmlns" => "http://www.w3.org/2005/Atom" do
   xml.title data.blog.title
   xml.subtitle data.blog.subtitle
-  xml.id data.urls.root
-  xml.link "href" => data.urls.root
+  xml.id "#{root_url}/"
+  xml.link "href" => "#{root_url}/"
   xml.link "href" => atom_feed_url, "rel" => "self"
   xml.updated blog.articles.first.date.to_time.iso8601 unless blog.articles.empty?
   xml.author { xml.name data.author.name }
@@ -12,7 +12,7 @@ xml.feed "xmlns" => "http://www.w3.org/2005/Atom" do
     xml.entry do
       xml.title article.title
       xml.link "rel" => "alternate", "href" => article_url(article)
-      xml.id article.url
+      xml.id "#{root_url}/#{article.url}"
       xml.published article.date.to_time.iso8601
       xml.updated article.date.to_time.iso8601
       xml.author { xml.name data.author.name }
