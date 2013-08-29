@@ -132,8 +132,9 @@ helpers do
   end
 
   # other helpers
-  def blog_article_comments(article = current_article)
-    disqus_comments(id: article.slug, url: article_url(article), title: article.title)
+  def blog_article_comments(article = current_article, opts = {})
+    opts = {id: article.slug.sub(/\.html$/, ''), url: article_url(article), title: article.title}.merge(opts)
+    disqus_comments(opts)
   end
 
   def disqus_comments(opts = {})
