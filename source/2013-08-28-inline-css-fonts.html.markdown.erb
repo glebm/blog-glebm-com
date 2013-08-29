@@ -33,7 +33,7 @@ no more <a href="http://en.wikipedia.org/wiki/Flash_of_unstyled_content"><def ti
 * when there are more fonts files at some point it is faster to download them in parallel. This depends on the font sizes and latency / bandwidth of the audience.
 * public CDN files may already be in browser cache (e.g. the most popular Google Web Fonts)
 * the most common format woff is [supported][caniuse-woff] everywhere but IE 8 and stock Anroid Browser,
-  you'd have to server other formats to these browsers
+  you'd have to serve other formats to these browsers
 
 Most individual font sizes are in 10 - 20 KB range; if you only use a few font files this could easily cut down initial load times by 5-20%.
 Measure with any client-side monitoring tool to find out (it is best if your tool shows the distribution, and not just the average).
