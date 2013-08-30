@@ -30,9 +30,9 @@ Referencing fonts from body causes a flash of missing text or a font change flas
 &lt;p&gt;Inline web fonts with this script:&lt;/p&gt;
 
 &lt;pre class="highlight shell"&gt;&lt;span class="c"&gt;# download inliner and mark it as executable&lt;/span&gt;
-curl https://gist.github.com/glebm/6360088/raw &amp;gt; inline-css-font.rb; chmod +x inline-css-font.rb
+curl https://gist.github.com/glebm/6360088/raw &amp;gt; inline-fonts.rb; chmod +x inline-fonts.rb
 &lt;span class="c"&gt;# provide URL or path to convert&lt;/span&gt;
-./inline-css-font.rb &lt;span class="s1"&gt;&amp;#39;https://fonts.googleapis.com/css?family=Arimo:400&amp;#39;&lt;/span&gt;
+./inline-fonts.rb &lt;span class="s1"&gt;&amp;#39;https://fonts.googleapis.com/css?family=Arimo:400&amp;#39;&lt;/span&gt;
 &lt;/pre&gt;
 &lt;p&gt;&lt;a href="https://gist.github.com/glebm/6360088"&gt;The script&lt;/a&gt; outputs CSS with all the &lt;code&gt;url&lt;/code&gt; values inlined in data-uris, &lt;code&gt;woff&lt;/code&gt; format.
 You can now deliver the fonts and CSS together in 1 request and the rendering is perfect, 
@@ -74,7 +74,7 @@ Measure with any client-side monitoring tool to find out (it is best if your too
 &lt;p&gt;What if every time you commit, you got a visual diff of every web page that changed?
 It is surprisingly easy to do.&lt;/p&gt;
 
-&lt;p&gt;&lt;img class="img-responsive" alt="" width="828" height="296" src="http://blog.glebm.com/images/2013-08-23-screenshots-in-git/gh-img-diff-1.png?1377905833" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img class="img-responsive" alt="" width="828" height="296" src="http://blog.glebm.com/images/2013-08-23-screenshots-in-git/gh-img-diff-1.png?1377906004" /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;
 
@@ -114,7 +114,7 @@ You can also script rewriting images out of older commits via &lt;code&gt;git fi
 
 &lt;p&gt;Below is an image diff as &lt;a href="https://github.com/glebm/rails_email_preview/commit/b6b003bf3a49ecf36d51ecf39dcd57e42e259dad?&amp;amp;diff-1=1-82#L14R3"&gt;rendered by Github&lt;/a&gt;. This is &lt;em&gt;visual version history&lt;/em&gt; and your private &lt;em&gt;git wayback machine&lt;/em&gt;.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href="https://github.com/glebm/rails_email_preview/commit/b6b003bf3a49ecf36d51ecf39dcd57e42e259dad?&amp;amp;diff-1=1-82#L14R3"&gt;&lt;img class="img-responsive" alt="" width="828" height="432" src="http://blog.glebm.com/images/2013-08-23-screenshots-in-git/gh-img-diff-2.png?1377905833" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/glebm/rails_email_preview/commit/b6b003bf3a49ecf36d51ecf39dcd57e42e259dad?&amp;amp;diff-1=1-82#L14R3"&gt;&lt;img class="img-responsive" alt="" width="828" height="432" src="http://blog.glebm.com/images/2013-08-23-screenshots-in-git/gh-img-diff-2.png?1377906004" /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;I hope this post has helped you. Please let me know if you already do this, as I'm curious to hear other approaches.&lt;/p&gt;
 
