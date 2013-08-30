@@ -18,9 +18,9 @@ Inline web fonts with this script:
 
 <% code 'bash' do %>
 # download inliner and mark it as executable
-curl https://gist.github.com/glebm/6360088/raw > inline-css-font.rb; chmod +x inline-css-font.rb
+curl https://gist.github.com/glebm/6360088/raw > inline-fonts.rb; chmod +x inline-fonts.rb
 # provide URL or path to convert
-./inline-css-font.rb 'https://fonts.googleapis.com/css?family=Arimo:400'
+./inline-fonts.rb 'https://fonts.googleapis.com/css?family=Arimo:400'
 <% end %>
 
 [The script][inline-css-font.rb] outputs CSS with all the `url` values inlined in data-uris, `woff` format.
