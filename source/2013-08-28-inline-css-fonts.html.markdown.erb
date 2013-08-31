@@ -38,11 +38,11 @@ no more <a href="http://en.wikipedia.org/wiki/Flash_of_unstyled_content"><def ti
 ### There be dragons
 
 * base64 encoding causes a +33% file size increase, but gzip mitigates this
-* when there are more fonts files at some point it is faster to download them in parallel. This depends on the font sizes and latency / bandwidth of the audience.
+* when there are more fonts files at some point it is faster to download them in parallel, depending on the font sizes and latency / bandwidth of the audience.
 * public CDN files may already be in browser cache (e.g. the most popular Google Web Fonts)
 * the most common format woff is [supported][caniuse-woff] everywhere but IE 8, stock Anroid Browser,
-  and Chrome on Windows, which has a [general rendering issue][chrome-font-issue] with some fonts; you will have to serve other formats to these browsers
-* data-uri base64 [may be slow on Android 2 and iOS 5][mobify-data-uris-article]
+  and Chrome on Windows, which has a [general rendering issue][chrome-font-issue] with some fonts, and base64 [is slow on Android 2 and iOS 5][mobify-data-uris-article].
+  You will have to serve other formats to these browsers
 
 Most individual font sizes are in 10 - 20 KB range; if you only use a few font files this could easily cut down initial load times by 5-20%.
 Measure with any client-side monitoring tool to find out (it is best if your tool shows the distribution, and not just the average).
