@@ -25,10 +25,10 @@ Here is a memory usage benchmark with random int values between 0 and 10:
 To benchmark access speed let's try some random accesses on a large list:
 
 <% code 'bash' do %>
-    bm_speed: 3,000,000 keys, 100 random range reads
-    user     system      total        real
-    regular                0.380000   0.040000   0.420000 (  0.686875)
-    partitioned            0.390000   0.060000   0.450000 (  0.482544)
+bm_speed: 3,000,000 keys, 100 random range reads
+                           user     system      total        real
+regular                0.380000   0.040000   0.420000 (  0.686875)
+partitioned            0.390000   0.060000   0.450000 (  0.482544)
 <% end %>
 
 Even despite Ruby overhead we still have both wall-clock time and memory savings.
