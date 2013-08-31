@@ -25,7 +25,8 @@ To benchmark access speed let's try some random accesses on a large list:
 <% code 'bash' do %>
 <% end %>
 
-Speed savings *and* memory savings. This is because a redis list is a linked list, so getting ranges out of it is slow. However, it is much faster for a partitioned list, since we can get to the start and end of each partition in `O(1)`.
+Speed savings *and* memory savings. This is because a regular redis list is a linked list, so getting ranges out of it is slow.
+However, when we use this technique the list is partitioned, and it only takes `O(1)` to get to the correct partition.
 
 
 I published a [Ruby implementation][redis-stats-int_series.rb] of this approach for int and time series.
