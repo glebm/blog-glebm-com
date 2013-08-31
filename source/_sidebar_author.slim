@@ -2,5 +2,5 @@
   = image_tag 'author.jpg'
 ul.list-unstyled
   li: abbr title=data.author.name @#{data.author.twitter}
-  li = link_to 'Twitter', 'https://twitter.com/' + data.author.twitter
-  li = link_to 'Github', 'https://github.com/' + data.author.github
+  li = link_to 'Twitter', 'https://twitter.com/' + data.author.twitter, rel: 'me'
+  li = link_to 'Github', 'https://github.com/' + data.author.github, rel: 'me'
