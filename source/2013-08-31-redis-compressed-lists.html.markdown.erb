@@ -14,6 +14,7 @@ Redis compresses small lists with zip, reducing their memory usage by 10-40% for
 The exact list size threshold at which redis stops compressing is defined by the `list-max-ziplist-entries` setting and defaults to 512.
 
 Here is the trick: we will transparently partition a list into many small lists of `list-max-ziplist-entries` size.
+By storing lists under the threshold, we take advantage of redis' ability to compress them.
 
 Here is a memory usage benchmark:
 
@@ -27,6 +28,10 @@ To benchmark access speed let's try some random accesses on a large list:
 Speed savings *and* memory savings. This is because a redis list is a linked list, so getting ranges out of it is slow. However, it is much faster for a partitioned list, since we can get to the start and end of each partition in `O(1)`.
 
 
-I published a [Ruby implementation][https://github.com/glebm/redis_stats/blob/master/lib/redis_stats/int_series.rb] of this approach for int and time series.
+I published a [Ruby implementation][redis-stats-int_series.rb] of this approach for int and time series.
 
 Is anyone doing something similar? I am curious to hear other approaches
+
+[redis-stats-int_series.rb]: https://github.com/glebm/redis_stats/blob/master/lib/redis_stats/int_series.rb
+
+*Thanks [@ddtrejo](https://twitter.com/ddtrejo) for your edits and suggestions!*
