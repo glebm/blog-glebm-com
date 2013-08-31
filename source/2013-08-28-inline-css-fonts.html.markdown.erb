@@ -40,8 +40,8 @@ no more <a href="http://en.wikipedia.org/wiki/Flash_of_unstyled_content"><def ti
 * base64 encoding causes a +33% file size increase, but gzip mitigates this
 * when there are more fonts files at some point it is faster to download them in parallel. This depends on the font sizes and latency / bandwidth of the audience.
 * public CDN files may already be in browser cache (e.g. the most popular Google Web Fonts)
-* the most common format woff is [supported][caniuse-woff] everywhere but IE 8 and stock Anroid Browser,
-  you'd have to serve other formats to these browsers
+* the most common format woff is [supported][caniuse-woff] everywhere but IE 8, stock Anroid Browser,
+  and Chrome on Windows, which has a [rendering issue][chrome-font-issue] with some fonts; you will have to serve other formats to these browsers
 * data-uri [may be slow on Android 2 and iOS 5][mobify-data-uris-article]
 
 Most individual font sizes are in 10 - 20 KB range; if you only use a few font files this could easily cut down initial load times by 5-20%.
@@ -64,3 +64,4 @@ Alternatively, you could try using [Google Page Speed Module][mod-pagespeed], wh
 [caniuse-woff]: http://caniuse.com/woff
 [mod-pagespeed]: https://developers.google.com/speed/pagespeed/module
 [mobify-data-uris-article]: http://www.mobify.com/blog/data-uris-are-slow-on-mobile/
+[chrome-font-issue]: https://code.google.com/p/chromium/issues/detail?id=137692
