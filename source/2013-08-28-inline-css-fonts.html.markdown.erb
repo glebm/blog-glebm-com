@@ -7,8 +7,16 @@ published: true
 
 If you serve web fonts via URL, the browser makes a separate request for every web font.
 
-Fonts included from stylesheets in head cause one extra request that only starts when the containing CSS is retrieved and processed.
-Referencing fonts from body causes a flash of missing text or a font change flash, and requires JS work around for most browsers.
+This is what the timeline looks like for a URL referenced font:
+
+<%= article_image_tag 'tl-body.png' %>
+
+<h4 class="text-center">
+  <span style='color: rgba(0, 0, 255, 0.67)'>Ready</span> <span style='color: rgba(255, 0, 0, 0.78)'>Load</span>
+</h4>
+
+Fonts included from stylesheets cause extra requests that only starts once the DOM has loaded.
+This introduces extra requests, causes a flash of missing text or a font change flash while the fonts are loading.
 
 However, you can avoid extra requests *and* rendering issues if you inline the fonts as data-uris.
 
@@ -37,6 +45,12 @@ no more <a href="http://en.wikipedia.org/wiki/Flash_of_unstyled_content"><def ti
 
 Most individual font sizes are in 10 - 20 KB range; if you only use a few font files this could easily cut down initial load times by 5-20%.
 Measure with any client-side monitoring tool to find out (it is best if your tool shows the distribution, and not just the average).
+
+This is what the timeline looks like once the fonts are inlined:
+
+<%= article_image_tag 'tl-inline.png' %>
+
+When inlined, all the fonts are finished downloading before DOMContentReady fires.
 
 Alternatively, you could try using [Google Page Speed Module][mod-pagespeed], which may intellegently apply this and other optimizations, but has it's own drawbacks.
 
