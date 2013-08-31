@@ -16,7 +16,7 @@ This is what the timeline looks like for a URL referenced font:
 </h4>
 
 Fonts included from stylesheets cause extra requests that only starts once the DOM has loaded.
-This introduces extra requests, causes a flash of missing text or a font change flash while the fonts are loading.
+This causes a delay and flash of missing text or a font change flash while the fonts are loading.
 
 However, you can avoid extra requests *and* rendering issues if you inline the fonts as data-uris.
 
