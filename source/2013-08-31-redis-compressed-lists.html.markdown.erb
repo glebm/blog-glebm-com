@@ -11,7 +11,7 @@ However, the storage capacity of redis is capped by RAM size, so care is require
 
 I will show you a trick to reduce memory usage and improve the speed of the redis *list* type for storing series-type data (e.g. time series).
 Redis compresses small lists with zip, reducing their memory usage by 10-40% for numeric data.
-The exact list size threshold at which redis stops compressing it is defined by `list-max-ziplist-entries` setting and defaults to 512.
+The exact list size threshold at which redis stops compressing is defined by `list-max-ziplist-entries` setting and defaults to 512.
 
 Here is the trick: we will transparently partition a list into many small list of size `list-max-ziplist-entries`.
 
