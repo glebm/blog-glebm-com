@@ -48,4 +48,11 @@ Are you doing something similar? I am curious to hear other approaches.
 * You can implement a similar trick for hashes and sets, redis will compress them based on the respective `-ziplist-entries` values.
 * Tested on redis 2.6.14, installed via homebrew on OS X 10.8.3.
 
+
+#### See also
+
+* [Discussion on Hacker News](https://news.ycombinator.com/item?id=6307769).
+* Instagram dev blog post on [storing key-value pairs using partitioned hashes][instagram-partitioned-hashes].
+
+[instagram-partitioned-hashes]: http://instagram-engineering.tumblr.com/post/12202313862/storing-hundreds-of-millions-of-simple-key-value-pairs
 [redis-stats-int_series.rb]: https://github.com/glebm/redis_stats/blob/master/lib/redis_stats/int_series.rb
