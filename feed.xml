@@ -5,10 +5,64 @@
   <id>http://blog.glebm.com/</id>
   <link href="http://blog.glebm.com/"/>
   <link href="http://blog.glebm.com/feed.xml" rel="self"/>
-  <updated>2013-08-28T16:34:00Z</updated>
+  <updated>2013-08-31T16:54:00Z</updated>
   <author>
     <name>Gleb Mazovetskiy</name>
   </author>
+  <entry>
+    <title>Partition lists in Redis</title>
+    <link rel="alternate" href="http://blog.glebm.com/2013/08/31/redis-compressed-lists.html"/>
+    <id>http://blog.glebm.com//2013/08/31/redis-compressed-lists.html</id>
+    <published>2013-08-31T16:54:00Z</published>
+    <updated>2013-08-31T16:54:00Z</updated>
+    <author>
+      <name>Gleb Mazovetskiy</name>
+    </author>
+    <content type="html">&lt;p&gt;Redis is great for storing certain types of data that do not do well in a relational database.
+It is great for storing caches and statistics too.
+However, the storage capacity of redis is capped by RAM size, so care is required when storing large amounts of data in it.&lt;/p&gt;
+
+&lt;p&gt;I will show you a trick to reduce memory usage and improve the speed of the redis &lt;em&gt;list&lt;/em&gt; type for storing series-type data (e.g. time series).
+Redis compresses small lists with zip, reducing their memory usage by 10-40% for numeric data.
+The exact list size threshold at which redis stops compressing is defined by the &lt;code&gt;list-max-ziplist-entries&lt;/code&gt; setting and defaults to 512.&lt;/p&gt;
+
+&lt;p&gt;Here is the trick: we will transparently partition a list into many small lists of &lt;code&gt;list-max-ziplist-entries&lt;/code&gt; size.
+By storing lists under the threshold, we take advantage of redis' ability to compress them.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;p&gt;Here is a memory usage benchmark with random int values between 0 and 10:&lt;/p&gt;
+
+&lt;p&gt;&lt;img class="img-responsive" alt="" width="1200" height="600" src="http://blog.glebm.com/images/2013-08-31-redis-compressed-lists/bm-512.png?1377976105" /&gt;&lt;/p&gt;
+
+&lt;p&gt;To benchmark access speed let's try some random accesses on a large list:&lt;/p&gt;
+
+&lt;pre class="highlight shell"&gt;    bm_speed: 3,000,000 keys, 100 random range reads
+    user     system      total        real
+    regular                0.380000   0.040000   0.420000 &lt;span class="o"&gt;(&lt;/span&gt;  0.686875&lt;span class="o"&gt;)&lt;/span&gt;
+    partitioned            0.390000   0.060000   0.450000 &lt;span class="o"&gt;(&lt;/span&gt;  0.482544&lt;span class="o"&gt;)&lt;/span&gt;
+&lt;/pre&gt;
+&lt;p&gt;Even despite Ruby overhead we still have both wall-clock time and memory savings.
+A regular redis list is a linked list, so getting ranges out of it is slow.
+However, when we use this technique the list is partitioned, and it only takes &lt;code&gt;O(1)&lt;/code&gt; to get to the correct partition.
+As you increase &lt;code&gt;list-max-ziplist-entries&lt;/code&gt;, memory savings increase and range queries get slower.&lt;/p&gt;
+
+&lt;p&gt;I published a &lt;a href="https://github.com/glebm/redis_stats/blob/master/lib/redis_stats/int_series.rb"&gt;Ruby implementation&lt;/a&gt; of this approach for int and time series.&lt;/p&gt;
+
+&lt;p&gt;Are you doing something similar? I am curious to hear other approaches.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Thanks &lt;a href="https://twitter.com/ddtrejo"&gt;@ddtrejo&lt;/a&gt; for your edits and suggestions!&lt;/em&gt;&lt;/p&gt;
+
+&lt;h4 id="notes"&gt;Notes&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Compression efficiency highly depends on the type of data. Uniformly random data will not compress well. Benchmark with your real data.&lt;/li&gt;
+  &lt;li&gt;You can implement a similar trick for hashes and sets, redis will compress them based on the respective &lt;code&gt;-ziplist-entries&lt;/code&gt; values.&lt;/li&gt;
+  &lt;li&gt;Tested on redis 2.6.14, installed via homebrew on OS X 10.8.3.&lt;/li&gt;
+&lt;/ul&gt;
+
+</content>
+  </entry>
   <entry>
     <title>Inline CSS web fonts</title>
     <link rel="alternate" href="http://blog.glebm.com/2013/08/28/inline-css-fonts.html"/>
@@ -22,7 +76,7 @@
 
 &lt;p&gt;This is what the timeline looks like for a URL referenced font:&lt;/p&gt;
 
-&lt;p&gt;&lt;img alt="" width="469" height="281" src="http://blog.glebm.com/images/2013-08-28-inline-css-fonts/tl-body.png?1377957521" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img class="img-responsive" alt="" width="469" height="281" src="http://blog.glebm.com/images/2013-08-28-inline-css-fonts/tl-body.png?1377976105" /&gt;&lt;/p&gt;
 
 &lt;h4 class="text-center"&gt;
   &lt;span style="color: rgba(0, 0, 255, 0.67)"&gt;Ready&lt;/span&gt; &lt;span style="color: rgba(255, 0, 0, 0.78)"&gt;Load&lt;/span&gt;
@@ -62,7 +116,7 @@ Measure with any client-side monitoring tool to find out (it is best if your too
 
 &lt;p&gt;This is what the timeline looks like once the fonts are inlined:&lt;/p&gt;
 
-&lt;p&gt;&lt;img alt="" width="642" height="453" src="http://blog.glebm.com/images/2013-08-28-inline-css-fonts/tl-inline.png?1377957521" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img class="img-responsive" alt="" width="642" height="453" src="http://blog.glebm.com/images/2013-08-28-inline-css-fonts/tl-inline.png?1377976105" /&gt;&lt;/p&gt;
 
 &lt;p&gt;When inlined, all the fonts are finished downloading before DOMContentReady fires.&lt;/p&gt;
 
@@ -96,7 +150,7 @@ Measure with any client-side monitoring tool to find out (it is best if your too
 &lt;p&gt;What if every time you commit, you got a visual diff of every web page that changed?
 It is surprisingly easy to do.&lt;/p&gt;
 
-&lt;p&gt;&lt;img class="img-responsive" alt="" width="828" height="296" src="http://blog.glebm.com/images/2013-08-23-screenshots-in-git/gh-img-diff-1.png?1377957521" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img class="img-responsive" alt="" width="828" height="296" src="http://blog.glebm.com/images/2013-08-23-screenshots-in-git/gh-img-diff-1.png?1377976105" /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;
 
@@ -136,7 +190,7 @@ You can also script rewriting images out of older commits via &lt;code&gt;git fi
 
 &lt;p&gt;Below is an image diff as &lt;a href="https://github.com/glebm/rails_email_preview/commit/b6b003bf3a49ecf36d51ecf39dcd57e42e259dad?&amp;amp;diff-1=1-82#L14R3"&gt;rendered by Github&lt;/a&gt;. This is &lt;em&gt;visual version history&lt;/em&gt; and your private &lt;em&gt;git wayback machine&lt;/em&gt;.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href="https://github.com/glebm/rails_email_preview/commit/b6b003bf3a49ecf36d51ecf39dcd57e42e259dad?&amp;amp;diff-1=1-82#L14R3"&gt;&lt;img class="img-responsive" alt="" width="828" height="432" src="http://blog.glebm.com/images/2013-08-23-screenshots-in-git/gh-img-diff-2.png?1377957521" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/glebm/rails_email_preview/commit/b6b003bf3a49ecf36d51ecf39dcd57e42e259dad?&amp;amp;diff-1=1-82#L14R3"&gt;&lt;img class="img-responsive" alt="" width="828" height="432" src="http://blog.glebm.com/images/2013-08-23-screenshots-in-git/gh-img-diff-2.png?1377976105" /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;I hope this post has helped you. Please let me know if you already do this, as I'm curious to hear other approaches.&lt;/p&gt;
 
