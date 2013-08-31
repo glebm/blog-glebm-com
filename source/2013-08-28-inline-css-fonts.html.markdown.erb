@@ -42,6 +42,7 @@ no more <a href="http://en.wikipedia.org/wiki/Flash_of_unstyled_content"><def ti
 * public CDN files may already be in browser cache (e.g. the most popular Google Web Fonts)
 * the most common format woff is [supported][caniuse-woff] everywhere but IE 8 and stock Anroid Browser,
   you'd have to serve other formats to these browsers
+* Data URIs [may be slow on Android 2 and iOS 5][mobify-data-uris-article]
 
 Most individual font sizes are in 10 - 20 KB range; if you only use a few font files this could easily cut down initial load times by 5-20%.
 Measure with any client-side monitoring tool to find out (it is best if your tool shows the distribution, and not just the average).
@@ -54,6 +55,12 @@ When inlined, all the fonts are finished downloading before DOMContentReady fire
 
 Alternatively, you could try using [Google Page Speed Module][mod-pagespeed], which may intellegently apply this and other optimizations, but has it's own drawbacks.
 
+#### See also
+
+* [Discussion on Hacker News](https://news.ycombinator.com/item?id=6304999) - stories of dragons.
+
+
 [inline-css-font.rb]: https://gist.github.com/glebm/6360088
 [caniuse-woff]: http://caniuse.com/woff
 [mod-pagespeed]: https://developers.google.com/speed/pagespeed/module
+[mobify-data-uris-article]: http://www.mobify.com/blog/data-uris-are-slow-on-mobile/
