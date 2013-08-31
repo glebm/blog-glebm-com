@@ -1,8 +1,8 @@
 ---
-title: Redis Compressed Lists
+title: "Partition lists in Redis"
 date: 2013-08-31 18:54 CEST
 tags: redis, performance, ruby
-published: false
+published: true
 ---
 
 Redis is great for storing certain types of data that do not do well in a relational database.
@@ -16,23 +16,36 @@ The exact list size threshold at which redis stops compressing is defined by the
 Here is the trick: we will transparently partition a list into many small lists of `list-max-ziplist-entries` size.
 By storing lists under the threshold, we take advantage of redis' ability to compress them.
 
-Here is a memory usage benchmark:
+READMORE
+
+Here is a memory usage benchmark with random int values between 0 and 10:
 
 <%= article_image_tag 'bm-512.png', class: 'img-responsive' %>
 
 To benchmark access speed let's try some random accesses on a large list:
 
 <% code 'bash' do %>
+    bm_speed: 3,000,000 keys, 100 random range reads
+    user     system      total        real
+    regular                0.380000   0.040000   0.420000 (  0.686875)
+    partitioned            0.390000   0.060000   0.450000 (  0.482544)
 <% end %>
 
-Speed savings *and* memory savings. This is because a regular redis list is a linked list, so getting ranges out of it is slow.
+Even despite Ruby overhead we still have both wall-clock time and memory savings.
+A regular redis list is a linked list, so getting ranges out of it is slow.
 However, when we use this technique the list is partitioned, and it only takes `O(1)` to get to the correct partition.
-
+As you increase `list-max-ziplist-entries`, memory savings increase and range queries get slower.
 
 I published a [Ruby implementation][redis-stats-int_series.rb] of this approach for int and time series.
 
 Are you doing something similar? I am curious to hear other approaches.
 
-[redis-stats-int_series.rb]: https://github.com/glebm/redis_stats/blob/master/lib/redis_stats/int_series.rb
-
 *Thanks [@ddtrejo](https://twitter.com/ddtrejo) for your edits and suggestions!*
+
+#### Notes
+
+* Compression efficiency highly depends on the type of data. Uniformly random data will not compress well. Benchmark with your real data.
+* You can implement a similar trick for hashes and sets, redis will compress them based on the respective `-ziplist-entries` values.
+* Tested on redis 2.6.14, installed via homebrew on OS X 10.8.3.
+
+[redis-stats-int_series.rb]: https://github.com/glebm/redis_stats/blob/master/lib/redis_stats/int_series.rb
