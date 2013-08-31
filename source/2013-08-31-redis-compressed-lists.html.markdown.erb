@@ -5,12 +5,13 @@ tags: redis, performance, ruby
 published: false
 ---
 
-Redis is great for storing certain types of data that do not do well in DB. It's great for storing caches and stats too.
-However, the storage capacity of redid is capped by RAM size, so care is required when storing large amounts of data in it.
+Redis is great for storing certain types of data that do not do well in a relational database.
+It is great for storing caches and statistics too.
+However, the storage capacity of redis is capped by RAM size, so care is required when storing large amounts of data in it.
 
-I will show you a trick to reduce memory usage and improve the speed of redis *list* type for storing series-type data (e.g. time series).
-Redis will compress small lists with zip, reducing their memory usage by 10-40% for numeric data.
-The exact list size threshold at which redis will stop compressing it is defined by `list-max-ziplist-entries` setting and defaults to 512.
+I will show you a trick to reduce memory usage and improve the speed of the redis *list* type for storing series-type data (e.g. time series).
+Redis compresses small lists with zip, reducing their memory usage by 10-40% for numeric data.
+The exact list size threshold at which redis stops compressing it is defined by `list-max-ziplist-entries` setting and defaults to 512.
 
 Here is the trick: we will transparently partition a list into many small list of size `list-max-ziplist-entries`.
 
