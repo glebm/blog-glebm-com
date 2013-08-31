@@ -10,7 +10,7 @@
 
 <p>This is what the timeline looks like for a URL referenced font:</p>
 
-<p><img alt="" width="469" height="281" src="http://blog.glebm.com/images/2013-08-28-inline-css-fonts/tl-body.png?1377912442" /></p>
+<p><img alt="" width="469" height="281" src="http://blog.glebm.com/images/2013-08-28-inline-css-fonts/tl-body.png?1377913463" /></p>
 
 <h4 class="text-center">
   <span style="color: rgba(0, 0, 255, 0.67)">Ready</span> <span style="color: rgba(255, 0, 0, 0.78)">Load</span>
@@ -38,11 +38,11 @@ no more <a href="http://en.wikipedia.org/wiki/Flash_of_unstyled_content"><def ti
 
 <ul>
   <li>base64 encoding causes a +33% file size increase, but gzip mitigates this</li>
-  <li>when there are more fonts files at some point it is faster to download them in parallel. This depends on the font sizes and latency / bandwidth of the audience.</li>
+  <li>when there are more fonts files at some point it is faster to download them in parallel, depending on the font sizes and latency / bandwidth of the audience.</li>
   <li>public CDN files may already be in browser cache (e.g. the most popular Google Web Fonts)</li>
   <li>the most common format woff is <a href="http://caniuse.com/woff">supported</a> everywhere but IE 8, stock Anroid Browser,
-and Chrome on Windows, which has a <a href="https://code.google.com/p/chromium/issues/detail?id=137692">general rendering issue</a> with some fonts; you will have to serve other formats to these browsers</li>
-  <li>data-uri base64 <a href="http://www.mobify.com/blog/data-uris-are-slow-on-mobile/">may be slow on Android 2 and iOS 5</a></li>
+and Chrome on Windows, which has a <a href="https://code.google.com/p/chromium/issues/detail?id=137692">general rendering issue</a> with some fonts, and base64 <a href="http://www.mobify.com/blog/data-uris-are-slow-on-mobile/">is slow on Android 2 and iOS 5</a>.
+You will have to serve other formats to these browsers</li>
 </ul>
 
 <p>Most individual font sizes are in 10 - 20 KB range; if you only use a few font files this could easily cut down initial load times by 5-20%.
@@ -50,7 +50,7 @@ Measure with any client-side monitoring tool to find out (it is best if your too
 
 <p>This is what the timeline looks like once the fonts are inlined:</p>
 
-<p><img alt="" width="642" height="453" src="http://blog.glebm.com/images/2013-08-28-inline-css-fonts/tl-inline.png?1377912442" /></p>
+<p><img alt="" width="642" height="453" src="http://blog.glebm.com/images/2013-08-28-inline-css-fonts/tl-inline.png?1377913463" /></p>
 
 <p>When inlined, all the fonts are finished downloading before DOMContentReady fires.</p>
 
@@ -76,4 +76,4 @@ var disqus_url = "http://blog.glebm.com/2013/08/28/inline-css-fonts.html";
     </script>
     <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-</div></div></div></div><div class="col-md-3"><aside class="sidebar"><div class="row"><div class="col-xs-12 col-sm-6 col-md-12"><div class="person-img"><img alt="" width="400" height="400" src='http://blog.glebm.com/images/author.jpg?1377912442' /></div><ul class="list-unstyled"><li><abbr title="Gleb Mazovetskiy">@glebm</abbr></li><li><a href="https://twitter.com/glebm">Twitter</a></li><li><a href="https://github.com/glebm">Github</a></li></ul><p>Check out my projects:</p><ul class="list-unstyled"><li><a href="http://zuigo.com/en/madrid">Zuigo</a></li></ul></div><div class="col-xs-12 col-sm-6 col-md-12"><h3>Articles</h3><ol class="list-unstyled"><li><a href="/2013/08/28/inline-css-fonts.html">Inline CSS web fonts</a> <div class="badge">Aug 28</div></li><li><a href="/2013/08/23/screenshots-in-git.html">Store screenshots of your web app in Git</a> <div class="badge">Aug 23</div></li></ol><hr /><ul class="list-unstyled"><li><a href="http://blog.glebm.com/feed.xml">Feed</a></li><li><a href="https://github.com/glebm/blog-glebm-com">This blog on Github</a></li></ul></div></div></aside></div></div></div></body></html>
+</div></div></div></div><div class="col-md-3"><aside class="sidebar"><div class="row"><div class="col-xs-12 col-sm-6 col-md-12"><div class="person-img"><img alt="" width="400" height="400" src='http://blog.glebm.com/images/author.jpg?1377913463' /></div><ul class="list-unstyled"><li><abbr title="Gleb Mazovetskiy">@glebm</abbr></li><li><a href="https://twitter.com/glebm">Twitter</a></li><li><a href="https://github.com/glebm">Github</a></li></ul><p>Check out my projects:</p><ul class="list-unstyled"><li><a href="http://zuigo.com/en/madrid">Zuigo</a></li></ul></div><div class="col-xs-12 col-sm-6 col-md-12"><h3>Articles</h3><ol class="list-unstyled"><li><a href="/2013/08/28/inline-css-fonts.html">Inline CSS web fonts</a> <div class="badge">Aug 28</div></li><li><a href="/2013/08/23/screenshots-in-git.html">Store screenshots of your web app in Git</a> <div class="badge">Aug 23</div></li></ol><hr /><ul class="list-unstyled"><li><a href="http://blog.glebm.com/feed.xml">Feed</a></li><li><a href="https://github.com/glebm/blog-glebm-com">This blog on Github</a></li></ul></div></div></aside></div></div></div></body></html>
