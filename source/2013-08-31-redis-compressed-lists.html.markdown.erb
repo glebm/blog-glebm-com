@@ -1,5 +1,5 @@
 ---
-title: "Save Redis memory with large list compression"
+title: "Save Redis memory with large list packing"
 date: 2013-08-31 18:54 CEST
 tags: redis, performance, ruby
 published: true
@@ -10,11 +10,11 @@ It is great for storing caches and statistics too.
 However, the storage capacity of redis is capped by RAM size, so care is required when storing large amounts of data in it.
 
 I will show you a trick to reduce memory usage and improve the speed of the redis *list* type for storing series-type data (e.g. time series).
-Redis compresses small lists with zip, reducing their memory usage by 10-40% for numeric data.
+Redis [packs](https://github.com/antirez/redis/blob/unstable/src/ziplist.c) small lists of ints, reducing their memory usage by 10-40%.
 The exact list size threshold at which redis stops compressing is defined by the `list-max-ziplist-entries` setting and defaults to 512.
 
 Here is the trick: we will transparently partition a list into many small lists of `list-max-ziplist-entries` size.
-By storing lists under the threshold, we take advantage of redis' ability to compress them.
+By storing lists under the threshold, we take advantage of redis' ability to pack them.
 
 READMORE
 
@@ -44,7 +44,7 @@ Are you doing something similar? I am curious to hear other approaches.
 
 #### Notes
 
-* Compression efficiency highly depends on the type of data. Uniformly random data will not compress well. Benchmark with your real data.
+* Packing efficiency depends on the data. Benchmark with your real data.
 * You can implement a similar trick for hashes and sets, redis will compress them based on the respective `-ziplist-entries` values.
 * Tested on redis 2.6.14, installed via homebrew on OS X 10.8.3.
 
@@ -53,6 +53,7 @@ Are you doing something similar? I am curious to hear other approaches.
 
 * [Discussion on Hacker News](https://news.ycombinator.com/item?id=6307769).
 * Instagram dev blog post on [storing key-value pairs using partitioned hashes][instagram-partitioned-hashes].
+* [Redis in Action](http://www.manning.com/carlson/) book by [@dr_josiah](https://twitter.com/dr_josiah).
 
 [instagram-partitioned-hashes]: http://instagram-engineering.tumblr.com/post/12202313862/storing-hundreds-of-millions-of-simple-key-value-pairs
 [redis-stats-int_series.rb]: https://github.com/glebm/redis_stats/blob/master/lib/redis_stats/int_series.rb
