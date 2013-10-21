@@ -32,6 +32,9 @@ $btn-default-color: darken($brand-primary, 25%)
 @mixin font-h
   +font-sans
   font-weight: 700
+@mixin font-bold
+  font-family: 'Lato', sans-serif
+  font-weight: bold
 
 .navbar-inverse
   border-radius: 0
@@ -116,6 +119,10 @@ body
   color: $text-color
   background-color: $body-bg
   +lined-paper-bg
+
+b, strong
+  +font-bold
+
 h1, h2, h3, h4
   +font-h
   color: darken($brand-primary, 6%)
