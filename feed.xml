@@ -20,9 +20,11 @@
     </author>
     <content type="html">&lt;p&gt;The ability to understand the beauty of math requires rigorous study. However, most people do not have access to the kind of training pure math requires.&lt;/p&gt;
 
-&lt;p&gt;Many of my friends easily get interested in the subject when I show them beautiful proofs and constructs, but I am at loss when they ask for resources to learn more, since we had never used books in our studies. During class, the teacher would show the art of math by proving theorems and building constructs together with the students using only the whiteboard.&lt;/p&gt;
+&lt;p&gt;Many of my friends easily get interested in the subject when they are shown beautiful proofs and constructs, but I am at loss when they ask for resources to learn more, since we had never used books in our studies. During class, the teacher would show the art of math by proving theorems and building constructs together with the students using only the whiteboard.&lt;/p&gt;
 
-&lt;p&gt;I am looking for books on that are suitable for beginners (while still formal and not dumbed down) and emphasize the beauty and love for math, on the following subjects:&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+
+&lt;p&gt;I am looking for books or online courses on that are suitable for beginners (while still formal and not dumbed down) and emphasize the beauty and love for math, on the following subjects:&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Intro to sets, mappings, boolean logic, predicate theory&lt;/li&gt;
@@ -31,12 +33,12 @@
   &lt;li&gt;Set theory, measure theory, functional analysis&lt;/li&gt;
   &lt;li&gt;Combinatorics, graph theory&lt;/li&gt;
   &lt;li&gt;Language theory, lambda calculus&lt;/li&gt;
-  &lt;li&gt;More fields that I've missed?&lt;/li&gt;
+  &lt;li&gt;Other subjects that are not in this list&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;It's probably good if the books are structured as naturally developing theorems, with exercises being main story lemmas or side plot results.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Please post your favorite pure math books in the comments.&lt;/strong&gt; &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Please post your favorite pure math books in the comments.&lt;/strong&gt;&lt;/p&gt;
 </content>
   </entry>
   <entry>
@@ -63,7 +65,7 @@ By storing lists under the threshold, we take advantage of redis' ability to pac
 
 &lt;p&gt;Here is a memory usage benchmark with random int values between 0 and 10:&lt;/p&gt;
 
-&lt;p&gt;&lt;img class="img-responsive" alt="" width="1200" height="600" src="http://blog.glebm.com/images/2013-08-31-redis-compressed-lists/bm-512.png?1382380575" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img class="img-responsive" alt="" width="1200" height="600" src="http://blog.glebm.com/images/2013-08-31-redis-compressed-lists/bm-512.png?1382381036" /&gt;&lt;/p&gt;
 
 &lt;p&gt;To benchmark access speed let's try some random accesses on a large list:&lt;/p&gt;
 
@@ -114,7 +116,7 @@ As you increase &lt;code&gt;list-max-ziplist-entries&lt;/code&gt;, memory saving
 
 &lt;p&gt;This is what the timeline looks like for a URL referenced font:&lt;/p&gt;
 
-&lt;p&gt;&lt;img class="img-responsive" alt="" width="469" height="281" src="http://blog.glebm.com/images/2013-08-28-inline-css-fonts/tl-body.png?1382380575" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img class="img-responsive" alt="" width="469" height="281" src="http://blog.glebm.com/images/2013-08-28-inline-css-fonts/tl-body.png?1382381036" /&gt;&lt;/p&gt;
 
 &lt;h4 class="text-center"&gt;
   &lt;span style="color: rgba(0, 0, 255, 0.67)"&gt;Ready&lt;/span&gt; &lt;span style="color: rgba(255, 0, 0, 0.78)"&gt;Load&lt;/span&gt;
@@ -154,7 +156,7 @@ Measure with any client-side monitoring tool to find out (it is best if your too
 
 &lt;p&gt;This is what the timeline looks like once the fonts are inlined:&lt;/p&gt;
 
-&lt;p&gt;&lt;img class="img-responsive" alt="" width="642" height="453" src="http://blog.glebm.com/images/2013-08-28-inline-css-fonts/tl-inline.png?1382380575" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img class="img-responsive" alt="" width="642" height="453" src="http://blog.glebm.com/images/2013-08-28-inline-css-fonts/tl-inline.png?1382381036" /&gt;&lt;/p&gt;
 
 &lt;p&gt;When inlined, all the fonts are finished downloading before DOMContentReady fires.&lt;/p&gt;
 
@@ -188,7 +190,7 @@ Measure with any client-side monitoring tool to find out (it is best if your too
 &lt;p&gt;What if every time you commit, you got a visual diff of every web page that changed?
 It is surprisingly easy to do.&lt;/p&gt;
 
-&lt;p&gt;&lt;img class="img-responsive" alt="" width="828" height="296" src="http://blog.glebm.com/images/2013-08-23-screenshots-in-git/gh-img-diff-1.png?1382380575" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img class="img-responsive" alt="" width="828" height="296" src="http://blog.glebm.com/images/2013-08-23-screenshots-in-git/gh-img-diff-1.png?1382381036" /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;
 
@@ -228,7 +230,7 @@ You can also script rewriting images out of older commits via &lt;code&gt;git fi
 
 &lt;p&gt;Below is an image diff as &lt;a href="https://github.com/glebm/rails_email_preview/commit/b6b003bf3a49ecf36d51ecf39dcd57e42e259dad?&amp;amp;diff-1=1-82#L14R3"&gt;rendered by Github&lt;/a&gt;. This is &lt;em&gt;visual version history&lt;/em&gt; and your private &lt;em&gt;git wayback machine&lt;/em&gt;.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href="https://github.com/glebm/rails_email_preview/commit/b6b003bf3a49ecf36d51ecf39dcd57e42e259dad?&amp;amp;diff-1=1-82#L14R3"&gt;&lt;img class="img-responsive" alt="" width="828" height="432" src="http://blog.glebm.com/images/2013-08-23-screenshots-in-git/gh-img-diff-2.png?1382380575" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/glebm/rails_email_preview/commit/b6b003bf3a49ecf36d51ecf39dcd57e42e259dad?&amp;amp;diff-1=1-82#L14R3"&gt;&lt;img class="img-responsive" alt="" width="828" height="432" src="http://blog.glebm.com/images/2013-08-23-screenshots-in-git/gh-img-diff-2.png?1382381036" /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;I hope this post has helped you. Please let me know if you already do this, as I'm curious to hear other approaches.&lt;/p&gt;
 
