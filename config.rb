@@ -105,6 +105,11 @@ helpers do
     %Q(<i #{attr_to_s attr}></i>).strip.html_safe
   end
 
+  def fa(*keys)
+    attr         = keys.extract_options!
+    attr[:class] = (['fa'] + keys.map { |k| "fa-#{ERB::Util.html_escape(k)}" }).uniq.compact * ' '
+    %Q(<i #{attr_to_s attr}></i>).strip.html_safe
+  end
 
   # {a: 1, b: 2} => 'a=1 b=2'
   # escapes values

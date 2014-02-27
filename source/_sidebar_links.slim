@@ -1,5 +1,5 @@
-.list-group
-  a.list-group-item href=atom_feed_url
-    | Atom Feed
-  a.list-group-item href=data.urls.source
-    | This blog on Github
+ul.nav.nav-stacked.text-left.nav-pills
+  li: a href=atom_feed_url
+    | #{fa 'rss', 'fw'} Atom Feed
+  li: a href=data.urls.source
+    | #{fa 'code-fork', 'fw'} This blog on Github

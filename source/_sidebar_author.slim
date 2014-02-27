@@ -3,8 +3,8 @@
 
 p: abbr title=data.author.name @#{data.author.twitter}
 p
-  span.btn-group.btn-group-sm
-    a.btn.btn-default href=('https://twitter.com/' + data.author.twitter) rel="me"
-      | Twitter
-    a.btn.btn-default href=('https://github.com/' + data.author.github) rel="me"
-      | Github
+  ul.nav.nav-pills.nav-justified
+    li: a href=('https://twitter.com/' + data.author.twitter) rel="me"
+      | #{fa :twitter} Twitter
+    li: a href=('https://github.com/' + data.author.github) rel="me"
+      | #{fa :github} Github

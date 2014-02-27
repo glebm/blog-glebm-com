@@ -1,7 +1,10 @@
 h3 Articles
-.list-group.text-left
-  - blog.articles[0...10].each do |article|
-    a.list-group-item href=article_url(article)
-      .badge= article.date.strftime('%b %e')
-      = article.title
-      '
+ul.nav.nav-pills.nav-stacked
+  - max = 10
+  - blog.articles[0...max].each do |article|
+    li class=('active' if current_page.path == article.path)
+      a href=article_url(article)
+        = article.title
+  - if blog.articles.length > max 
+    li: a href=root_url
+      | #{fa 'plus', 'fw'} #{max - blog.articles.length} more

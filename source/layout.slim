@@ -10,6 +10,7 @@ html
     title
       = content_for?(:page_title) ? yield_content(:page_title) : data.blog.title
     = stylesheet_link_tag 'application'
+    link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet"
     = javascript_include_tag '//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'
     = javascript_include_tag 'application'
     = "\n"
