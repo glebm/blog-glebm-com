@@ -6,6 +6,7 @@ gem 'middleman-smusher'
 gem 'middleman-syntax'
 gem 'bootstrap-sass'
 gem 'slim'
+gem 'middleman-autoprefixer'
 
 gem 'better_errors'
 gem 'binding_of_caller'

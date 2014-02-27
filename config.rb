@@ -73,11 +73,21 @@ page '/feed.xml', :layout => false
 # Automatic image dimensions on image_tag helper
 activate :automatic_image_sizes
 
+activate :autoprefixer, browsers: ['last 2 versions', 'ie >= 9']
+
 # Methods defined in the helpers block are available in templates
 helpers do
   #= absolutize image_tag and article URLs
   def image_tag(*args)
     super(*args).sub /src=['"](.*?)['"]/, "src='#{root_url}\\1'"
+  end
+
+  def main_class(val = nil)
+    if val
+      @main_class = Array(@main_class) + [val]
+    else
+      @main_class || 'animated fade-in'
+    end
   end
 
   def article_url(article = current_article)

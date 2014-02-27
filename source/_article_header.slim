@@ -1,2 +1,3 @@
 .article-date = render_date(current_article.date)
-h1 = current_article.title
+h1
+  a href=article_url(current_article) = current_article.title

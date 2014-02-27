@@ -1,0 +1,67 @@
+.animated
+  animation-duration: 0.25s
+  animation-fill-mode: both
+
+@keyframes tada
+  0%
+    -webkit-transform: scale(1)
+    -ms-transform: scale(1)
+    transform: scale(1)
+
+  10%, 20%
+    -webkit-transform: scale(0.9) rotate(-3deg)
+    -ms-transform: scale(0.9) rotate(-3deg)
+    transform: scale(0.9) rotate(-3deg)
+
+
+  30%, 50%, 70%, 90%
+    -webkit-transform: scale(1.1) rotate(3deg)
+    -ms-transform: scale(1.1) rotate(3deg)
+    transform: scale(1.1) rotate(3deg)
+
+
+  40%, 60%, 80%
+    -webkit-transform: scale(1.1) rotate(-3deg)
+    -ms-transform: scale(1.1) rotate(-3deg)
+    transform: scale(1.1) rotate(-3deg)
+
+  100%
+    transform: scale(1) rotate(0)
+
+.tada
+  animation-name: tada
+
+
+@keyframes fadeIn
+  0%
+    opacity: 0.9
+
+  100%
+    opacity: 1
+
+.fade-in
+  animation-name: fadeIn
+
+@keyframes fadeInDown
+  0%
+    opacity: 0.9
+    transform: translateY(-10px)
+
+  100%
+    opacity: 1
+    transform: translateY(0)
+
+.fade-in-down
+  animation-name: fadeInUp
+
+@keyframes fadeInUp
+  0%
+    opacity: 0.9
+    transform: translateY(10px)
+
+  100%
+    opacity: 1
+    transform: translateY(0)
+
+.fade-in-up
+  animation-name: fadeInUp
