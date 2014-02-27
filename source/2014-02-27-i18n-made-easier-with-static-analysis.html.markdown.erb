@@ -1,0 +1,51 @@
+---
+title: i18n made easier with static analysis
+date: 2014-02-27 09:41 CET
+tags: i18n, ruby
+---
+
+The default model of i18n key management in frameworks such as Rails is broken.
+
+If developer uses a key that doesn't exist, this will only blow up at runtime.
+If a bit of code is removed, keys that are no longer used may still be present in the resource files, introducing unnecessary overhead on the developer.
+Translation files can quickly become an unordered mess.
+
+[i18n-tasks](https://github.com/glebm/i18n-tasks) is a gem that can improve all of this by employing static analysis.
+
+READMORE
+
+It can make translation easier in many ways:
+
+<% code 'bash' do %>
+$ i18n-tasks
+Usage: i18n-tasks <command> [options]
+    -v, --version      Print the version
+    -h, --help         Display this help message.
+
+Available commands:
+
+  missing             show missing translations
+  unused              show unused translations
+  translate-missing   translate missing keys with Google Translate
+  add-missing         add missing keys to the locales
+  find                show where the keys are used in the code
+  normalize           normalize translation data: sort and move to the right files
+  remove-unused       remove unused keys
+  config              display i18n-tasks configuration
+  xlsx-report         save missing and unused translations to an Excel file
+
+See `<command> --help` for more information on a specific command.
+<% end %>
+
+There are lots of settings and you can use this on non-ruby codebases.
+
+Reports come rendered in colourful full-resolution [terminal tables](https://github.com/visionmedia/terminal-table):
+
+<a href="https://github.com/glebm/i18n-tasks" target="_blank"><img width="534" height="288" src="https://raw.github.com/glebm/i18n-tasks/master/doc/img/i18n-tasks.png" style="max-width:100%;"></a>
+
+<% code 'bash' do %>
+$ i18n-tasks usages 'activities.*'
+<% end %>
+
+<a href="https://github.com/glebm/i18n-tasks" target="_blank"><img src="https://raw.github.com/glebm/i18n-tasks/master/doc/img/i18n-usages.png" alt="i18n-screenshot" title="i18n-tasks find output screenshot" style="max-width:100%;"></a>
+
