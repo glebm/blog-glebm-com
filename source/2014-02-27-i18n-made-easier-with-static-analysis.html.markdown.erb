@@ -6,9 +6,9 @@ tags: i18n, ruby
 
 The default model of i18n key management in frameworks such as Rails is broken.
 
-If developer uses a key that doesn't exist, this will only blow up at runtime.
-If a bit of code is removed, keys that are no longer used may still be present in the resource files, introducing unnecessary overhead on the developer.
-Translation files can quickly become an unordered mess.
+If you use a key that does not exist, this will only blow up at runtime.
+Keys left over from removed code accumulate in the resource files, introducing unnecessary overhead on the translators.
+Translation files can quickly turn to disarray.
 
 [i18n-tasks](https://github.com/glebm/i18n-tasks) is a gem that can improve all of this by employing static analysis.
 
