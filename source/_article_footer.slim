@@ -5,7 +5,7 @@
       ' permalink
     input.input-sm.form-control.select-text-on-click id='permalink-input' type='text' value='#{article_url(current_article)}'
 
-  a.twitter-share-button href="https://twitter.com/share" data-size='large' data-url="#{article_url(current_article)}" data-via="glebm" data-lang="en"
+  .twtr-share: a.twitter-share-button href="https://twitter.com/share" data-size='large' data-url="#{article_url(current_article)}" data-via="glebm" data-lang="en"
     | Tweet
 
   .suggest-edit
