@@ -1,6 +1,10 @@
 .person-img
   = image_tag 'author.jpg'
-ul.list-unstyled
-  li: abbr title=data.author.name @#{data.author.twitter}
-  li = link_to 'Twitter', 'https://twitter.com/' + data.author.twitter, rel: 'me'
-  li = link_to 'Github', 'https://github.com/' + data.author.github, rel: 'me'
+
+p: abbr title=data.author.name @#{data.author.twitter}
+p
+  span.btn-group.btn-group-sm
+    a.btn.btn-default href=('https://twitter.com/' + data.author.twitter) rel="me"
+      | Twitter
+    a.btn.btn-default href=('https://github.com/' + data.author.github) rel="me"
+      | Github
