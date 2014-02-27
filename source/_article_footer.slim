@@ -5,6 +5,9 @@
       ' permalink
     input.input-sm.form-control.select-text-on-click id='permalink-input' type='text' value='#{article_url(current_article)}'
 
+  a.twitter-share-button href="https://twitter.com/share" data-size='large' data-url="#{article_url(current_article)}" data-via="glebm" data-lang="en"
+    | Tweet
+
   .suggest-edit
-    a.btn.btn-default href=suggest_edit_article_url(current_article)
+    a.btn.btn-default.btn-sm href=suggest_edit_article_url(current_article)
       | #{glyphicon 'edit'} Suggest edit
