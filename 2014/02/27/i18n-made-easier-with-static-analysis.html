@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8" /><meta content="IE=edge;chrome=1" http-equiv="X-UA-Compatible" /><meta content="width=device-width, initial-scale=1.0" name="viewport" /><link href="/images/favicon.ico" rel="icon" type="image/ico" /><link href="http://blog.glebm.com/feed.xml" rel="alternate" title="Gleb's Notes Feed" type="application/atom+xml" /><title>i18n made easier with static analysis on Gleb's Notes</title><link href="/stylesheets/application.css?1393492261" media="screen" rel="stylesheet" type="text/css" /><script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script><script src="/javascripts/application.js?1393492259" type="text/javascript"></script>
+</head><body><script type="text/javascript">      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-43451052-1', 'glebm.com');
+      ga('send', 'pageview');
+</script><header class="navbar navbar-inverse"><div class="container"><div class="navbar-header"><button class="navbar-toggle" data-target=".bs-navbar-collapse" data-toggle="collapse" type="button"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><div class="navbar-brand"><a href="/">Gleb's Notes</a></div></div><nav class="collapse navbar-collapse bs-navbar-collapse nav-default"><ul class="nav navbar-nav"><li><a href="/">Index</a></li></ul></nav></div></header><div class="container"><div class="row"><div class="col-md-9 col-lg-9"><div id="main" role="main"><div class="article-layout"><article class="blog-article"><div class="article-date"><span class='date'> <span class='day'>27</span> <span class='month'>Feb</span>  </span></div><h1>i18n made easier with static analysis</h1><div class="article-body"><p>The default model of i18n key management in frameworks such as Rails is broken.</p>
+
+<p>If developer uses a key that doesn't exist, this will only blow up at runtime.
+If a bit of code is removed, keys that are no longer used may still be present in the resource files, introducing unnecessary overhead on the developer.
+Translation files can quickly become an unordered mess.</p>
+
+<p><a href="https://github.com/glebm/i18n-tasks">i18n-tasks</a> is a gem that can improve all of this by employing static analysis.</p>
+
+<p></p>
+
+<p>It can make translation easier in many ways:</p>
+
+<pre class="highlight shell"><span class="gp">$ </span>i18n-tasks
+Usage: i18n-tasks &lt;<span class="nb">command</span>&gt; <span class="o">[</span>options]
+    -v, --version      Print the version
+    -h, --help         Display this <span class="nb">help </span>message.
+
+Available commands:
+
+  missing             show missing translations
+  unused              show unused translations
+  translate-missing   translate missing keys with Google Translate
+  add-missing         add missing keys to the locales
+  find                show where the keys are used <span class="k">in </span>the code
+  normalize           normalize translation data: sort and move to the right files
+  remove-unused       remove unused keys
+  config              display i18n-tasks configuration
+  xlsx-report         save missing and unused translations to an Excel file
+
+See <span class="sb">`</span>&lt;<span class="nb">command</span>&gt; --help<span class="sb">`</span> <span class="k">for </span>more information on a specific command.
+</pre>
+<p>There are lots of settings and you can use this on non-ruby codebases.</p>
+
+<p>Reports come rendered in colourful full-resolution <a href="https://github.com/visionmedia/terminal-table">terminal tables</a>:</p>
+
+<p><a href="https://github.com/glebm/i18n-tasks" target="_blank"><img width="534" height="288" src="https://raw.github.com/glebm/i18n-tasks/master/doc/img/i18n-tasks.png" style="max-width:100%;" /></a></p>
+
+<pre class="highlight shell"><span class="gp">$ </span>i18n-tasks usages <span class="s1">&#39;activities.*&#39;</span>
+</pre>
+<p><a href="https://github.com/glebm/i18n-tasks" target="_blank"><img src="https://raw.github.com/glebm/i18n-tasks/master/doc/img/i18n-usages.png" alt="i18n-screenshot" title="i18n-tasks find output screenshot" style="max-width:100%;" /></a></p>
+
+</div><div class="article-footer"><div class="permalink"><label class="form-label text-muted" for="permalink-input">permalink </label><input class="input-sm form-control select-text-on-click" id="permalink-input" type="text" value="http://blog.glebm.com/2014/02/27/i18n-made-easier-with-static-analysis.html" /></div><a class="twitter-share-button" data-lang="en" data-size="large" data-url="http://blog.glebm.com/2014/02/27/i18n-made-easier-with-static-analysis.html" data-via="glebm" href="https://twitter.com/share">Tweet</a><div class="suggest-edit"><a class="btn btn-default btn-sm" href="https://github.com/glebm/blog-glebm-com/blob/master/source/2014-02-27-i18n-made-easier-with-static-analysis.html.markdown.erb"><i class='glyphicon glyphicon-edit'></i> Suggest edit</a></div></div></article><div class="comments">    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+      var disqus_shortname = "blog-glebm";
+var disqus_identifier = "i18n-made-easier-with-static-analysis";
+var disqus_title = "i18n made easier with static analysis";
+var disqus_url = "http://blog.glebm.com/2014/02/27/i18n-made-easier-with-static-analysis.html";
+      (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div></div></div></div><div class="col-md-3"><aside class="sidebar"><div class="row"><div class="col-xs-12 col-sm-6 col-md-12"><div class="person-img"><img alt="" width="400" height="400" src='http://blog.glebm.com/images/author.jpg?1393492258' /></div><ul class="list-unstyled"><li><abbr title="Gleb Mazovetskiy">@glebm</abbr></li><li><a rel="me" href="https://twitter.com/glebm">Twitter</a></li><li><a rel="me" href="https://github.com/glebm">Github</a></li></ul><p>Check out my projects:</p><ul class="list-unstyled"><li><a href="http://zuigo.com/en/madrid">Zuigo</a></li></ul></div><div class="col-xs-12 col-sm-6 col-md-12"><h3>Articles</h3><ol class="list-unstyled"><li><a href="/2014/02/27/i18n-made-easier-with-static-analysis.html">i18n made easier with static analysis</a> <div class="badge">Feb 27</div></li><li><a href="/2013/10/21/exploring-math-without-a-teacher.html">Exploring math without a teacher?</a> <div class="badge">Oct 21</div></li><li><a href="/2013/08/31/redis-compressed-lists.html">Save Redis memory with large list packing</a> <div class="badge">Aug 31</div></li><li><a href="/2013/08/28/inline-css-fonts.html">Inline CSS web fonts</a> <div class="badge">Aug 28</div></li><li><a href="/2013/08/23/screenshots-in-git.html">Store screenshots of your web app in Git</a> <div class="badge">Aug 23</div></li></ol><h3>Tags</h3><ol class="list-unstyled"><li><a href="/tags/testing.html">testing</a> <div class="badge">1</div></li><li><a href="/tags/git.html">git</a> <div class="badge">1</div></li><li><a href="/tags/phantomjs.html">phantomjs</a> <div class="badge">1</div></li><li><a href="/tags/ruby.html">ruby</a> <div class="badge">3</div></li><li><a href="/tags/performance.html">performance</a> <div class="badge">2</div></li><li><a href="/tags/webfonts.html">webfonts</a> <div class="badge">1</div></li><li><a href="/tags/css.html">css</a> <div class="badge">1</div></li><li><a href="/tags/redis.html">redis</a> <div class="badge">1</div></li><li><a href="/tags/math.html">math</a> <div class="badge">1</div></li><li><a href="/tags/i18n.html">i18n</a> <div class="badge">1</div></li></ol><hr /><ul class="list-unstyled"><li><a href="http://blog.glebm.com/feed.xml">Feed</a></li><li><a href="https://github.com/glebm/blog-glebm-com">This blog on Github</a></li></ul></div></div></aside></div></div></div><script type="text/javascript">!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script></script></body></html>
