@@ -3,13 +3,12 @@ title: Internationalization made easier with static analysis
 date: 2014-02-27 09:41 CET
 tags: i18n, ruby
 ---
+The basic approach to i18n key management in frameworks such as Rails is far from perfect.
+If you use a key that does not exist, this will only blow up at runtime. Keys left over from removed code accumulate
+in the resource files, introducing unnecessary overhead on the translators. Translation files can quickly turn to disarray.
 
-The basic approach to i18n key management in frameworks such as Rails has many flaws.
-
-If you use a key that does not exist, this will only blow up at runtime.
-Keys left over from removed code accumulate in the resource files, introducing unnecessary overhead on the translators.
-Translation files can quickly turn to disarray.
-
+i18n-tasks improves this by using static analysis. It provides tasks to find and manage missing and unused translations.
+This information is inferred based on the keys the gem detects used with calls such as `I18n.t` when scanning the code.
 [**i18n-tasks**](https://github.com/glebm/i18n-tasks) is a gem that improves this by using static analysis.
 
 READMORE
