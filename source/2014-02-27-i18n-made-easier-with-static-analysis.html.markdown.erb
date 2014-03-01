@@ -4,15 +4,15 @@ date: 2014-02-27 09:41 CET
 tags: i18n, ruby
 ---
 
-i18n-tasks finds and manages missing and unused translations in your application.
+[i18n-tasks][i18n-tasks] finds and manages missing and unused translations in your application.
+The default approach to locale data management with gems such as [i18n][i18n-gem] is flawed.
+If you use a key that does not exist, this will only blow up at runtime. Keys left over from removed code accumulate
+in the resource files and introduce unnecessary overhead on the translators. Translation files can quickly turn to disarray.
 
-The basic approach to i18n key management in frameworks such as Rails is far from perfect. If you use a key that
-does not exist, this will only blow up at runtime. Keys left over from removed code accumulate in the resource files,
-introducing unnecessary overhead on the translators. Translation files can quickly turn to disarray.
+i18n-tasks improves this by using static analysis. It scans calls such as `I18n.t('some.key')` and provides reports on key usage, missing, and unused keys.
+It can also can pre-fill missing keys, including from Google Translate, and it can remove unused keys as well.
 
-i18n-tasks improves this by using static analysis. It scans calls such as `I18n.t('some.key')` and provides
-reports on key usage, missing, and unused keys. It can also can pre-fill missing keys, including from Google Translate,
-and it can remove unused keys as well.
+i18n-tasks can be used with any project using [i18n][i18n-gem] (default in Rails), or similar, even if it isn't ruby.
 
 READMORE
 
@@ -56,3 +56,6 @@ $ i18n-tasks usages 'activities.*'
 
 * [i18n-tasks on GitHub](https://github.com/glebm/i18n-tasks).
 * [HackerNews thread](https://news.ycombinator.com/item?id=7312390).
+
+[i18n-tasks]: https://github.com/glebm/i18n-tasks "glebm/i18n-tasks on Github"
+[i18n-gem]: https://github.com/svenfuchs/i18n "svenfuchs/i18n on Github"
