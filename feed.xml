@@ -1,11 +1,281 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Blog</title>
-  <subtitle>Itbyen er Norges jobbportal for profesjonelle utviklere og teknologer.</subtitle>
-  <id>http://blog.itbyen.no/</id>
-  <link href="http://blog.itbyen.no/"/>
-  <link href="http://blog.itbyen.no/feed.xml" rel="self"/>
+  <title>Gleb's Notes</title>
+  <subtitle>Dev thought and protips, release announcements and rant</subtitle>
+  <id>http://blog.glebm.com/</id>
+  <link href="http://blog.glebm.com/"/>
+  <link href="http://blog.glebm.com/feed.xml" rel="self"/>
+  <updated>2014-02-27T08:41:00Z</updated>
   <author>
-    <name>Itbyen</name>
+    <name>Gleb Mazovetskiy</name>
   </author>
+  <entry>
+    <title>Internationalization made easier with static analysis</title>
+    <link rel="alternate" href="http://blog.glebm.com/2014/02/27/i18n-made-easier-with-static-analysis.html"/>
+    <id>http://blog.glebm.com//2014/02/27/i18n-made-easier-with-static-analysis.html</id>
+    <published>2014-02-27T08:41:00Z</published>
+    <updated>2014-02-27T08:41:00Z</updated>
+    <author>
+      <name>Gleb Mazovetskiy</name>
+    </author>
+    <content type="html">&lt;p&gt;&lt;a title="glebm/i18n-tasks on Github" href="https://github.com/glebm/i18n-tasks"&gt;i18n-tasks&lt;/a&gt; finds and manages missing and unused translations in your application.
+The default approach to locale data management with gems such as &lt;a title="svenfuchs/i18n on Github" href="https://github.com/svenfuchs/i18n"&gt;i18n&lt;/a&gt; is flawed.
+If you use a key that does not exist, this will only blow up at runtime. Keys left over from removed code accumulate
+in the resource files and introduce unnecessary overhead on the translators. Translation files can quickly turn to disarray.&lt;/p&gt;
+
+&lt;p&gt;i18n-tasks improves this by using static analysis. It scans calls such as &lt;code&gt;I18n.t('some.key')&lt;/code&gt; and provides reports on key usage, missing, and unused keys.
+It can also can pre-fill missing keys, including from Google Translate, and it can remove unused keys as well.&lt;/p&gt;
+
+&lt;p&gt;i18n-tasks can be used with any project using &lt;a title="svenfuchs/i18n on Github" href="https://github.com/svenfuchs/i18n"&gt;i18n&lt;/a&gt; (default in Rails), or similar, even if it isn't ruby.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;p&gt;It can make translation easier in many ways:&lt;/p&gt;
+
+&lt;pre class="highlight shell"&gt;&lt;span class="gp"&gt;$ &lt;/span&gt;i18n-tasks
+Usage: i18n-tasks &amp;lt;&lt;span class="nb"&gt;command&lt;/span&gt;&amp;gt; &lt;span class="o"&gt;[&lt;/span&gt;options]
+    -v, --version      Print the version
+    -h, --help         Display this &lt;span class="nb"&gt;help &lt;/span&gt;message.
+
+Available commands:
+
+  missing             show missing translations
+  unused              show unused translations
+  translate-missing   translate missing keys with Google Translate
+  add-missing         add missing keys to the locales
+  find                show where the keys are used &lt;span class="k"&gt;in &lt;/span&gt;the code
+  normalize           normalize translation data: sort and move to the right files
+  remove-unused       remove unused keys
+  config              display i18n-tasks configuration
+  xlsx-report         save missing and unused translations to an Excel file
+
+See &lt;span class="sb"&gt;`&lt;/span&gt;&amp;lt;&lt;span class="nb"&gt;command&lt;/span&gt;&amp;gt; --help&lt;span class="sb"&gt;`&lt;/span&gt; &lt;span class="k"&gt;for &lt;/span&gt;more information on a specific command.
+&lt;/pre&gt;
+&lt;p&gt;There are lots of settings and you can use this on non-ruby codebases.&lt;/p&gt;
+
+&lt;p&gt;Reports come rendered in colourful full-resolution &lt;a href="https://github.com/visionmedia/terminal-table"&gt;terminal tables&lt;/a&gt;:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://github.com/glebm/i18n-tasks" target="_blank"&gt;&lt;img width="534" height="288" src="https://raw.github.com/glebm/i18n-tasks/master/doc/img/i18n-tasks.png" style="max-width:100%;" /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre class="highlight shell"&gt;&lt;span class="gp"&gt;$ &lt;/span&gt;i18n-tasks usages &lt;span class="s1"&gt;&amp;#39;activities.*&amp;#39;&lt;/span&gt;
+&lt;/pre&gt;
+&lt;p&gt;&lt;a href="https://github.com/glebm/i18n-tasks" target="_blank"&gt;&lt;img src="https://raw.github.com/glebm/i18n-tasks/master/doc/img/i18n-usages.png" alt="i18n-screenshot" title="i18n-tasks find output screenshot" style="max-width:100%;" /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id="see-also"&gt;See also&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href="https://github.com/glebm/i18n-tasks"&gt;i18n-tasks on GitHub&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://news.ycombinator.com/item?id=7312390"&gt;HackerNews thread&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+</content>
+  </entry>
+  <entry>
+    <title>Save Redis memory with large list packing</title>
+    <link rel="alternate" href="http://blog.glebm.com/2013/08/31/redis-compressed-lists.html"/>
+    <id>http://blog.glebm.com//2013/08/31/redis-compressed-lists.html</id>
+    <published>2013-08-31T16:54:00Z</published>
+    <updated>2013-08-31T16:54:00Z</updated>
+    <author>
+      <name>Gleb Mazovetskiy</name>
+    </author>
+    <content type="html">&lt;p&gt;Redis is great for storing certain types of data that do not do well in a relational database.
+It is great for storing caches and statistics too.
+However, the storage capacity of redis is capped by RAM size, so care is required when storing large amounts of data in it.&lt;/p&gt;
+
+&lt;p&gt;I will show you a trick to reduce memory usage and improve the speed of the redis &lt;em&gt;list&lt;/em&gt; type for storing series-type data (e.g. time series).
+Redis &lt;a href="https://github.com/antirez/redis/blob/unstable/src/ziplist.c"&gt;packs&lt;/a&gt; small lists of ints, reducing their memory usage by 10-40%.
+The exact list size threshold at which redis stops compressing is defined by the &lt;code&gt;list-max-ziplist-entries&lt;/code&gt; setting and defaults to 512.&lt;/p&gt;
+
+&lt;p&gt;Here is the trick: we will transparently partition a list into many small lists of &lt;code&gt;list-max-ziplist-entries&lt;/code&gt; size.
+By storing lists under the threshold, we take advantage of redis' ability to pack them.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;p&gt;Here is a memory usage benchmark with random int values between 0 and 10:&lt;/p&gt;
+
+&lt;p&gt;&lt;img class="img-responsive" alt="" width="1200" height="600" src="http://blog.glebm.com/images/2013-08-31-redis-compressed-lists/bm-512.png?1394658986" /&gt;&lt;/p&gt;
+
+&lt;p&gt;To benchmark access speed let's try some random accesses on a large list:&lt;/p&gt;
+
+&lt;pre class="highlight shell"&gt;bm_speed: 3,000,000 keys, 100 random range reads
+                           user     system      total        real
+regular                0.380000   0.040000   0.420000 &lt;span class="o"&gt;(&lt;/span&gt;  0.686875&lt;span class="o"&gt;)&lt;/span&gt;
+partitioned            0.390000   0.060000   0.450000 &lt;span class="o"&gt;(&lt;/span&gt;  0.482544&lt;span class="o"&gt;)&lt;/span&gt;
+&lt;/pre&gt;
+&lt;p&gt;Even despite Ruby overhead we still have both wall-clock time and memory savings.
+A regular redis list is a linked list, so getting ranges out of it is slow.
+However, when we use this technique the list is partitioned, and it only takes &lt;code&gt;O(1)&lt;/code&gt; to get to the correct partition.
+As you increase &lt;code&gt;list-max-ziplist-entries&lt;/code&gt;, memory savings increase and range queries get slower.&lt;/p&gt;
+
+&lt;p&gt;I published a &lt;a href="https://github.com/glebm/redis_stats/blob/master/lib/redis_stats/int_series.rb"&gt;Ruby implementation&lt;/a&gt; of this approach for int and time series.&lt;/p&gt;
+
+&lt;p&gt;Are you doing something similar? I am curious to hear other approaches.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Thanks &lt;a href="https://twitter.com/ddtrejo"&gt;@ddtrejo&lt;/a&gt; for your edits and suggestions!&lt;/em&gt;&lt;/p&gt;
+
+&lt;h4 id="notes"&gt;Notes&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Packing efficiency depends on the data. Benchmark with your real data.&lt;/li&gt;
+  &lt;li&gt;You can implement a similar trick for hashes and sets, redis will compress them based on the respective &lt;code&gt;-ziplist-entries&lt;/code&gt; values.&lt;/li&gt;
+  &lt;li&gt;Tested on redis 2.6.14, installed via homebrew on OS X 10.8.3.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id="see-also"&gt;See also&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href="https://news.ycombinator.com/item?id=6307769"&gt;Discussion on Hacker News&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;Instagram dev blog post on &lt;a href="http://instagram-engineering.tumblr.com/post/12202313862/storing-hundreds-of-millions-of-simple-key-value-pairs"&gt;storing key-value pairs using partitioned hashes&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;a href="http://www.manning.com/carlson/"&gt;Redis in Action&lt;/a&gt; book by &lt;a href="https://twitter.com/dr_josiah"&gt;@dr_josiah&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+</content>
+  </entry>
+  <entry>
+    <title>Inline CSS web fonts</title>
+    <link rel="alternate" href="http://blog.glebm.com/2013/08/28/inline-css-fonts.html"/>
+    <id>http://blog.glebm.com//2013/08/28/inline-css-fonts.html</id>
+    <published>2013-08-28T16:34:00Z</published>
+    <updated>2013-08-28T16:34:00Z</updated>
+    <author>
+      <name>Gleb Mazovetskiy</name>
+    </author>
+    <content type="html">&lt;p&gt;If you serve web fonts via URL, the browser makes a separate request for every web font.&lt;/p&gt;
+
+&lt;p&gt;This is what the timeline looks like for a URL referenced font:&lt;/p&gt;
+
+&lt;p&gt;&lt;img class="img-responsive" alt="" width="469" height="281" src="http://blog.glebm.com/images/2013-08-28-inline-css-fonts/tl-body.png?1394658986" /&gt;&lt;/p&gt;
+
+&lt;h4 class="text-center"&gt;
+  &lt;span style="color: rgba(0, 0, 255, 0.67)"&gt;Ready&lt;/span&gt; &lt;span style="color: rgba(255, 0, 0, 0.78)"&gt;Load&lt;/span&gt;
+&lt;/h4&gt;
+
+&lt;p&gt;Fonts included from stylesheets cause extra requests that only starts once the DOM has loaded.
+This causes a delay and flash of missing text or a font change flash while the fonts are loading.&lt;/p&gt;
+
+&lt;p&gt;However, you can avoid extra requests &lt;em&gt;and&lt;/em&gt; rendering issues if you inline the fonts as data-uris.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;p&gt;Inline web fonts with this script:&lt;/p&gt;
+
+&lt;pre class="highlight shell"&gt;&lt;span class="c"&gt;# download inliner and mark it as executable&lt;/span&gt;
+curl https://gist.github.com/glebm/6360088/raw &amp;gt; inline-fonts.rb; chmod +x inline-fonts.rb
+&lt;span class="c"&gt;# provide URL or path to convert&lt;/span&gt;
+./inline-fonts.rb &lt;span class="s1"&gt;&amp;#39;https://fonts.googleapis.com/css?family=Arimo:400&amp;#39;&lt;/span&gt;
+&lt;/pre&gt;
+&lt;p&gt;&lt;a href="https://gist.github.com/glebm/6360088"&gt;The script&lt;/a&gt; outputs CSS with all the &lt;code&gt;url&lt;/code&gt; values inlined in data-uris, &lt;code&gt;woff&lt;/code&gt; format.
+You can now deliver the fonts and CSS together in 1 request and the rendering is perfect, 
+no more &lt;a href="http://en.wikipedia.org/wiki/Flash_of_unstyled_content"&gt;&lt;def title="Flash of Unstyled Content"&gt;FOUC&lt;/def&gt;&lt;/a&gt; or font change.&lt;/p&gt;
+
+&lt;h3 id="there-be-dragons"&gt;There be dragons&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;base64 encoding causes a +33% file size increase, but gzip mitigates this&lt;/li&gt;
+  &lt;li&gt;when there are more fonts files at some point it is faster to download them in parallel, depending on the font sizes and latency / bandwidth of the audience.&lt;/li&gt;
+  &lt;li&gt;public CDN files may already be in browser cache (e.g. the most popular Google Web Fonts)&lt;/li&gt;
+  &lt;li&gt;the most common format woff is &lt;a href="http://caniuse.com/woff"&gt;supported&lt;/a&gt; everywhere but IE 8, stock Anroid Browser,
+and Chrome on Windows, which has a &lt;a href="https://code.google.com/p/chromium/issues/detail?id=137692"&gt;general rendering issue&lt;/a&gt; with some fonts, and base64 &lt;a href="http://www.mobify.com/blog/data-uris-are-slow-on-mobile/"&gt;is slow on Android 2 and iOS 5&lt;/a&gt;.
+You will have to serve other formats to these browsers&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Most individual font sizes are in 10 - 20 KB range; if you only use a few font files this could easily cut down initial load times by 5-20%.
+Measure with any client-side monitoring tool to find out (it is best if your tool shows the distribution, and not just the average).&lt;/p&gt;
+
+&lt;p&gt;This is what the timeline looks like once the fonts are inlined:&lt;/p&gt;
+
+&lt;p&gt;&lt;img class="img-responsive" alt="" width="642" height="453" src="http://blog.glebm.com/images/2013-08-28-inline-css-fonts/tl-inline.png?1394658986" /&gt;&lt;/p&gt;
+
+&lt;p&gt;When inlined, all the fonts are finished downloading before DOMContentReady fires.&lt;/p&gt;
+
+&lt;p&gt;Alternatively, you could try using &lt;a href="https://developers.google.com/speed/pagespeed/module"&gt;Google Page Speed Module&lt;/a&gt;, which may intellegently apply this and other optimizations, but has it's own drawbacks.
+&lt;a href="http://en.wikipedia.org/wiki/SPDY"&gt;SPDY&lt;/a&gt; should already be on for both timelines.&lt;/p&gt;
+
+&lt;h4 id="see-also"&gt;See also&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href="https://news.ycombinator.com/item?id=6304999"&gt;Discussion on Hacker News&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+</content>
+  </entry>
+  <entry>
+    <title>Store screenshots of your web app in Git</title>
+    <link rel="alternate" href="http://blog.glebm.com/2013/08/23/screenshots-in-git.html"/>
+    <id>http://blog.glebm.com//2013/08/23/screenshots-in-git.html</id>
+    <published>2013-08-23T16:22:00Z</published>
+    <updated>2013-08-23T16:22:00Z</updated>
+    <author>
+      <name>Gleb Mazovetskiy</name>
+    </author>
+    <content type="html">&lt;iframe style="max-width:100%" width="600" height="340" src="//www.youtube.com/embed/VMhdKZDxFjg" frameborder="0" allowfullscreen=""&gt;&lt;/iframe&gt;
+
+&lt;p&gt;Have you ever had a change break your site? Even when the tests pass?&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Testing functionality is hard&lt;/li&gt;
+  &lt;li&gt;Testing UI is even harder&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;What if every time you commit, you got a visual diff of every web page that changed?
+It is surprisingly easy to do.&lt;/p&gt;
+
+&lt;p&gt;&lt;img class="img-responsive" alt="" width="828" height="296" src="http://blog.glebm.com/images/2013-08-23-screenshots-in-git/gh-img-diff-1.png?1394658986" /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;h3 id="how"&gt;How?&lt;/h3&gt;
+&lt;p&gt;All we need is a headless browser and a testing environment.&lt;/p&gt;
+
+&lt;p&gt;For Rails you can use poltergeist + rspec and &lt;a href="https://github.com/glebm/rails_email_preview/blob/master/spec/support/save_screenshots.rb"&gt;just&lt;/a&gt; do &lt;a href="https://github.com/glebm/rails_email_preview/blob/master/spec/features/take_screenshots_spec.rb"&gt;this&lt;/a&gt; like in the tests for my &lt;a href="https://github.com/glebm/rails_email_preview"&gt;Rails Email Preview&lt;/a&gt; gem. You then simply list the shots you want:&lt;/p&gt;
+
+&lt;pre class="highlight ruby"&gt;&lt;span class="n"&gt;describe&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Take screenshots&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="ss"&gt;driver: :poltergeist&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt;
+  &lt;span class="n"&gt;it&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;home page&amp;#39;&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt;
+    &lt;span class="n"&gt;visit&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;/&amp;#39;&lt;/span&gt;
+    &lt;span class="n"&gt;screenshot!&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;home&amp;#39;&lt;/span&gt;
+  &lt;span class="k"&gt;end&lt;/span&gt;
+
+  &lt;span class="n"&gt;it&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;user account page&amp;#39;&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt;
+    &lt;span class="n"&gt;sign_in&lt;/span&gt; &lt;span class="no"&gt;Fabricate&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ss"&gt;:user&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;visit&lt;/span&gt; &lt;span class="n"&gt;my_account_url&lt;/span&gt;
+    &lt;span class="n"&gt;screenshot!&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;my-account&amp;#39;&lt;/span&gt;
+  &lt;span class="k"&gt;end&lt;/span&gt;
+&lt;span class="k"&gt;end&lt;/span&gt;
+&lt;/pre&gt;
+&lt;p&gt;The code will simply place screenshots into &lt;code&gt;spec/screenshots&lt;/code&gt;  each time the test suite is run.&lt;/p&gt;
+
+&lt;p&gt;Once you add &lt;code&gt;spec/screenshots&lt;/code&gt; to git, things get interesting.&lt;/p&gt;
+
+&lt;h3 id="perks-unlocked"&gt;Perks unlocked&lt;/h3&gt;
+&lt;p&gt;With your screenshots under version control, you will&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Always know when you introduce a change that changes the display&lt;/li&gt;
+  &lt;li&gt;See which commits changed screens in your app&lt;/li&gt;
+  &lt;li&gt;Instantly see what your app looked like at any point in time&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;You must use &lt;code&gt;git submodule add {separate repo URL} spec/screenshots&lt;/code&gt; to keep screenshots in a separate repo, as it will get large.
+You can also script rewriting images out of older commits via &lt;code&gt;git filter-branch&lt;/code&gt; if repo grows too large.&lt;/p&gt;
+
+&lt;p&gt;Below is an image diff as &lt;a href="https://github.com/glebm/rails_email_preview/commit/b6b003bf3a49ecf36d51ecf39dcd57e42e259dad?&amp;amp;diff-1=1-82#L14R3"&gt;rendered by Github&lt;/a&gt;. This is &lt;em&gt;visual version history&lt;/em&gt; and your private &lt;em&gt;git wayback machine&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://github.com/glebm/rails_email_preview/commit/b6b003bf3a49ecf36d51ecf39dcd57e42e259dad?&amp;amp;diff-1=1-82#L14R3"&gt;&lt;img class="img-responsive" alt="" width="828" height="432" src="http://blog.glebm.com/images/2013-08-23-screenshots-in-git/gh-img-diff-2.png?1394658986" /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;I hope this post has helped you. Please let me know if you already do this, as I'm curious to hear other approaches.&lt;/p&gt;
+
+&lt;p&gt;– &lt;a href="https://twitter.com/glebm"&gt;@glebm&lt;/a&gt; &lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Thanks &lt;a href="https://twitter.com/ddtrejo"&gt;@ddtrejo&lt;/a&gt; for your edits and suggestions!&lt;/em&gt;&lt;/p&gt;
+
+&lt;h4 id="see-also"&gt;See also&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href="https://news.ycombinator.com/item?id=6266490"&gt;Discussion on Hacker News&lt;/a&gt; - some nice ideas around this approach.&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://github.com/facebook/huxley/"&gt;Huxley&lt;/a&gt; - implementation of screenshot control in Selenium and written in Python. &lt;em&gt;Thanks &lt;a href="https://github.com/petehunt"&gt;@petehunt&lt;/a&gt;&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+</content>
+  </entry>
 </feed>
