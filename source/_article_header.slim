@@ -1,3 +1,8 @@
-.article-date = render_date(current_article.date)
-h1
-  a href=article_url(current_article) = current_article.title
+ruby:
+  title_html = merge_attr({tag: 'h1', class: 'article-title'}, locals[:title_html] || {})
+  article ||= current_article
+
+.article-header
+  *title_html
+    a href=article_url(article) = article.title
+  .article-date = render_date(article.date)

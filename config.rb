@@ -121,10 +121,18 @@ helpers do
     %Q(<i #{attr_to_s attr}></i>).strip.html_safe
   end
 
+  alias :icon :fa
+
   # {a: 1, b: 2} => 'a=1 b=2'
   # escapes values
   def attr_to_s(hash)
     hash.map { |k, v| %(#{k}='#{v.html_safe? ? v : ERB::Util.html_escape(v)}') } * ' '
+  end
+
+  def merge_attr(a, b)
+    result = a.with_indifferent_access.deep_merge b
+    result[:class] = (Array(a[:class]) + Array(b[:class])).compact.join(' ')
+    result
   end
 
   #= url helpers
@@ -192,6 +200,12 @@ helpers do
       ga('create', '#{google_analytics_account_id}', '#{URI(data.urls.root).host}');
       ga('send', 'pageview');
     JS
+  end
+
+  def append_params(url, params)
+    uri              = Addressable::URI.parse(url)
+    uri.query_values = (uri.query_values || {}).merge(params)
+    uri.to_s
   end
 end
 

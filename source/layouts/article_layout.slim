@@ -2,12 +2,12 @@
 
 - main_class ' '
 
-- wrap_layout :layout do
-  .article-layout
-    article.blog-article
-      = partial 'article_header'
-      .article-body = yield
-      = partial 'article_footer'
+= wrap_layout :layout do
+  .article
+    = partial 'article_header'
+    .article-body = yield
+  = partial 'social_share'
+  = partial "authors/#{current_page.data.author}" if current_page.data.author
 
-    .comments
-      = blog_article_comments
+  .comments
+    = blog_article_comments

@@ -1,0 +1,9 @@
+- articles.each_with_index do |article, i|
+  - current_resource.add_metadata article: article
+  article.blog-article
+    = partial 'article_header', locals: {title_html: {tag: 'h2'}, article: article}
+    .article-body
+      = article.summary(250)
+      a.btn.btn-default.btn-lg.read-more href=article_url(article)
+        | Read more #{icon 'angle-right'}
+  - current_resource.add_metadata article: nil

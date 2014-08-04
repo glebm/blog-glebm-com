@@ -1,0 +1,7 @@
+.article-social
+  h4 Share on
+  ul
+    li: a.social href=append_params('https://twitter.com/share', text: current_article.title, url: article_url(current_article)) target="_blank" #{icon 'twitter', 'inline'}
+    li: a.social href=append_params('https://www.linkedin.com/cws/share', url: article_url(current_article)) target="_blank" #{icon 'linkedin', 'inline'}
+    li: a.social href=append_params('https://www.facebook.com/sharer/sharer.php', u: article_url(current_article)) target="_blank" #{icon 'facebook', 'inline'}
+    li: a.social href=append_params('https://plus.google.com/share', url: article_url(current_article)) target="_blank" #{icon 'google-plus', 'inline'}

@@ -1,6 +1,13 @@
-- if data.author_projects.present?
-  p Check out my projects:
-  ul.list-unstyled
-    - data.author_projects.each do |project|
-      li
-        a href=project.url = project.link_text
+- project_types = {:open_source => 'Open Source'}
+- all_projects = data.author_projects
+- if all_projects.present?
+  - project_types.each do |key, title|
+    - projects = all_projects.send(key).presence
+    - if projects
+      h3 = title
+      .list-group
+        - projects.each do |project|
+          a.list-group-item href=project.url
+            h4.list-group-item-heading = project.link_text
+            p.list-group-item-text = project.summary
+

@@ -1,14 +1,6 @@
-header.navbar.navbar-inverse: .container
+header.navbar.navbar-default: .container
   .navbar-header
-    button.navbar-toggle type="button" data-toggle="collapse" data-target=".bs-navbar-collapse"
-      span.sr-only Toggle navigation
-      span.icon-bar
-      span.icon-bar
-      span.icon-bar
-    .navbar-brand
-      a href='/'
-        = data.blog.title
-  nav.collapse.navbar-collapse.bs-navbar-collapse.nav-default
-    ul.nav.navbar-nav
-      li class=('active' if current_page.path == 'index.html')
-        = link_to 'Index', '/'
+    .navbar-brand: a href='/' = data.blog.title
+  ul.nav.navbar-nav
+    li class=('active' if current_page.path == 'index.html')
+      = link_to 'Index', '/'

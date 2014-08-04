@@ -1,2 +1,10 @@
-#- url: "http://zuigo.com/en/madrid"
-#  link_text: "Zuigo"
+open_source:
+  - url: "https://github.com/twbs/bootstrap-sass"
+    link_text: "Bootstrap for Sass"
+    summary: Port of Twitter Bootstrap web framework to Sass language, automatically generated from the LESS version.
+  - url: "https://github.com/glebm/i18n-tasks"
+    link_text: "i118n-tasks"
+    summary: "Manage translation and localization with static analysis, for Ruby i18n."
+  - url: "https://github.com/glebm/order_query"
+    link_text: "order_query"
+    summary: ActiveRecord ORM extension to find next or previous records relative to the current one efficiently.

@@ -1,7 +1,7 @@
 aside.sidebar
   = partial 'sidebar_author'
-  = partial 'sidebar_author_projects'
   hr
+  h3 Posts
   = partial 'sidebar_articles'
   - if blog.articles.length > 10
     = partial 'sidebar_tags'
@@ -9,3 +9,5 @@ aside.sidebar
     = partial 'sidebar_calendar'
   hr
   = partial 'sidebar_links'
+  hr
+  = partial 'sidebar_author_projects'

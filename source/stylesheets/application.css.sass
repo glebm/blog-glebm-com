@@ -1,215 +1,107 @@
-$brand-primary: darken(#8a2697, 10%)
-
-$body-bg: #f5f5d6
-$text-color: darken(#4f6066, 5%)
-
-$navbar-height: 45px
-$navbar-inverse-link-color: #ebe7ae
-$navbar-inverse-color: #fb29d7
-$navbar-inverse-bg: darken($brand-primary, 12%)
-$navbar-inverse-link-color: white
-$navbar-inverse-link-hover-color: lighten($navbar-inverse-link-color, 10%)
-$navbar-inverse-link-hover-bg: lighten($navbar-inverse-bg, 10%)
-$navbar-inverse-brand-color: #ebd7b3
-$navbar-inverse-toggle-hover-bg: $navbar-inverse-link-hover-bg
-$navbar-inverse-toggle-border-color: rgba(darken($navbar-inverse-bg, 10%), 0.7)
-
-$btn-info-color: darken($brand-primary, 25%)
-
+@import 'variables'
 @import 'bootstrap'
-@import 'bootstrap/theme'
-@import 'animations'
-@import 'date_time'
-@import 'syntax-highlight'
-@import 'fonts'
+//@import 'animations'
+//@import 'date_time'
+//@import 'syntax-highlight'
+//@import 'fonts'
 
-@mixin font-sans
-  font-family: 'Lato', sans-serif
-@mixin font-serif
-  font-family: 'Fenix', serif
-@mixin font-body
-  +font-serif
-@mixin font-h
-  +font-sans
-  font-weight: 700
-@mixin font-bold
-  font-family: 'Lato', sans-serif
-  font-weight: bold
+.navbar-brand > a
+  color: #fff
+  text-shadow: none
+  padding: 0
 
-.btn
-  font-family: sans-serif
-  font-weight: bold
+//** container
 
-.navbar-inverse
-  border-radius: 0
-  box-shadow: 0 2px 3px rgba(0,0,0,.25)
-  +font-h
-  .navbar-nav > li > a, .navbar-brand a
-    color: $navbar-inverse-link-color !important
-    font-weight: normal !important
-    text-shadow: none
-    &:hover
-      color: $navbar-inverse-link-hover-color
-      background-color: $navbar-inverse-link-hover-bg
-  .navbar-brand
-    +font-serif
-    font-weight: normal
-    font-size: 22px
-aside
-  @extend .text-center
-  .person-img
-    margin: 0 auto
-    display: inline-block
-    overflow: hidden
-    @extend .img-circle
-    border: 10px solid white
-    width: 180px
-    height: 180px
-  img
-    @extend .img-responsive
+.container
+  max-width: 1180px
 
-.panel
-  padding: 20px
-  border: 0
+// sidebar
 
-.panel-info
-  border: none
+.person-img
+  margin: 0 auto
+  display: inline-block
+  overflow: hidden
+  border: 10px solid white
+  max-width: 180px
+  max-height: 180px
 
-article, .comments
-  @extend .panel
-  @extend .panel-default
+//** articles and pages
 
-.article-footer
-  @extend .panel-footer
-  @extend .row
-  margin: 0 -20px -20px -20px
-  .suggest-edit, .twtr-share
-    @extend .pull-right
-  .twitter-share-button
-    padding-right: 0
-    padding-left: 20px
-    &.twitter-tweet-button
-      margin-right: -13px
-  .permalink
-    @extend .pull-left
-    label
-      display: inline-block
-      @extend small
-      margin-right: 10px
-    input
-      display: inline-block
-      width: 450px
-      @media (min-width: $screen-md-min) and (max-width: $screen-md-max)
-        width: 350px
-      @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max)
-        width: 370px
-  @media (max-width: 308px)
-    .permalink
-      float: none !important
-    .suggest-edit, .twtr-share
-      display: inline-block
-      width: 50%
-      float: left !important
-    .permalink
-      margin-bottom: 10px
-    .permalink input
-      width: 100%
-      display: block
-  @media (min-width: 309px) and (max-width: $screen-xs-max)
-    .permalink input
-      width: 308px
-      margin-bottom: 6px
+.articles .article
+  margin-bottom: 6.4rem
 
-aside
-  @extend .panel
-  @extend .panel-info
+.article-header
+  margin: 0 0 0.8rem 0
 
+.article-title, .article-date
+  display: inline
 
+.article-title
+  font-size: 3.2rem
 
-hr
-  border-top: 0
-  border-left: 0
-  border-bottom: 1px dashed darken($brand-primary, 10%)
-  border-right: 0
-  margin: 14px 20px
+.article-title,
+.article-title a
+  color: $gray
 
-body
+.article-date
+  @extend .lead
   font-size: medium
-  +font-body
-  color: $text-color
-  background-color: darken($brand-primary, 22%)
+  color: $gray-light
+  padding-left: 0.6rem
 
-b, strong
-  +font-bold
+.article-body
+  font-size: 2rem
+  line-height: 3.1rem
+  p, ul
+    margin-bottom: 3.1rem
+  h1, h2, h3, h4
+    color: $gray
+  h2
+    font-size: 2.5rem
+  img
+    max-width: 100%
 
-h1, h2, h3, h4
-  +font-h
-  color: darken($brand-primary, 6%)
-a
-  color: lighten($brand-primary, 10%)
-::selection
-  background-color: rgba(lighten($brand-primary, 40%), 0.41)
-.badge
-  background-color: darken($brand-primary, 10%)
+.article-social
+  font-size: 1.8rem
+  background-color: #f8f8f8
+  color: $text-muted
+  padding: 1rem 1.5rem
+  margin-top: 3.8rem
+  h4
+    float: left
+    margin: 0.4rem 1rem 0 0
+    font-weight: 200
+    font-size: inherit
+  ul
+    @extend .list-inline
+    margin: 0
+    > li
+      padding: 0 0.5rem
+    > li > a
+      font-size: 2rem
 
+.author
+  margin-top: 3.8rem
 
-.article-layout
-  margin-top: -20px
-  > .blog-article
-    border-top-right-radius: 0
-    border-top-left-radius: 0
-    @extend .animated
-    @extend .fade-in-up
-  @media (max-width: $screen-xs)
-    margin-top: 0
+.author-avatar
+  width: 82px
 
-.blog-article
-  > h1, > h2
-    margin-top: 4px
-  > h1
-    margin-bottom: 20px
-  > h2
-    margin-bottom: 14px
-  .article-date
-    float: right
-    color: rgba($text-color, 0.85)
-    +font-sans
-    margin-top: 4px
-    margin-right: -4px
-    right: 100%
-    @media (max-width: $screen-xs)
-      margin-bottom: -17px
-      margin-right: -8px
+.author-name
+  color: $gray
 
-@media (max-width: $screen-xs)
-  header.navbar
-    margin-bottom: 0
-  body
-    > .container
-      padding: 0
-      > .row
-        margin: 0
-        [class^='col-']
-          padding: 0
-  article code
-    white-space: normal
+.author-desc
+  font-size: 1.8rem
+  line-height: 2.8rem
+  color: $gray-light
 
-@media (max-width: $screen-sm)
-  body
-    .blog-article > h1, .blog-article > h2
-      font-size: 26px
-    h3
-      font-size: 20px
-  aside
-    font-size: 18px
+.comments
+  margin-top: 6.4rem
 
-@media (min-width: $screen-sm)
-  body
-    .blog-article > h1, .blog-article > h2
-      font-size: 32px
-    h3
-      font-size: 24px
+.fa-inline
+  margin-right: 0.25rem
 
-@media (min-width: $screen-lg)
-  .blog-article
-    padding: 20px 30px
+a.read-more
+  margin-top: -1em
+  @media (max-width: $screen-xs-max)
+    width: 100%
+
