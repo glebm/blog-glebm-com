@@ -5,7 +5,7 @@
   <id>http://blog.glebm.com/</id>
   <link href="http://blog.glebm.com/"/>
   <link href="http://blog.glebm.com/feed.xml" rel="self"/>
-  <updated>2014-02-27T08:41:00Z</updated>
+  <updated>2014-02-27T09:41:00+01:00</updated>
   <author>
     <name>Gleb Mazovetskiy</name>
   </author>
@@ -13,8 +13,8 @@
     <title>Internationalization made easier with static analysis</title>
     <link rel="alternate" href="http://blog.glebm.com/2014/02/27/i18n-made-easier-with-static-analysis.html"/>
     <id>http://blog.glebm.com//2014/02/27/i18n-made-easier-with-static-analysis.html</id>
-    <published>2014-02-27T08:41:00Z</published>
-    <updated>2014-02-27T08:41:00Z</updated>
+    <published>2014-02-27T09:41:00+01:00</published>
+    <updated>2014-02-27T09:41:00+01:00</updated>
     <author>
       <name>Gleb Mazovetskiy</name>
     </author>
@@ -26,13 +26,13 @@ in the resource files and introduce unnecessary overhead on the translators. Tra
 &lt;p&gt;i18n-tasks improves this by using static analysis. It scans calls such as &lt;code&gt;I18n.t('some.key')&lt;/code&gt; and provides reports on key usage, missing, and unused keys.
 It can also can pre-fill missing keys, including from Google Translate, and it can remove unused keys as well.&lt;/p&gt;
 
-&lt;p&gt;i18n-tasks can be used with any project using &lt;a title="svenfuchs/i18n on Github" href="https://github.com/svenfuchs/i18n"&gt;i18n&lt;/a&gt; (default in Rails), or similar, even if it isn't ruby.&lt;/p&gt;
+&lt;p&gt;i18n-tasks can be used with any project using &lt;a title="svenfuchs/i18n on Github" href="https://github.com/svenfuchs/i18n"&gt;i18n&lt;/a&gt; (default in Rails).&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;
 
 &lt;p&gt;It can make translation easier in many ways:&lt;/p&gt;
 
-&lt;pre class="highlight shell"&gt;&lt;span class="gp"&gt;$ &lt;/span&gt;i18n-tasks
+&lt;pre&gt;&lt;code class="highlight shell"&gt;&lt;span class="gp"&gt;$ &lt;/span&gt;i18n-tasks
 Usage: i18n-tasks &amp;lt;&lt;span class="nb"&gt;command&lt;/span&gt;&amp;gt; &lt;span class="o"&gt;[&lt;/span&gt;options]
     -v, --version      Print the version
     -h, --help         Display this &lt;span class="nb"&gt;help &lt;/span&gt;message.
@@ -50,15 +50,17 @@ Available commands:
   xlsx-report         save missing and unused translations to an Excel file
 
 See &lt;span class="sb"&gt;`&lt;/span&gt;&amp;lt;&lt;span class="nb"&gt;command&lt;/span&gt;&amp;gt; --help&lt;span class="sb"&gt;`&lt;/span&gt; &lt;span class="k"&gt;for &lt;/span&gt;more information on a specific command.
-&lt;/pre&gt;
+&lt;/code&gt;&lt;/pre&gt;
+
 &lt;p&gt;There are lots of settings and you can use this on non-ruby codebases.&lt;/p&gt;
 
 &lt;p&gt;Reports come rendered in colourful full-resolution &lt;a href="https://github.com/visionmedia/terminal-table"&gt;terminal tables&lt;/a&gt;:&lt;/p&gt;
 
 &lt;p&gt;&lt;a href="https://github.com/glebm/i18n-tasks" target="_blank"&gt;&lt;img width="534" height="288" src="https://raw.github.com/glebm/i18n-tasks/master/doc/img/i18n-tasks.png" style="max-width:100%;" /&gt;&lt;/a&gt;&lt;/p&gt;
 
-&lt;pre class="highlight shell"&gt;&lt;span class="gp"&gt;$ &lt;/span&gt;i18n-tasks usages &lt;span class="s1"&gt;&amp;#39;activities.*&amp;#39;&lt;/span&gt;
-&lt;/pre&gt;
+&lt;pre&gt;&lt;code class="highlight shell"&gt;&lt;span class="gp"&gt;$ &lt;/span&gt;i18n-tasks usages &lt;span class="s1"&gt;'activities.*'&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+
 &lt;p&gt;&lt;a href="https://github.com/glebm/i18n-tasks" target="_blank"&gt;&lt;img src="https://raw.github.com/glebm/i18n-tasks/master/doc/img/i18n-usages.png" alt="i18n-screenshot" title="i18n-tasks find output screenshot" style="max-width:100%;" /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3 id="see-also"&gt;See also&lt;/h3&gt;
@@ -74,8 +76,8 @@ See &lt;span class="sb"&gt;`&lt;/span&gt;&amp;lt;&lt;span class="nb"&gt;command&
     <title>Save Redis memory with large list packing</title>
     <link rel="alternate" href="http://blog.glebm.com/2013/08/31/redis-compressed-lists.html"/>
     <id>http://blog.glebm.com//2013/08/31/redis-compressed-lists.html</id>
-    <published>2013-08-31T16:54:00Z</published>
-    <updated>2013-08-31T16:54:00Z</updated>
+    <published>2013-08-31T18:54:00+02:00</published>
+    <updated>2013-08-31T18:54:00+02:00</updated>
     <author>
       <name>Gleb Mazovetskiy</name>
     </author>
@@ -94,15 +96,16 @@ By storing lists under the threshold, we take advantage of redis' ability to pac
 
 &lt;p&gt;Here is a memory usage benchmark with random int values between 0 and 10:&lt;/p&gt;
 
-&lt;p&gt;&lt;img class="img-responsive" alt="" width="1200" height="600" src="http://blog.glebm.com/images/2013-08-31-redis-compressed-lists/bm-512.png?1394660318" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img class="img-responsive" alt="" width="1200" height="600" src="http://blog.glebm.com/images/2013-08-31-redis-compressed-lists/bm-512.png?1407186036" /&gt;&lt;/p&gt;
 
 &lt;p&gt;To benchmark access speed let's try some random accesses on a large list:&lt;/p&gt;
 
-&lt;pre class="highlight shell"&gt;bm_speed: 3,000,000 keys, 100 random range reads
+&lt;pre&gt;&lt;code class="highlight shell"&gt;bm_speed: 3,000,000 keys, 100 random range reads
                            user     system      total        real
 regular                0.380000   0.040000   0.420000 &lt;span class="o"&gt;(&lt;/span&gt;  0.686875&lt;span class="o"&gt;)&lt;/span&gt;
 partitioned            0.390000   0.060000   0.450000 &lt;span class="o"&gt;(&lt;/span&gt;  0.482544&lt;span class="o"&gt;)&lt;/span&gt;
-&lt;/pre&gt;
+&lt;/code&gt;&lt;/pre&gt;
+
 &lt;p&gt;Even despite Ruby overhead we still have both wall-clock time and memory savings.
 A regular redis list is a linked list, so getting ranges out of it is slow.
 However, when we use this technique the list is partitioned, and it only takes &lt;code&gt;O(1)&lt;/code&gt; to get to the correct partition.
@@ -136,8 +139,8 @@ As you increase &lt;code&gt;list-max-ziplist-entries&lt;/code&gt;, memory saving
     <title>Inline CSS web fonts</title>
     <link rel="alternate" href="http://blog.glebm.com/2013/08/28/inline-css-fonts.html"/>
     <id>http://blog.glebm.com//2013/08/28/inline-css-fonts.html</id>
-    <published>2013-08-28T16:34:00Z</published>
-    <updated>2013-08-28T16:34:00Z</updated>
+    <published>2013-08-28T18:34:00+02:00</published>
+    <updated>2013-08-28T18:34:00+02:00</updated>
     <author>
       <name>Gleb Mazovetskiy</name>
     </author>
@@ -145,7 +148,7 @@ As you increase &lt;code&gt;list-max-ziplist-entries&lt;/code&gt;, memory saving
 
 &lt;p&gt;This is what the timeline looks like for a URL referenced font:&lt;/p&gt;
 
-&lt;p&gt;&lt;img class="img-responsive" alt="" width="469" height="281" src="http://blog.glebm.com/images/2013-08-28-inline-css-fonts/tl-body.png?1394660318" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img class="img-responsive" alt="" width="469" height="281" src="http://blog.glebm.com/images/2013-08-28-inline-css-fonts/tl-body.png?1407186036" /&gt;&lt;/p&gt;
 
 &lt;h4 class="text-center"&gt;
   &lt;span style="color: rgba(0, 0, 255, 0.67)"&gt;Ready&lt;/span&gt; &lt;span style="color: rgba(255, 0, 0, 0.78)"&gt;Load&lt;/span&gt;
@@ -160,11 +163,12 @@ This causes a delay and flash of missing text or a font change flash while the f
 
 &lt;p&gt;Inline web fonts with this script:&lt;/p&gt;
 
-&lt;pre class="highlight shell"&gt;&lt;span class="c"&gt;# download inliner and mark it as executable&lt;/span&gt;
+&lt;pre&gt;&lt;code class="highlight shell"&gt;&lt;span class="c"&gt;# download inliner and mark it as executable&lt;/span&gt;
 curl https://gist.github.com/glebm/6360088/raw &amp;gt; inline-fonts.rb; chmod +x inline-fonts.rb
 &lt;span class="c"&gt;# provide URL or path to convert&lt;/span&gt;
-./inline-fonts.rb &lt;span class="s1"&gt;&amp;#39;https://fonts.googleapis.com/css?family=Arimo:400&amp;#39;&lt;/span&gt;
-&lt;/pre&gt;
+./inline-fonts.rb &lt;span class="s1"&gt;'https://fonts.googleapis.com/css?family=Arimo:400'&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+
 &lt;p&gt;&lt;a href="https://gist.github.com/glebm/6360088"&gt;The script&lt;/a&gt; outputs CSS with all the &lt;code&gt;url&lt;/code&gt; values inlined in data-uris, &lt;code&gt;woff&lt;/code&gt; format.
 You can now deliver the fonts and CSS together in 1 request and the rendering is perfect, 
 no more &lt;a href="http://en.wikipedia.org/wiki/Flash_of_unstyled_content"&gt;&lt;def title="Flash of Unstyled Content"&gt;FOUC&lt;/def&gt;&lt;/a&gt; or font change.&lt;/p&gt;
@@ -185,7 +189,7 @@ Measure with any client-side monitoring tool to find out (it is best if your too
 
 &lt;p&gt;This is what the timeline looks like once the fonts are inlined:&lt;/p&gt;
 
-&lt;p&gt;&lt;img class="img-responsive" alt="" width="642" height="453" src="http://blog.glebm.com/images/2013-08-28-inline-css-fonts/tl-inline.png?1394660318" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img class="img-responsive" alt="" width="642" height="453" src="http://blog.glebm.com/images/2013-08-28-inline-css-fonts/tl-inline.png?1407186036" /&gt;&lt;/p&gt;
 
 &lt;p&gt;When inlined, all the fonts are finished downloading before DOMContentReady fires.&lt;/p&gt;
 
@@ -204,8 +208,8 @@ Measure with any client-side monitoring tool to find out (it is best if your too
     <title>Store screenshots of your web app in Git</title>
     <link rel="alternate" href="http://blog.glebm.com/2013/08/23/screenshots-in-git.html"/>
     <id>http://blog.glebm.com//2013/08/23/screenshots-in-git.html</id>
-    <published>2013-08-23T16:22:00Z</published>
-    <updated>2013-08-23T16:22:00Z</updated>
+    <published>2013-08-23T18:22:00+02:00</published>
+    <updated>2013-08-23T18:22:00+02:00</updated>
     <author>
       <name>Gleb Mazovetskiy</name>
     </author>
@@ -221,7 +225,7 @@ Measure with any client-side monitoring tool to find out (it is best if your too
 &lt;p&gt;What if every time you commit, you got a visual diff of every web page that changed?
 It is surprisingly easy to do.&lt;/p&gt;
 
-&lt;p&gt;&lt;img class="img-responsive" alt="" width="828" height="296" src="http://blog.glebm.com/images/2013-08-23-screenshots-in-git/gh-img-diff-1.png?1394660318" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img class="img-responsive" alt="" width="828" height="296" src="http://blog.glebm.com/images/2013-08-23-screenshots-in-git/gh-img-diff-1.png?1407186036" /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;
 
@@ -230,19 +234,20 @@ It is surprisingly easy to do.&lt;/p&gt;
 
 &lt;p&gt;For Rails you can use poltergeist + rspec and &lt;a href="https://github.com/glebm/rails_email_preview/blob/master/spec/support/save_screenshots.rb"&gt;just&lt;/a&gt; do &lt;a href="https://github.com/glebm/rails_email_preview/blob/master/spec/features/take_screenshots_spec.rb"&gt;this&lt;/a&gt; like in the tests for my &lt;a href="https://github.com/glebm/rails_email_preview"&gt;Rails Email Preview&lt;/a&gt; gem. You then simply list the shots you want:&lt;/p&gt;
 
-&lt;pre class="highlight ruby"&gt;&lt;span class="n"&gt;describe&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Take screenshots&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="ss"&gt;driver: :poltergeist&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt;
-  &lt;span class="n"&gt;it&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;home page&amp;#39;&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt;
-    &lt;span class="n"&gt;visit&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;/&amp;#39;&lt;/span&gt;
-    &lt;span class="n"&gt;screenshot!&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;home&amp;#39;&lt;/span&gt;
+&lt;pre&gt;&lt;code class="highlight ruby"&gt;&lt;span class="n"&gt;describe&lt;/span&gt; &lt;span class="s1"&gt;'Take screenshots'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="ss"&gt;driver: :poltergeist&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt;
+  &lt;span class="n"&gt;it&lt;/span&gt; &lt;span class="s1"&gt;'home page'&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt;
+    &lt;span class="n"&gt;visit&lt;/span&gt; &lt;span class="s1"&gt;'/'&lt;/span&gt;
+    &lt;span class="n"&gt;screenshot!&lt;/span&gt; &lt;span class="s1"&gt;'home'&lt;/span&gt;
   &lt;span class="k"&gt;end&lt;/span&gt;
 
-  &lt;span class="n"&gt;it&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;user account page&amp;#39;&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt;
+  &lt;span class="n"&gt;it&lt;/span&gt; &lt;span class="s1"&gt;'user account page'&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt;
     &lt;span class="n"&gt;sign_in&lt;/span&gt; &lt;span class="no"&gt;Fabricate&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ss"&gt;:user&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
     &lt;span class="n"&gt;visit&lt;/span&gt; &lt;span class="n"&gt;my_account_url&lt;/span&gt;
-    &lt;span class="n"&gt;screenshot!&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;my-account&amp;#39;&lt;/span&gt;
+    &lt;span class="n"&gt;screenshot!&lt;/span&gt; &lt;span class="s1"&gt;'my-account'&lt;/span&gt;
   &lt;span class="k"&gt;end&lt;/span&gt;
 &lt;span class="k"&gt;end&lt;/span&gt;
-&lt;/pre&gt;
+&lt;/code&gt;&lt;/pre&gt;
+
 &lt;p&gt;The code will simply place screenshots into &lt;code&gt;spec/screenshots&lt;/code&gt;  each time the test suite is run.&lt;/p&gt;
 
 &lt;p&gt;Once you add &lt;code&gt;spec/screenshots&lt;/code&gt; to git, things get interesting.&lt;/p&gt;
@@ -261,7 +266,7 @@ You can also script rewriting images out of older commits via &lt;code&gt;git fi
 
 &lt;p&gt;Below is an image diff as &lt;a href="https://github.com/glebm/rails_email_preview/commit/b6b003bf3a49ecf36d51ecf39dcd57e42e259dad?&amp;amp;diff-1=1-82#L14R3"&gt;rendered by Github&lt;/a&gt;. This is &lt;em&gt;visual version history&lt;/em&gt; and your private &lt;em&gt;git wayback machine&lt;/em&gt;.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href="https://github.com/glebm/rails_email_preview/commit/b6b003bf3a49ecf36d51ecf39dcd57e42e259dad?&amp;amp;diff-1=1-82#L14R3"&gt;&lt;img class="img-responsive" alt="" width="828" height="432" src="http://blog.glebm.com/images/2013-08-23-screenshots-in-git/gh-img-diff-2.png?1394660318" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/glebm/rails_email_preview/commit/b6b003bf3a49ecf36d51ecf39dcd57e42e259dad?&amp;amp;diff-1=1-82#L14R3"&gt;&lt;img class="img-responsive" alt="" width="828" height="432" src="http://blog.glebm.com/images/2013-08-23-screenshots-in-git/gh-img-diff-2.png?1407186036" /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;I hope this post has helped you. Please let me know if you already do this, as I'm curious to hear other approaches.&lt;/p&gt;
 
