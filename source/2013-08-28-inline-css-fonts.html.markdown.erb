@@ -26,13 +26,13 @@ Inline web fonts with this script:
 
 <% code 'bash' do %>
 # download inliner and mark it as executable
-curl https://gist.github.com/glebm/6360088/raw > inline-fonts.rb; chmod +x inline-fonts.rb
+curl https://gist.githubusercontent.com/glebm/6360088/raw > inline-fonts.rb; chmod +x inline-fonts.rb
 # provide URL or path to convert
 ./inline-fonts.rb 'https://fonts.googleapis.com/css?family=Arimo:400'
 <% end %>
 
 [The script][inline-css-font.rb] outputs CSS with all the `url` values inlined in data-uris, `woff` format.
-You can now deliver the fonts and CSS together in 1 request and the rendering is perfect, 
+You can now deliver the fonts and CSS together in 1 request and the rendering is perfect,
 no more <a href="http://en.wikipedia.org/wiki/Flash_of_unstyled_content"><def title="Flash of Unstyled Content">FOUC</def></a> or font change.
 
 ### There be dragons
