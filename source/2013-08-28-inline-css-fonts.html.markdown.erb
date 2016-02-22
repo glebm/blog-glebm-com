@@ -24,12 +24,12 @@ READMORE
 
 Inline web fonts with this script:
 
-<% code 'bash' do %>
+~~~ bash
 # download inliner and mark it as executable
 curl https://gist.githubusercontent.com/glebm/6360088/raw > inline-fonts.rb; chmod +x inline-fonts.rb
 # provide URL or path to convert
 ./inline-fonts.rb 'https://fonts.googleapis.com/css?family=Arimo:400'
-<% end %>
+~~~
 
 [The script][inline-css-font.rb] outputs CSS with all the `url` values inlined in data-uris, `woff` format.
 You can now deliver the fonts and CSS together in 1 request and the rendering is perfect,

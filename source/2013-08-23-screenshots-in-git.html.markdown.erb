@@ -24,7 +24,7 @@ All we need is a headless browser and a testing environment.
 
 For Rails you can use poltergeist + rspec and [just][rep-helper] do [this][rep-spec] like in the tests for my [Rails Email Preview][rep] gem. You then simply list the shots you want:
 
-<% code 'ruby' do %>
+~~~ ruby
 describe 'Take screenshots', driver: :poltergeist do
   it 'home page' do
     visit '/'
@@ -37,7 +37,7 @@ describe 'Take screenshots', driver: :poltergeist do
     screenshot! 'my-account'
   end
 end
-<% end %>
+~~~
 
 The code will simply place screenshots into `spec/screenshots`  each time the test suite is run.
 

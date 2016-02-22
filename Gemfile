@@ -1,8 +1,9 @@
 source 'https://rubygems.org'
 
-gem 'middleman', '~> 3.3'
-gem 'middleman-blog', '~> 3.5'
-gem 'middleman-smusher'
+gem 'middleman', '~> 4.1'
+gem 'middleman-blog', '~> 4.0'
+gem 'middleman-imageoptim'
+gem 'middleman-sprockets', '~> 4.0.0.rc.1'
 gem 'middleman-syntax'
 gem 'bootstrap-sass', '~> 3.2'
 gem 'slim'
@@ -19,4 +20,4 @@ gem 'addressable'
 
 gem 'middleman-gh-pages'
 
-gem 'byebug', platforms: :ruby_21
+gem 'byebug', platforms: :ruby_23

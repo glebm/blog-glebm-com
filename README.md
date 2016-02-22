@@ -54,14 +54,6 @@ If the article contains `READMORE`, the part above `READMORE` will be considered
 
 #### Syntax Highlighting:
 
-Use `code language do` helper like this:
-
-    <% code 'c' do %>
-    if (~1) {
-      void 0;
-    }
-    <% end %>
-
 * `rake syntax:theme[theme_name]` -- to set the theme (defaults to thankful_eyes)
 * `rake syntax:themes` -- to get the list of themes
 

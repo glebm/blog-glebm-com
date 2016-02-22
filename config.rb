@@ -1,10 +1,10 @@
-require 'lib/sass_css_import'
 require 'lib/date_time_helpers'
 helpers DateTimeHelpers
 
 Time.zone = 'Europe/Madrid'
 
 activate :syntax
+set :markdown_engine, :kramdown
 
 # Blog settings
 activate :blog do |blog|
@@ -31,7 +31,7 @@ end
 
 page '/feed.xml', :layout => false
 
-### 
+###
 # Compass
 ###
 
@@ -49,13 +49,13 @@ page '/feed.xml', :layout => false
 ###
 
 # Per-page layout changes:
-# 
+#
 # With no layout
 # page "/path/to/file.html", :layout => false
-# 
+#
 # With alternative layout
 # page "/path/to/file.html", :layout => :otherlayout
-# 
+#
 # A path which all have the same layout
 # with_layout :admin do
 #   page "/admin/*"
@@ -137,13 +137,6 @@ helpers do
 
   #= url helpers
   # site root without / at the end
-  def root_url
-    if environment == :development
-      'http://localhost:4567'
-    else
-      data.urls.root
-    end
-  end
 
   def atom_feed_url
     "#{root_url}/feed.xml"
@@ -209,6 +202,22 @@ helpers do
   end
 end
 
+configure :development do
+  helpers do
+    def root_url
+      'http://localhost:4567'
+    end
+  end
+end
+
+configure :production do
+  helpers do
+    def root_url
+      data.urls.root
+    end
+  end
+end
+
 set :css_dir, 'stylesheets'
 
 set :js_dir, 'javascripts'
@@ -226,10 +235,9 @@ configure :build do
   # Enable cache buster
   activate :cache_buster
 
-  # Compress PNGs after build
-  # First: gem install middleman-smusher
-  require 'middleman-smusher'
-  activate :smusher
+  # Compress images after build
+  # TODO: Pending Middleman 4 support https://github.com/plasticine/middleman-imageoptim/issues/46
+  # activate :imageoptim
 
   # Or use a different image path
   # set :http_path, "/Content/images/"
