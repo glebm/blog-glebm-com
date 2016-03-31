@@ -1,0 +1,45 @@
+---
+title: Database-agnostic case-insensitive equality, full text search
+date: 2016-03-31 03:00 GMT
+tags: ruby
+---
+
+Different relational databases treat text search very differently. 
+The new [DbTextSearch gem][dbts] provides a unified interface on top of ActiveRecord for SQLite, MySQL, and 
+PostgreSQL to do:
+
+* Case-insensitive string-in-set querying, and CI index creation.
+* Basic full-text search for a list of terms, and FTS index creation.
+
+[DbTextSearch][dbts] does all the heavy lifting under the hood, hiding the complexity of handling each 
+database differently away, which is great for gem authors, when migrating an application from one database to another, 
+or writing code that must support multiple databases.
+
+READMORE
+
+Here is how [db_text_search][dbts] handles different types of columns in different databases for case-insensitive comparisons:
+
+<table style="font-size: 15px" class="table table-responsive table-striped table-condensed table-center-cells table-bordered">
+<caption><a href="https://github.com/thredded/db_text_search">DbTextSearch</a> case-insensitive string matching methods</caption>
+<thead>
+  <tr><th style="vertical-align: bottom" rowspan="2">Column type</th><th colspan="2">SQLite</th><th colspan="2">MySQL</th><th colspan="2">PostgreSQL</th></tr>
+  <tr><th>Detected types</th><th>Search / index</th><th>Detected types</th><th>Search / index</th><th>Detected types</th><th>Search / index</th></tr>
+</thead>
+<tbody style="text-align: center">
+  <tr><th>Case-insensitive</th>
+      <td rowspan="2">always treated as case-sensitive</td> <td rowspan="2"><code>COLLATE&nbsp;NOCASE</code></td>
+      <td><i>default</i></td> <td><i>default</i></td>
+      <td><code>CITEXT</code></td> <td><i>default</i></td>
+  </tr>
+  <tr><th>Case-sensitive</th>
+    <td>non-<code>ci</code> collations</td> <td><code>LOWER</code><br><b>no index</b></td>
+    <td><i>default</i></td> <td><code>LOWER</code></td>
+  </tr>
+</tbody>
+</table>
+
+
+Full-text search is even more gnarly. Great that you don't have to worry about that if you use this gem!
+Check it out and learn more on [github.com/thredded/db_text_search][dbts].
+
+[dbts]: https://github.com/thredded/db_text_search
