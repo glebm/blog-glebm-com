@@ -1,7 +1,7 @@
 require 'lib/date_time_helpers'
 helpers DateTimeHelpers
 
-Time.zone = 'Europe/Madrid'
+Time.zone = 'UTC'
 
 activate :syntax
 set :markdown_engine, :kramdown
