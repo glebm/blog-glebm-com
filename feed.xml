@@ -5,10 +5,60 @@
   <id>http://blog.glebm.com/</id>
   <link href="http://blog.glebm.com/"/>
   <link href="http://blog.glebm.com/feed.xml" rel="self"/>
-  <updated>2014-02-27T08:41:00+00:00</updated>
+  <updated>2016-03-31T03:00:00+01:00</updated>
   <author>
     <name>Gleb Mazovetskiy</name>
   </author>
+  <entry>
+    <title>Database-agnostic case-insensitive equality, full text search</title>
+    <link rel="alternate" href="http://blog.glebm.com/2016/03/31/db-text-search.html"/>
+    <id>http://blog.glebm.com//2016/03/31/db-text-search.html</id>
+    <published>2016-03-31T03:00:00+01:00</published>
+    <updated>2016-03-31T03:00:00+01:00</updated>
+    <author>
+      <name>Gleb Mazovetskiy</name>
+    </author>
+    <content type="html">&lt;p&gt;Different relational databases treat text search very differently. 
+The new &lt;a href="https://github.com/thredded/db_text_search"&gt;DbTextSearch gem&lt;/a&gt; provides a unified interface on top of ActiveRecord for SQLite, MySQL, and 
+PostgreSQL to do:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Case-insensitive string-in-set querying, and CI index creation.&lt;/li&gt;
+  &lt;li&gt;Basic full-text search for a list of terms, and FTS index creation.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a href="https://github.com/thredded/db_text_search"&gt;DbTextSearch&lt;/a&gt; does all the heavy lifting under the hood, hiding the complexity of handling each 
+database differently away, which is great for gem authors, when migrating an application from one database to another, 
+or writing code that must support multiple databases.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;p&gt;Here is how &lt;a href="https://github.com/thredded/db_text_search"&gt;db_text_search&lt;/a&gt; handles different types of columns in different databases for case-insensitive comparisons:&lt;/p&gt;
+
+&lt;table style="font-size: 15px" class="table table-responsive table-striped table-condensed table-center-cells table-bordered"&gt;
+&lt;caption&gt;&lt;a href="https://github.com/thredded/db_text_search"&gt;DbTextSearch&lt;/a&gt; case-insensitive string matching methods&lt;/caption&gt;
+&lt;thead&gt;
+  &lt;tr&gt;&lt;th style="vertical-align: bottom" rowspan="2"&gt;Column type&lt;/th&gt;&lt;th colspan="2"&gt;SQLite&lt;/th&gt;&lt;th colspan="2"&gt;MySQL&lt;/th&gt;&lt;th colspan="2"&gt;PostgreSQL&lt;/th&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;th&gt;Detected types&lt;/th&gt;&lt;th&gt;Search / index&lt;/th&gt;&lt;th&gt;Detected types&lt;/th&gt;&lt;th&gt;Search / index&lt;/th&gt;&lt;th&gt;Detected types&lt;/th&gt;&lt;th&gt;Search / index&lt;/th&gt;&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody style="text-align: center"&gt;
+  &lt;tr&gt;&lt;th&gt;Case-insensitive&lt;/th&gt;
+      &lt;td rowspan="2"&gt;always treated as case-sensitive&lt;/td&gt; &lt;td rowspan="2"&gt;&lt;code&gt;COLLATE&amp;nbsp;NOCASE&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;i&gt;default&lt;/i&gt;&lt;/td&gt; &lt;td&gt;&lt;i&gt;default&lt;/i&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code&gt;CITEXT&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;i&gt;default&lt;/i&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;&lt;th&gt;Case-sensitive&lt;/th&gt;
+    &lt;td&gt;non-&lt;code&gt;ci&lt;/code&gt; collations&lt;/td&gt; &lt;td&gt;&lt;code&gt;LOWER&lt;/code&gt;&lt;br /&gt;&lt;b&gt;no index&lt;/b&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;i&gt;default&lt;/i&gt;&lt;/td&gt; &lt;td&gt;&lt;code&gt;LOWER&lt;/code&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Full-text search is even more gnarly. Great that you don't have to worry about that if you use this gem!
+Check it out and learn more on &lt;a href="https://github.com/thredded/db_text_search"&gt;github.com/thredded/db_text_search&lt;/a&gt;.&lt;/p&gt;
+
+</content>
+  </entry>
   <entry>
     <title>Internationalization made easier with static analysis</title>
     <link rel="alternate" href="http://blog.glebm.com/2014/02/27/i18n-made-easier-with-static-analysis.html"/>
