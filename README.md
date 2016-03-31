@@ -52,11 +52,4 @@ Articles are written in markdown and also processed with `<%= ERB %>`. Add `publ
 
 If the article contains `READMORE`, the part above `READMORE` will be considered a summary, and will be rendered on the index page with a "Read more" link after it.
 
-#### Syntax Highlighting:
-
-* `rake syntax:theme[theme_name]` -- to set the theme (defaults to thankful_eyes)
-* `rake syntax:themes` -- to get the list of themes
-
-Syntax highlighting is provided by [rouge][rouge]
-
 [rouge]: https://github.com/jayferd/rouge
