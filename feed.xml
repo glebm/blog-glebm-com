@@ -104,12 +104,12 @@ See `&amp;lt;command&amp;gt; --help` for more information on a specific command.
 
 &lt;p&gt;Reports come rendered in colourful full-resolution &lt;a href="https://github.com/visionmedia/terminal-table"&gt;terminal tables&lt;/a&gt;:&lt;/p&gt;
 
-&lt;p&gt;&lt;a href="https://github.com/glebm/i18n-tasks" target="_blank"&gt;&lt;img width="534" height="288" src="https://raw.github.com/glebm/i18n-tasks/master/doc/img/i18n-tasks.png" style="max-width:100%;" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/glebm/i18n-tasks" target="_blank"&gt;&lt;img width="539" height="331" src="https://i.imgur.com/XZBd8l7.png" style="max-width:100%;" /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;pre class="highlight plaintext"&gt;&lt;code&gt;$ i18n-tasks usages 'activities.*'
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;&lt;a href="https://github.com/glebm/i18n-tasks" target="_blank"&gt;&lt;img src="https://raw.github.com/glebm/i18n-tasks/master/doc/img/i18n-usages.png" alt="i18n-screenshot" title="i18n-tasks find output screenshot" style="max-width:100%;" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/glebm/i18n-tasks" target="_blank"&gt;&lt;img width="655" height="193" src="https://i.imgur.com/VxBrSfY.png" alt="i18n-screenshot" title="i18n-tasks find output screenshot" style="max-width:100%;" /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3 id="see-also"&gt;See also&lt;/h3&gt;
 
