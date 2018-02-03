@@ -1,5 +1,5 @@
 open_source:
-  - url: "https://github.com/thredded/thredded"
+  - url: "https://thredded.org/"
     link_text: "Thredded"
     summary: Thredded is a Rails forum / messageboard engine.
   - url: "https://github.com/glebm/i18n-tasks"
