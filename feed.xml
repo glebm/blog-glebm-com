@@ -11,15 +11,15 @@
   </author>
   <entry>
     <title>Database-agnostic case-insensitive equality, full text search</title>
-    <link rel="alternate" href="http://blog.glebm.com/2016/03/31/db-text-search.html"/>
-    <id>http://blog.glebm.com//2016/03/31/db-text-search.html</id>
+    <link rel="alternate" href="http://blog.glebm.com/2016/03/31/db-text-search-html"/>
+    <id>http://blog.glebm.com//2016/03/31/db-text-search-html</id>
     <published>2016-03-31T03:00:00+01:00</published>
     <updated>2016-03-31T03:00:00+01:00</updated>
     <author>
       <name>Gleb Mazovetskiy</name>
     </author>
-    <content type="html">&lt;p&gt;Different relational databases treat text search very differently. 
-The new &lt;a href="https://github.com/thredded/db_text_search"&gt;DbTextSearch gem&lt;/a&gt; provides a unified interface on top of ActiveRecord for SQLite, MySQL, and 
+    <content type="html">&lt;p&gt;Different relational databases treat text search very differently.
+The new &lt;a href="https://github.com/thredded/db_text_search"&gt;DbTextSearch gem&lt;/a&gt; provides a unified interface on top of ActiveRecord for SQLite, MySQL, and
 PostgreSQL to do:&lt;/p&gt;
 
 &lt;ul&gt;
@@ -27,14 +27,15 @@ PostgreSQL to do:&lt;/p&gt;
   &lt;li&gt;Basic full-text search for a list of terms, and FTS index creation.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;a href="https://github.com/thredded/db_text_search"&gt;DbTextSearch&lt;/a&gt; does all the heavy lifting under the hood, hiding the complexity of handling each 
-database differently away, which is great for gem authors, when migrating an application from one database to another, 
+&lt;p&gt;&lt;a href="https://github.com/thredded/db_text_search"&gt;DbTextSearch&lt;/a&gt; does all the heavy lifting under the hood, hiding the complexity of handling each
+database differently away, which is great for gem authors, when migrating an application from one database to another,
 or writing code that must support multiple databases.&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;
 
 &lt;p&gt;Here is how &lt;a href="https://github.com/thredded/db_text_search"&gt;db_text_search&lt;/a&gt; handles different types of columns in different databases for case-insensitive comparisons:&lt;/p&gt;
-&lt;table style="font-size: 16px" class="table table-responsive table-striped table-condensed table-center-cells table-bordered"&gt;
+&lt;div class="table-responsive"&gt;
+&lt;table style="font-size: 16px; border: 0" class="table table-striped table-sm table-center-cells table-bordered"&gt;
 &lt;caption&gt;&lt;a href="https://github.com/thredded/db_text_search"&gt;DbTextSearch&lt;/a&gt; case-insensitive string matching methods&lt;/caption&gt;
 &lt;thead&gt;
   &lt;tr&gt;&lt;th style="vertical-align: bottom" rowspan="2"&gt;Column type&lt;/th&gt;&lt;th colspan="2"&gt;SQLite&lt;/th&gt;&lt;th colspan="2"&gt;MySQL&lt;/th&gt;&lt;th colspan="2"&gt;PostgreSQL&lt;/th&gt;&lt;/tr&gt;
@@ -52,6 +53,7 @@ or writing code that must support multiple databases.&lt;/p&gt;
   &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
+&lt;/div&gt;
 &lt;p&gt;Full-text search is even more gnarly. Great that you don't have to worry about that if you use this gem!
 Check it out and learn more on &lt;a href="https://github.com/thredded/db_text_search"&gt;github.com/thredded/db_text_search&lt;/a&gt;.&lt;/p&gt;
 
@@ -59,28 +61,28 @@ Check it out and learn more on &lt;a href="https://github.com/thredded/db_text_s
   </entry>
   <entry>
     <title>Internationalization made easier with static analysis</title>
-    <link rel="alternate" href="http://blog.glebm.com/2014/02/27/i18n-made-easier-with-static-analysis.html"/>
-    <id>http://blog.glebm.com//2014/02/27/i18n-made-easier-with-static-analysis.html</id>
+    <link rel="alternate" href="http://blog.glebm.com/2014/02/27/i18n-made-easier-with-static-analysis-html"/>
+    <id>http://blog.glebm.com//2014/02/27/i18n-made-easier-with-static-analysis-html</id>
     <published>2014-02-27T08:41:00+00:00</published>
     <updated>2014-02-27T08:41:00+00:00</updated>
     <author>
       <name>Gleb Mazovetskiy</name>
     </author>
-    <content type="html">&lt;p&gt;&lt;a title="glebm/i18n-tasks on Github" href="https://github.com/glebm/i18n-tasks"&gt;i18n-tasks&lt;/a&gt; finds and manages missing and unused translations in your application.
-The default approach to locale data management with gems such as &lt;a title="svenfuchs/i18n on Github" href="https://github.com/svenfuchs/i18n"&gt;i18n&lt;/a&gt; is flawed.
+    <content type="html">&lt;p&gt;&lt;a href="https://github.com/glebm/i18n-tasks" title="glebm/i18n-tasks on Github"&gt;i18n-tasks&lt;/a&gt; finds and manages missing and unused translations in your application.
+The default approach to locale data management with gems such as &lt;a href="https://github.com/svenfuchs/i18n" title="svenfuchs/i18n on Github"&gt;i18n&lt;/a&gt; is flawed.
 If you use a key that does not exist, this will only blow up at runtime. Keys left over from removed code accumulate
 in the resource files and introduce unnecessary overhead on the translators. Translation files can quickly turn to disarray.&lt;/p&gt;
 
 &lt;p&gt;i18n-tasks improves this by using static analysis. It scans calls such as &lt;code&gt;I18n.t('some.key')&lt;/code&gt; and provides reports on key usage, missing, and unused keys.
 It can also can pre-fill missing keys, including from Google Translate, and it can remove unused keys as well.&lt;/p&gt;
 
-&lt;p&gt;i18n-tasks can be used with any project using &lt;a title="svenfuchs/i18n on Github" href="https://github.com/svenfuchs/i18n"&gt;i18n&lt;/a&gt; (default in Rails).&lt;/p&gt;
+&lt;p&gt;i18n-tasks can be used with any project using &lt;a href="https://github.com/svenfuchs/i18n" title="svenfuchs/i18n on Github"&gt;i18n&lt;/a&gt; (default in Rails).&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;
 
 &lt;p&gt;It can make translation easier in many ways:&lt;/p&gt;
 
-&lt;pre class="highlight plaintext"&gt;&lt;code&gt;$ i18n-tasks
+&lt;div class="highlight"&gt;&lt;pre class="highlight plaintext"&gt;&lt;code&gt;$ i18n-tasks
 Usage: i18n-tasks &amp;lt;command&amp;gt; [options]
     -v, --version      Print the version
     -h, --help         Display this help message.
@@ -98,17 +100,15 @@ Available commands:
   xlsx-report         save missing and unused translations to an Excel file
 
 See `&amp;lt;command&amp;gt; --help` for more information on a specific command.
-&lt;/code&gt;&lt;/pre&gt;
-
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;There are lots of settings and you can use this on non-ruby codebases.&lt;/p&gt;
 
 &lt;p&gt;Reports come rendered in colourful full-resolution &lt;a href="https://github.com/visionmedia/terminal-table"&gt;terminal tables&lt;/a&gt;:&lt;/p&gt;
 
 &lt;p&gt;&lt;a href="https://github.com/glebm/i18n-tasks" target="_blank"&gt;&lt;img width="539" height="331" src="https://i.imgur.com/XZBd8l7.png" style="max-width:100%;" /&gt;&lt;/a&gt;&lt;/p&gt;
 
-&lt;pre class="highlight plaintext"&gt;&lt;code&gt;$ i18n-tasks usages 'activities.*'
-&lt;/code&gt;&lt;/pre&gt;
-
+&lt;div class="highlight"&gt;&lt;pre class="highlight plaintext"&gt;&lt;code&gt;$ i18n-tasks usages 'activities.*'
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;&lt;a href="https://github.com/glebm/i18n-tasks" target="_blank"&gt;&lt;img width="655" height="193" src="https://i.imgur.com/VxBrSfY.png" alt="i18n-screenshot" title="i18n-tasks find output screenshot" style="max-width:100%;" /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3 id="see-also"&gt;See also&lt;/h3&gt;
@@ -122,8 +122,8 @@ See `&amp;lt;command&amp;gt; --help` for more information on a specific command.
   </entry>
   <entry>
     <title>Save Redis memory with large list packing</title>
-    <link rel="alternate" href="http://blog.glebm.com/2013/08/31/redis-compressed-lists.html"/>
-    <id>http://blog.glebm.com//2013/08/31/redis-compressed-lists.html</id>
+    <link rel="alternate" href="http://blog.glebm.com/2013/08/31/redis-compressed-lists-html"/>
+    <id>http://blog.glebm.com//2013/08/31/redis-compressed-lists-html</id>
     <published>2013-08-31T17:54:00+01:00</published>
     <updated>2013-08-31T17:54:00+01:00</updated>
     <author>
@@ -144,16 +144,15 @@ By storing lists under the threshold, we take advantage of redis' ability to pac
 
 &lt;p&gt;Here is a memory usage benchmark with random int values between 0 and 10:&lt;/p&gt;
 
-&lt;p&gt;&lt;img class="img-responsive" width="1200" height="600" src="http://blog.glebm.com/images/2013-08-31-redis-compressed-lists/bm-512.png" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://blog.glebm.com/images/2013-08-31-redis-compressed-lists/bm-512.png" class="img-fluid" width="1200" height="600" alt="Bm 512" /&gt;&lt;/p&gt;
 
 &lt;p&gt;To benchmark access speed let's try some random accesses on a large list:&lt;/p&gt;
 
-&lt;pre class="highlight plaintext"&gt;&lt;code&gt;bm_speed: 3,000,000 keys, 100 random range reads
+&lt;div class="highlight"&gt;&lt;pre class="highlight plaintext"&gt;&lt;code&gt;bm_speed: 3,000,000 keys, 100 random range reads
                            user     system      total        real
 regular                0.380000   0.040000   0.420000 (  0.686875)
 partitioned            0.390000   0.060000   0.450000 (  0.482544)
-&lt;/code&gt;&lt;/pre&gt;
-
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Even despite Ruby overhead we still have both wall-clock time and memory savings.
 A regular redis list is a linked list, so getting ranges out of it is slow.
 However, when we use this technique the list is partitioned, and it only takes &lt;code&gt;O(1)&lt;/code&gt; to get to the correct partition.
@@ -185,8 +184,8 @@ As you increase &lt;code&gt;list-max-ziplist-entries&lt;/code&gt;, memory saving
   </entry>
   <entry>
     <title>Inline CSS web fonts</title>
-    <link rel="alternate" href="http://blog.glebm.com/2013/08/28/inline-css-fonts.html"/>
-    <id>http://blog.glebm.com//2013/08/28/inline-css-fonts.html</id>
+    <link rel="alternate" href="http://blog.glebm.com/2013/08/28/inline-css-fonts-html"/>
+    <id>http://blog.glebm.com//2013/08/28/inline-css-fonts-html</id>
     <published>2013-08-28T17:34:00+01:00</published>
     <updated>2013-08-28T17:34:00+01:00</updated>
     <author>
@@ -196,7 +195,7 @@ As you increase &lt;code&gt;list-max-ziplist-entries&lt;/code&gt;, memory saving
 
 &lt;p&gt;This is what the timeline looks like for a URL referenced font:&lt;/p&gt;
 
-&lt;p&gt;&lt;img class="img-responsive" width="469" height="281" src="http://blog.glebm.com/images/2013-08-28-inline-css-fonts/tl-body.png" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://blog.glebm.com/images/2013-08-28-inline-css-fonts/tl-body.png" class="img-fluid" width="469" height="281" alt="Tl body" /&gt;&lt;/p&gt;
 
 &lt;h4 class="text-center"&gt;
   &lt;span style="color: rgba(0, 0, 255, 0.67)"&gt;Ready&lt;/span&gt; &lt;span style="color: rgba(255, 0, 0, 0.78)"&gt;Load&lt;/span&gt;
@@ -211,12 +210,11 @@ This causes a delay and flash of missing text or a font change flash while the f
 
 &lt;p&gt;Inline web fonts with this script:&lt;/p&gt;
 
-&lt;pre class="highlight shell"&gt;&lt;code&gt;&lt;span class="c"&gt;# download inliner and mark it as executable&lt;/span&gt;
-curl https://gist.githubusercontent.com/glebm/6360088/raw &amp;gt; inline-fonts.rb; chmod +x inline-fonts.rb
+&lt;div class="highlight"&gt;&lt;pre class="highlight shell"&gt;&lt;code&gt;&lt;span class="c"&gt;# download inliner and mark it as executable&lt;/span&gt;
+curl https://gist.githubusercontent.com/glebm/6360088/raw &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; inline-fonts.rb&lt;span class="p"&gt;;&lt;/span&gt; chmod +x inline-fonts.rb
 &lt;span class="c"&gt;# provide URL or path to convert&lt;/span&gt;
 ./inline-fonts.rb &lt;span class="s1"&gt;'https://fonts.googleapis.com/css?family=Arimo:400'&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;&lt;a href="https://gist.github.com/glebm/6360088"&gt;The script&lt;/a&gt; outputs CSS with all the &lt;code&gt;url&lt;/code&gt; values inlined in data-uris, &lt;code&gt;woff&lt;/code&gt; format.
 You can now deliver the fonts and CSS together in 1 request and the rendering is perfect,
 no more &lt;a href="http://en.wikipedia.org/wiki/Flash_of_unstyled_content"&gt;&lt;def title="Flash of Unstyled Content"&gt;FOUC&lt;/def&gt;&lt;/a&gt; or font change.&lt;/p&gt;
@@ -237,7 +235,7 @@ Measure with any client-side monitoring tool to find out (it is best if your too
 
 &lt;p&gt;This is what the timeline looks like once the fonts are inlined:&lt;/p&gt;
 
-&lt;p&gt;&lt;img class="img-responsive" width="642" height="453" src="http://blog.glebm.com/images/2013-08-28-inline-css-fonts/tl-inline.png" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://blog.glebm.com/images/2013-08-28-inline-css-fonts/tl-inline.png" class="img-fluid" width="642" height="453" alt="Tl inline" /&gt;&lt;/p&gt;
 
 &lt;p&gt;When inlined, all the fonts are finished downloading before DOMContentReady fires.&lt;/p&gt;
 
@@ -254,8 +252,8 @@ Measure with any client-side monitoring tool to find out (it is best if your too
   </entry>
   <entry>
     <title>Store screenshots of your web app in Git</title>
-    <link rel="alternate" href="http://blog.glebm.com/2013/08/23/screenshots-in-git.html"/>
-    <id>http://blog.glebm.com//2013/08/23/screenshots-in-git.html</id>
+    <link rel="alternate" href="http://blog.glebm.com/2013/08/23/screenshots-in-git-html"/>
+    <id>http://blog.glebm.com//2013/08/23/screenshots-in-git-html</id>
     <published>2013-08-23T17:22:00+01:00</published>
     <updated>2013-08-23T17:22:00+01:00</updated>
     <author>
@@ -273,7 +271,7 @@ Measure with any client-side monitoring tool to find out (it is best if your too
 &lt;p&gt;What if every time you commit, you got a visual diff of every web page that changed?
 It is surprisingly easy to do.&lt;/p&gt;
 
-&lt;p&gt;&lt;img class="img-responsive" width="828" height="296" src="http://blog.glebm.com/images/2013-08-23-screenshots-in-git/gh-img-diff-1.png" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://blog.glebm.com/images/2013-08-23-screenshots-in-git/gh-img-diff-1.png" class="img-fluid" width="828" height="296" alt="Gh img diff 1" /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;
 
@@ -282,7 +280,7 @@ It is surprisingly easy to do.&lt;/p&gt;
 
 &lt;p&gt;For Rails you can use poltergeist + rspec and &lt;a href="https://github.com/glebm/rails_email_preview/blob/master/spec/support/save_screenshots.rb"&gt;just&lt;/a&gt; do &lt;a href="https://github.com/glebm/rails_email_preview/blob/master/spec/features/take_screenshots_spec.rb"&gt;this&lt;/a&gt; like in the tests for my &lt;a href="https://github.com/glebm/rails_email_preview"&gt;Rails Email Preview&lt;/a&gt; gem. You then simply list the shots you want:&lt;/p&gt;
 
-&lt;pre class="highlight ruby"&gt;&lt;code&gt;&lt;span class="n"&gt;describe&lt;/span&gt; &lt;span class="s1"&gt;'Take screenshots'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="ss"&gt;driver: :poltergeist&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre class="highlight ruby"&gt;&lt;code&gt;&lt;span class="n"&gt;describe&lt;/span&gt; &lt;span class="s1"&gt;'Take screenshots'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="ss"&gt;driver: :poltergeist&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt;
   &lt;span class="n"&gt;it&lt;/span&gt; &lt;span class="s1"&gt;'home page'&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt;
     &lt;span class="n"&gt;visit&lt;/span&gt; &lt;span class="s1"&gt;'/'&lt;/span&gt;
     &lt;span class="n"&gt;screenshot!&lt;/span&gt; &lt;span class="s1"&gt;'home'&lt;/span&gt;
@@ -294,8 +292,7 @@ It is surprisingly easy to do.&lt;/p&gt;
     &lt;span class="n"&gt;screenshot!&lt;/span&gt; &lt;span class="s1"&gt;'my-account'&lt;/span&gt;
   &lt;span class="k"&gt;end&lt;/span&gt;
 &lt;span class="k"&gt;end&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;The code will simply place screenshots into &lt;code&gt;spec/screenshots&lt;/code&gt;  each time the test suite is run.&lt;/p&gt;
 
 &lt;p&gt;Once you add &lt;code&gt;spec/screenshots&lt;/code&gt; to git, things get interesting.&lt;/p&gt;
@@ -314,7 +311,7 @@ You can also script rewriting images out of older commits via &lt;code&gt;git fi
 
 &lt;p&gt;Below is an image diff as &lt;a href="https://github.com/glebm/rails_email_preview/commit/b6b003bf3a49ecf36d51ecf39dcd57e42e259dad?&amp;amp;diff-1=1-82#L14R3"&gt;rendered by Github&lt;/a&gt;. This is &lt;em&gt;visual version history&lt;/em&gt; and your private &lt;em&gt;git wayback machine&lt;/em&gt;.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href="https://github.com/glebm/rails_email_preview/commit/b6b003bf3a49ecf36d51ecf39dcd57e42e259dad?&amp;amp;diff-1=1-82#L14R3"&gt;&lt;img class="img-responsive" width="828" height="432" src="http://blog.glebm.com/images/2013-08-23-screenshots-in-git/gh-img-diff-2.png" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/glebm/rails_email_preview/commit/b6b003bf3a49ecf36d51ecf39dcd57e42e259dad?&amp;amp;diff-1=1-82#L14R3"&gt;&lt;img src="http://blog.glebm.com/images/2013-08-23-screenshots-in-git/gh-img-diff-2.png" class="img-fluid" width="828" height="432" alt="Gh img diff 2" /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;I hope this post has helped you. Please let me know if you already do this, as I'm curious to hear other approaches.&lt;/p&gt;
 
