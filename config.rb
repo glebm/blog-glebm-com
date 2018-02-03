@@ -10,8 +10,8 @@ set :markdown_engine, :kramdown
 # Blog settings
 activate :blog do |blog|
   # blog.prefix  = 'blog'
-  blog.permalink         = ':year/:month/:day/:title'
-  blog.sources           = ':year-:month-:day-:title'
+  blog.permalink         = ':year/:month/:day/:title.html'
+  blog.sources           = ':year-:month-:day-:title.html'
   blog.taglink           = 'tags/:tag.html'
   blog.layout            = 'article_layout'
   blog.summary_separator = /(READMORE)/
