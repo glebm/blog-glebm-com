@@ -1,7 +1,7 @@
 open_source:
-  - url: "https://github.com/twbs/bootstrap-sass"
-    link_text: "Bootstrap for Sass"
-    summary: Port of Twitter Bootstrap web framework to Sass language, automatically generated from the LESS version.
+  - url: "https://github.com/thredded/thredded"
+    link_text: "Thredded"
+    summary: Thredded is a Rails forum / messageboard engine.
   - url: "https://github.com/glebm/i18n-tasks"
     link_text: "i118n-tasks"
     summary: "Manage translation and localization with static analysis, for Ruby i18n."
