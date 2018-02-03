@@ -6,6 +6,10 @@
   .article
     = partial 'article_header'
     .article-body = yield
+    .suggest-edit
+      a.btn.btn-outline-primary.btn-sm href=suggest_edit_article_url(current_article)
+        span.fa.fa-pencil.fa-inline
+        | Suggest edit
   = partial 'social_share'
   = partial "authors/#{current_page.data.author}" if current_page.data.author
 

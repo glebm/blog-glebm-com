@@ -11,8 +11,6 @@ html
       = content_for?(:page_title) ? yield_content(:page_title) : data.blog.title
     = stylesheet_link_tag 'application'
     link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet"
-    = javascript_include_tag '//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'
-    = javascript_include_tag 'application'
     = "\n"
   body
     = google_analytics_js
@@ -29,6 +27,4 @@ html
       -# Sidebar
       .col-md-3 = partial 'sidebar'
 
-    / twitter button
-    javascript:
-      !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+    /= javascript_include_tag 'application'
