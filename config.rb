@@ -3,6 +3,7 @@ helpers DateTimeHelpers
 
 Time.zone = 'UTC'
 
+activate :sprockets
 activate :syntax
 set :markdown_engine, :kramdown
 

@@ -1,5 +1,5 @@
-ul.nav.nav-stacked.text-left.nav-pills
-  li: a href=atom_feed_url
+ul.nav.flex-column.text-left
+  li.nav-item: a.nav-link href=atom_feed_url
     | #{fa 'rss', 'fw'} Atom Feed
-  li: a href=data.urls.source
+  li.nav-item: a.nav-link href=data.urls.source
     | #{fa 'code-fork', 'fw'} This blog on Github

@@ -1,11 +1,11 @@
 .text-center
   .person-img
-    = image_tag 'author.jpg', class: 'img-responsive img-circle'
+    = image_tag 'author.jpg', class: 'img-fluid rounded-circle'
 
   p: abbr title=data.author.name @#{data.author.twitter}
   p
-    ul.nav.nav-pills.nav-justified
-      li: a href=('https://twitter.com/' + data.author.twitter) rel="me"
+    ul.nav.nav-fill.nav-pills
+      li.nav-item: a.nav-link href=('https://twitter.com/' + data.author.twitter) rel="me"
         | #{fa :twitter} Twitter
-      li: a href=('https://github.com/' + data.author.github) rel="me"
+      li.nav-item: a.nav-link href=('https://github.com/' + data.author.github) rel="me"
         | #{fa :github} Github

@@ -1,6 +1,9 @@
-header.navbar.navbar-default: .container
-  .navbar-header
-    .navbar-brand: a href='/' = data.blog.title
-  ul.nav.navbar-nav
-    li class=('active' if current_page.path == 'index.html')
-      = link_to 'Index', '/'
+header.navbar.navbar-dark.bg-primary: nav.container
+  .navbar-brand: a href='/' = data.blog.title
+  ul.navbar-nav.mr-auto
+    li.nav-item class=('active' if current_page.path == 'index.html')
+      = link_to '/', class: 'nav-link' do
+        | Index
+        - if current_page.path == 'index.html'
+          span.sr-only
+            | (current)

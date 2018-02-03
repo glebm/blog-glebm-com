@@ -4,6 +4,6 @@
     = partial 'article_header', locals: {title_html: {tag: 'h2'}, article: article}
     .article-body
       = article.summary(250)
-      a.btn.btn-default.btn-lg.read-more href=article_url(article)
+      a.btn.btn-outline-primary.btn-lg.read-more href=article_url(article)
         | Read more #{icon 'angle-right'}
   - current_resource.add_metadata article: nil

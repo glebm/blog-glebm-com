@@ -1,9 +1,9 @@
-ul.nav.nav-pills.nav-stacked
+ul.nav.nav-pills.flex-column
   - max = 10
   - blog.articles[0...max].each do |article|
-    li class=('active' if current_page.path == article.path)
-      a href=article_url(article)
+    li.nav-item
+      a.nav-link class=('active' if current_page.path == article.path) href=article_url(article)
         = article.title
   - if blog.articles.length > max
-    li: a href=root_url
+    li.nav-item: a.nav-link href=root_url
       | #{fa 'plus', 'fw'} #{max - blog.articles.length} more
