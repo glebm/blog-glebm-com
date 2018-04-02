@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Gleb's Notes</title>
-  <subtitle>Dev thought and protips, release announcements and rant</subtitle>
+  <subtitle>A software engineering blog</subtitle>
   <id>http://blog.glebm.com/</id>
   <link href="http://blog.glebm.com/"/>
   <link href="http://blog.glebm.com/feed.xml" rel="self"/>
