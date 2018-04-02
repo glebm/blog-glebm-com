@@ -5,10 +5,95 @@
   <id>http://blog.glebm.com/</id>
   <link href="http://blog.glebm.com/"/>
   <link href="http://blog.glebm.com/feed.xml" rel="self"/>
-  <updated>2016-03-31T03:00:00+01:00</updated>
+  <updated>2018-04-02T15:16:00+01:00</updated>
   <author>
     <name>Gleb Mazovetskiy</name>
   </author>
+  <entry>
+    <title>Configuring Ubuntu 17.10 to behave like Unity</title>
+    <link rel="alternate" href="http://blog.glebm.com/2018/04/02/configuring-ubuntu-17-10-to-behave-like-unity.html"/>
+    <id>http://blog.glebm.com//2018/04/02/configuring-ubuntu-17-10-to-behave-like-unity.html</id>
+    <published>2018-04-02T15:16:00+01:00</published>
+    <updated>2018-04-02T15:16:00+01:00</updated>
+    <author>
+      <name>Gleb Mazovetskiy</name>
+    </author>
+    <content type="html">&lt;p&gt;I've recently upgraded from Ubuntu 16.04 to Ubuntu 17.10. The new Ubuntu uses
+Gnome desktop by default instead of Unity. Gnome is quite different but luckily
+can be customized to match Unity's behaviour very closely. Here is how.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="/images/2018-04-02-configuring-ubuntu-17-10-to-behave-like-unity/ubuntu17-like-unity.png"&gt;
+  &lt;img src="http://blog.glebm.com/images/2018-04-02-configuring-ubuntu-17-10-to-behave-like-unity/ubuntu17-like-unity.png" class="img-fluid" width="1298" height="365" alt="Ubuntu17 like unity" /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;h2 id="goals"&gt;Goals&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Show the current time in the top bar on the right.&lt;/li&gt;
+  &lt;li&gt;Show legacy app indicators (tray icons) on the right.&lt;/li&gt;
+  &lt;li&gt;Merge the window title bar with the top bar when maximized.&lt;/li&gt;
+  &lt;li&gt;Hide the top-left &lt;em&gt;Activities&lt;/em&gt; button.&lt;/li&gt;
+  &lt;li&gt;Allow quick device selection via the top bar Sound button.&lt;/li&gt;
+  &lt;li&gt;Place window buttons on the left.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id="setup-guide"&gt;Setup guide&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;First, install &lt;em&gt;Tweaks&lt;/em&gt;, a GNOME configuration UI that has options that are not
+yet available in the default Settings app:&lt;/p&gt;
+
+&lt;div class="highlight"&gt;&lt;pre class="highlight shell"&gt;&lt;code&gt;&lt;span class="nb"&gt;sudo &lt;/span&gt;apt install gnome-tweak-tool
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+    &lt;p&gt;Then install &lt;code&gt;x11-utils&lt;/code&gt;, a package often required by Gnome extensions:&lt;/p&gt;
+
+&lt;div class="highlight"&gt;&lt;pre class="highlight shell"&gt;&lt;code&gt;&lt;span class="nb"&gt;sudo &lt;/span&gt;apt install x11-utils
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+    &lt;p&gt;You can install Gnome extensions from &lt;a href="https://extensions.gnome.org"&gt;https://extensions.gnome.org&lt;/a&gt; and
+manage and configure the installed extensions in &lt;em&gt;Tweaks -&amp;gt; Extensions&lt;/em&gt;.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Install the &lt;a href="https://extensions.gnome.org/extension/1287"&gt;Unite extension&lt;/a&gt; for goals 1-4.&lt;/p&gt;
+
+    &lt;p&gt;Alternatively, e.g. if Unite doesn't work for you or you'd like more
+customization, install the following plugins: &lt;a href="https://extensions.gnome.org/extension/1267"&gt;No title bar&lt;/a&gt;, &lt;a href="https://extensions.gnome.org/extension/744"&gt;Hide
+activities button&lt;/a&gt;, and &lt;a href="https://extensions.gnome.org/extension/2"&gt;Frippery Move Clock&lt;/a&gt;.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Install the &lt;a href="https://extensions.gnome.org/extension/906"&gt;Sound Input &amp;amp; Output Device Chooser&lt;/a&gt; extension to add sound
+device selection to the top bar sound menu.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;To place window buttons on the left, adjust &lt;em&gt;Tweaks -&amp;gt; Windows -&amp;gt; Titlebar
+Buttons -&amp;gt; Placement&lt;/em&gt;.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id="other-tips"&gt;Other tips&lt;/h2&gt;
+
+&lt;p&gt;If you use Google Chrome, enable "Use system title bar and borders" in
+&lt;code&gt;chrome://settings&lt;/code&gt; for consistency with other apps.&lt;/p&gt;
+
+&lt;p&gt;You can disable animations from &lt;em&gt;Tweaks -&amp;gt; Appearance -&amp;gt; Animations&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;You can change the default monospace font from &lt;em&gt;Tweaks -&amp;gt; Fonts&lt;/em&gt;. I prefer &lt;em&gt;Hack
+Regular&lt;/em&gt; at 11pt:&lt;/p&gt;
+
+&lt;div class="highlight"&gt;&lt;pre class="highlight shell"&gt;&lt;code&gt;&lt;span class="nb"&gt;sudo &lt;/span&gt;apt install fonts-hack-ttf
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;To have your multi-monitor setup work on the login screen, run:&lt;/p&gt;
+
+&lt;div class="highlight"&gt;&lt;pre class="highlight shell"&gt;&lt;code&gt;&lt;span class="nb"&gt;sudo &lt;/span&gt;cp ~/.config/monitors.xml /var/lib/gdm3/.config/
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Keyboard shortcuts can be configured in &lt;em&gt;Settings -&amp;gt; Devices -&amp;gt; Keyboard&lt;/em&gt;. I
+find it useful to remove &lt;em&gt;Maximise window&lt;/em&gt; and instead set &lt;em&gt;Toggle maximisation
+state&lt;/em&gt; to &lt;kbd&gt;Super + Up&lt;/kbd&gt;.&lt;/p&gt;
+
+</content>
+  </entry>
   <entry>
     <title>Database-agnostic case-insensitive equality, full text search</title>
     <link rel="alternate" href="http://blog.glebm.com/2016/03/31/db-text-search.html"/>

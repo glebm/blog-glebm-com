@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8" /><meta content="IE=edge;chrome=1" http-equiv="X-UA-Compatible" /><meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport" /><link href="/images/favicon.ico?1522688622" rel="icon" type="image/ico" /><link href="http://blog.glebm.com/feed.xml" rel="alternate" title="Gleb's Notes Feed" type="application/atom+xml" /><title>Configuring Ubuntu 17.10 to behave like Unity on Gleb's Notes</title><link href="/stylesheets/application.css?1522688622" rel="stylesheet" /><link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+</head><body><script type="text/javascript">      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-43451052-1', 'blog.glebm.com');
+      ga('send', 'pageview');
+</script><header class="navbar navbar-dark bg-primary"><nav class="container"><div class="navbar-brand"><a href="/">Gleb's Notes</a></div><ul class="navbar-nav mr-auto"><li class="nav-item"><a href="/" class="nav-link">Index</a></li></ul></nav></header><div class="container"><div class="row"><div class="col-md-9 col-lg-9"><div class=" " id="main" role="main"><div class="article"><div class="article-header"><h1 class="article-title"><a href="http://blog.glebm.com/2018/04/02/configuring-ubuntu-17-10-to-behave-like-unity.html">Configuring Ubuntu 17.10 to behave like Unity</a></h1><div class="article-date"><span class='date'> <span class='day'>2</span> <span class='month'>Apr</span>  </span></div></div><div class="article-body"><p>I've recently upgraded from Ubuntu 16.04 to Ubuntu 17.10. The new Ubuntu uses
+Gnome desktop by default instead of Unity. Gnome is quite different but luckily
+can be customized to match Unity's behaviour very closely. Here is how.</p>
+
+<p><a href="/images/2018-04-02-configuring-ubuntu-17-10-to-behave-like-unity/ubuntu17-like-unity.png?1522688622">
+  <img src="http://blog.glebm.com/images/2018-04-02-configuring-ubuntu-17-10-to-behave-like-unity/ubuntu17-like-unity.png" class="img-fluid" width="1298" height="365" alt="Ubuntu17 like unity" />
+</a></p>
+
+<p></p>
+
+<h2 id="goals">Goals</h2>
+
+<ol>
+  <li>Show the current time in the top bar on the right.</li>
+  <li>Show legacy app indicators (tray icons) on the right.</li>
+  <li>Merge the window title bar with the top bar when maximized.</li>
+  <li>Hide the top-left <em>Activities</em> button.</li>
+  <li>Allow quick device selection via the top bar Sound button.</li>
+  <li>Place window buttons on the left.</li>
+</ol>
+
+<h2 id="setup-guide">Setup guide</h2>
+
+<ol>
+  <li>
+    <p>First, install <em>Tweaks</em>, a GNOME configuration UI that has options that are not
+yet available in the default Settings app:</p>
+
+<div class="highlight"><pre class="highlight shell"><code><span class="nb">sudo </span>apt install gnome-tweak-tool
+</code></pre></div>
+    <p>Then install <code>x11-utils</code>, a package often required by Gnome extensions:</p>
+
+<div class="highlight"><pre class="highlight shell"><code><span class="nb">sudo </span>apt install x11-utils
+</code></pre></div>
+    <p>You can install Gnome extensions from <a href="https://extensions.gnome.org">https://extensions.gnome.org</a> and
+manage and configure the installed extensions in <em>Tweaks -&gt; Extensions</em>.</p>
+  </li>
+  <li>
+    <p>Install the <a href="https://extensions.gnome.org/extension/1287">Unite extension</a> for goals 1-4.</p>
+
+    <p>Alternatively, e.g. if Unite doesn't work for you or you'd like more
+customization, install the following plugins: <a href="https://extensions.gnome.org/extension/1267">No title bar</a>, <a href="https://extensions.gnome.org/extension/744">Hide
+activities button</a>, and <a href="https://extensions.gnome.org/extension/2">Frippery Move Clock</a>.</p>
+  </li>
+  <li>
+    <p>Install the <a href="https://extensions.gnome.org/extension/906">Sound Input &amp; Output Device Chooser</a> extension to add sound
+device selection to the top bar sound menu.</p>
+  </li>
+  <li>
+    <p>To place window buttons on the left, adjust <em>Tweaks -&gt; Windows -&gt; Titlebar
+Buttons -&gt; Placement</em>.</p>
+  </li>
+</ol>
+
+<h2 id="other-tips">Other tips</h2>
+
+<p>If you use Google Chrome, enable "Use system title bar and borders" in
+<code>chrome://settings</code> for consistency with other apps.</p>
+
+<p>You can disable animations from <em>Tweaks -&gt; Appearance -&gt; Animations</em>.</p>
+
+<p>You can change the default monospace font from <em>Tweaks -&gt; Fonts</em>. I prefer <em>Hack
+Regular</em> at 11pt:</p>
+
+<div class="highlight"><pre class="highlight shell"><code><span class="nb">sudo </span>apt install fonts-hack-ttf
+</code></pre></div>
+<p>To have your multi-monitor setup work on the login screen, run:</p>
+
+<div class="highlight"><pre class="highlight shell"><code><span class="nb">sudo </span>cp ~/.config/monitors.xml /var/lib/gdm3/.config/
+</code></pre></div>
+<p>Keyboard shortcuts can be configured in <em>Settings -&gt; Devices -&gt; Keyboard</em>. I
+find it useful to remove <em>Maximise window</em> and instead set <em>Toggle maximisation
+state</em> to <kbd>Super + Up</kbd>.</p>
+
+</div><div class="suggest-edit"><a class="btn btn-outline-primary btn-sm" href="https://github.com/glebm/blog-glebm-com/blob/master/source/2018-04-02-configuring-ubuntu-17-10-to-behave-like-unity.html.markdown.erb"><span class="fa fa-pencil fa-inline"></span>Suggest edit</a></div></div><div class="article-social"><h4>Share on</h4><ul><li><a class="social" href="https://twitter.com/share?text=Configuring%20Ubuntu%2017.10%20to%20behave%20like%20Unity&url=http%3A%2F%2Fblog.glebm.com%2F2018%2F04%2F02%2Fconfiguring-ubuntu-17-10-to-behave-like-unity.html" target="_blank"><i class='fa fa-twitter fa-inline'></i></a></li><li><a class="social" href="https://www.linkedin.com/cws/share?url=http%3A%2F%2Fblog.glebm.com%2F2018%2F04%2F02%2Fconfiguring-ubuntu-17-10-to-behave-like-unity.html" target="_blank"><i class='fa fa-linkedin fa-inline'></i></a></li><li><a class="social" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fblog.glebm.com%2F2018%2F04%2F02%2Fconfiguring-ubuntu-17-10-to-behave-like-unity.html" target="_blank"><i class='fa fa-facebook fa-inline'></i></a></li><li><a class="social" href="https://plus.google.com/share?url=http%3A%2F%2Fblog.glebm.com%2F2018%2F04%2F02%2Fconfiguring-ubuntu-17-10-to-behave-like-unity.html" target="_blank"><i class='fa fa-google-plus fa-inline'></i></a></li></ul></div><div class="comments">    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+      var disqus_shortname = "blog-glebm";
+var disqus_identifier = "configuring-ubuntu-17-10-to-behave-like-unity";
+var disqus_title = "Configuring Ubuntu 17.10 to behave like Unity";
+var disqus_url = "http://blog.glebm.com/2018/04/02/configuring-ubuntu-17-10-to-behave-like-unity.html";
+      (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div></div></div><div class="col-md-3"><aside class="sidebar"><div class="text-center"><div class="person-img"><img src='http://blog.glebm.com/images/author.jpg' class="img-fluid rounded-circle" width="883" height="883" alt="Author" /></div><p><abbr title="Gleb Mazovetskiy">@glebm</abbr></p><p><ul class="nav nav-fill nav-pills"><li class="nav-item"><a class="nav-link" href="https://twitter.com/glebm" rel="me"><i class='fa fa-twitter'></i> Twitter</a></li><li class="nav-item"><a class="nav-link" href="https://github.com/glebm" rel="me"><i class='fa fa-github'></i> Github</a></li></ul></p></div><hr /><h3>Posts</h3><ul class="nav nav-pills flex-column"><li class="nav-item"><a class="nav-link active" href="http://blog.glebm.com/2018/04/02/configuring-ubuntu-17-10-to-behave-like-unity.html">Configuring Ubuntu 17.10 to behave like Unity</a></li><li class="nav-item"><a class="nav-link" href="http://blog.glebm.com/2016/03/31/db-text-search.html">Database-agnostic case-insensitive equality, full text search</a></li><li class="nav-item"><a class="nav-link" href="http://blog.glebm.com/2014/02/27/i18n-made-easier-with-static-analysis.html">Internationalization made easier with static analysis</a></li><li class="nav-item"><a class="nav-link" href="http://blog.glebm.com/2013/08/31/redis-compressed-lists.html">Save Redis memory with large list packing</a></li><li class="nav-item"><a class="nav-link" href="http://blog.glebm.com/2013/08/28/inline-css-fonts.html">Inline CSS web fonts</a></li><li class="nav-item"><a class="nav-link" href="http://blog.glebm.com/2013/08/23/screenshots-in-git.html">Store screenshots of your web app in Git</a></li></ul><hr /><ul class="nav flex-column text-left"><li class="nav-item"><a class="nav-link" href="http://blog.glebm.com/feed.xml"><i class='fa fa-rss fa-fw'></i> Atom Feed</a></li><li class="nav-item"><a class="nav-link" href="https://github.com/glebm/blog-glebm-com"><i class='fa fa-code-fork fa-fw'></i> This blog on Github</a></li></ul><hr /><h3>Open Source</h3><div class="list-group"><a class="list-group-item list-group-item-action" href="https://thredded.org/"><h4 class="list-group-item-heading">Thredded</h4><p class="mb-1">Thredded is a Rails forum / messageboard engine.</p></a><a class="list-group-item list-group-item-action" href="https://github.com/glebm/i18n-tasks"><h4 class="list-group-item-heading">i118n-tasks</h4><p class="mb-1">Manage translation and localization with static analysis, for Ruby i18n.</p></a><a class="list-group-item list-group-item-action" href="https://github.com/glebm/order_query"><h4 class="list-group-item-heading">order_query</h4><p class="mb-1">ActiveRecord ORM extension to find next or previous records relative to the current one efficiently.</p></a></div></aside></div></div></div></body></html>
