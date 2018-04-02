@@ -3,7 +3,7 @@ open_source:
     link_text: "Thredded"
     summary: Thredded is a Rails forum / messageboard engine.
   - url: "https://github.com/glebm/i18n-tasks"
-    link_text: "i118n-tasks"
+    link_text: "i18n-tasks"
     summary: "Manage translation and localization with static analysis, for Ruby i18n."
   - url: "https://github.com/glebm/order_query"
     link_text: "order_query"
