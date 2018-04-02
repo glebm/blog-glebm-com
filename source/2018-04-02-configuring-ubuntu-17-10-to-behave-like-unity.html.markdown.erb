@@ -1,0 +1,85 @@
+---
+title: Configuring Ubuntu 17.10 to behave like Unity
+date: 2018-04-02 14:16 UTC
+tags: Ubuntu
+published: true
+---
+
+I've recently upgraded from Ubuntu 16.04 to Ubuntu 17.10. The new Ubuntu uses
+Gnome desktop by default instead of Unity. Gnome is quite different but luckily
+can be customized to match Unity's behaviour very closely. Here is how.
+
+<a href="<%= image_path '2018-04-02-configuring-ubuntu-17-10-to-behave-like-unity/ubuntu17-like-unity.png' %>">
+  <%= article_image_tag 'ubuntu17-like-unity.png', class: 'img-fluid' %>
+</a>
+
+READMORE
+
+## Goals
+
+1. Show the current time in the top bar on the right.
+2. Show legacy app indicators (tray icons) on the right.
+3. Merge the window title bar with the top bar when maximized.
+4. Hide the top-left *Activities* button.
+5. Allow quick device selection via the top bar Sound button.
+6. Place window buttons on the left.
+
+## Setup guide
+
+1. First, install *Tweaks*, a GNOME configuration UI that has options that are not
+   yet available in the default Settings app:
+
+   ~~~ bash
+   sudo apt install gnome-tweak-tool
+   ~~~
+
+   Then install `x11-utils`, a package often required by Gnome extensions:
+
+   ~~~ bash
+   sudo apt install x11-utils
+   ~~~
+
+   You can install Gnome extensions from <https://extensions.gnome.org> and
+   manage and configure the installed extensions in *Tweaks -> Extensions*.
+
+2. Install the [Unite extension][Unite] for goals 1-4.
+
+   Alternatively, e.g. if Unite doesn't work for you or you'd like more
+   customization, install the following plugins: [No title bar], [Hide
+   activities button], and [Frippery Move Clock].
+
+3. Install the [Sound Input & Output Device Chooser] extension to add sound
+   device selection to the top bar sound menu.
+
+4. To place window buttons on the left, adjust *Tweaks -> Windows -> Titlebar
+   Buttons -> Placement*.
+
+## Other tips
+
+If you use Google Chrome, enable "Use system title bar and borders" in
+`chrome://settings` for consistency with other apps.
+
+You can disable animations from *Tweaks -> Appearance -> Animations*.
+
+You can change the default monospace font from *Tweaks -> Fonts*. I prefer *Hack
+Regular* at 11pt:
+
+~~~ bash
+sudo apt install fonts-hack-ttf
+~~~
+
+To have your multi-monitor setup work on the login screen, run:
+
+~~~ bash
+sudo cp ~/.config/monitors.xml /var/lib/gdm3/.config/
+~~~
+
+Keyboard shortcuts can be configured in *Settings -> Devices -> Keyboard*. I
+find it useful to remove *Maximise window* and instead set *Toggle maximisation
+state* to <kbd>Super + Up</kbd>.
+
+[unite]: https://extensions.gnome.org/extension/1287
+[no title bar]: https://extensions.gnome.org/extension/1267
+[hide activities button]: https://extensions.gnome.org/extension/744
+[frippery move clock]: https://extensions.gnome.org/extension/2
+[sound input & output device chooser]: https://extensions.gnome.org/extension/906
