@@ -211,7 +211,7 @@ configure :development do
   end
 end
 
-configure :production do
+configure :build do
   helpers do
     def root_url
       data.urls.root
